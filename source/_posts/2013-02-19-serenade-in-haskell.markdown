@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "serenade-in-haskell"
+title: "Serenade in Haskell"
 date: 2013-02-19 14:12
 comments: true
-categories: 
+categories: haskell
 ---
 
 ```haskell
@@ -122,7 +122,7 @@ body of an `li` tag, I can do this with the following snippet:
 li Hello, my name is @name
 ```
 
-The way that I might approach this in haskell is to view `@` as something that
+The way that I might approach this in Haskell is to view `@` as something that
 joins a piece of text with the content of a variable.  Assuming that all
 variables in Serenade are strings, this can be viewed as a combinator that takes
 some `Serenade` thing on the left, and a variable that contains a `String` on
@@ -141,7 +141,7 @@ li_example :: String -> Serenade
 li_example name = li [] ("Hello, my name is " @@name)
 ```
 
-Modulo the extra `@` symbol to avoid the built-in use of `@` in haskell, I feel
+Modulo the extra `@` symbol to avoid the built-in use of `@` in Haskell, I feel
 like this is fairly close to the intent of the original template.
 
 ```haskell
