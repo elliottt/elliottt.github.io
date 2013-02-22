@@ -3,7 +3,8 @@ layout: post
 title: "Serenade in Haskell"
 date: 2013-02-19 14:12
 comments: true
-categories: haskell
+categories: [Haskell,Serenade]
+published: false
 ---
 
 ```haskell
