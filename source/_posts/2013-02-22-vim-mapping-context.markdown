@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "vim-mapping-context"
+title: "Vim Mapping Context"
 date: 2013-02-22 10:49
 comments: true
 categories: vim
