@@ -1,23 +1,19 @@
 ---
 layout: post
 title: "Serenade in Haskell"
-date: 2013-02-19 14:12
+date: 2013-04-12
 comments: true
 categories: [Haskell,Serenade]
 published: false
 ---
 
-```haskell
-module Serenade where
-```
 One of the things that I think is great about Haskell is the way that you can
 use the language to replicate what is in other languages, done via parsing and
-processing.  After reading a quick introduction to Serenade.js
-(http://elabs.se/blog/33-why-serenade), one of the features that caught my eye
-was their templating system.  It has a fairly elegant interface, in which you
-don't really need to specify much information to generate html, though it seemed
-like a heavyweight solution to me, as you end up needing to roll a parser to
-implement it.
+processing.  After reading [a quick introduction to Serenade.js][serenade], one
+of the features that caught my eye was their templating system.  It has a fairly
+elegant interface, in which you don't really need to specify much information to
+generate html, though it seemed like a heavyweight solution to me, as you end up
+needing to roll a parser to implement it.
 
 Upon closer inspection the examples provided seemed to be presenting a few key
 combinators for constructing html.  After a bit of scaffolding, I'll demonstrate
@@ -25,13 +21,18 @@ my approach to replicating their examples in Haskell.  Just to be clear, this
 isn't meant as a replacement, or a justification for templating in your source
 language, but rather just an exploration of a Haskell embedding.
 
+Preliminaries
+-------------
+
 ```haskell
+module Serenade where
+
 import Text.PrettyPrint.HughesPJ
 ```
 
-If you don't already know the pretty package on hackage, it's worth learning.
+*If you don't already know the pretty package on hackage, it's worth learning.
 Many of the unpleasant tasks of generating strings can be boiled down to elegant
-uses of the combinators it provides.
+uses of the combinators it provides.*
 
 The type that the pretty package defines for pretty-printed documents is the
 `Doc` type.  As I am going to be rendering out html in my `Serenade` type, it's
@@ -80,11 +81,14 @@ tag nl name as body =
 
 ```
 
-And now for the Serenade combinators.  One of the thing that struck me about the
-Serenade templates was their simplicity.  You don't have to write out the
-open/close tag pairs, and instead just rely on layout to denote blocks.  Being a
-Haskell programmer, this just seemed right.  Let's start by adding a few tag
-definitions so that the rest of the examples have some motivation:
+Combinators
+-----------
+
+One of the thing that struck me about the Serenade templates was their
+simplicity.  You don't have to write out the open/close tag pairs, and instead
+just rely on layout to denote blocks.  Being a Haskell programmer, this just
+seemed right.  Let's start by adding a few tag definitions so that the rest of
+the examples have some motivation:
 
 ```haskell
 ul, li, h1 :: Tag
@@ -93,27 +97,33 @@ li = tag False "li"
 h1 = tag False "h1"
 ```
 
+### Attributes
+
 The first example that caught my eye was the difference between using a tag with
 a list of attributes, and using a tag with a specific attribute, id.  There are
-two flavors of syntax in Serenade to support this functionality, the general
-form first:
+two flavors of syntax in Serenade to support this functionality, the most
+general form first:
 
 ```
 ul[id="x"] ...
 ul#"x" ...
 ```
 
-To me, this just screams for a combinator.  In the first example, you are just
-applying the list of attributes to the `ul` tag, whereas in the second example,
-you're using some special syntax to denote the specific attribute that you want.
-I've chosen to implement this as a function that takes something a little more
-general than the `Tag` type specified above, as there's no reason to rule out
-other uses of this pattern.
+In the first example, you are just applying the `ul` tag to a list list of
+attributes, whereas in the second example, you're using some special syntax to
+set only the `id` attribute.  I've chosen to implement this as a function that
+takes something a little more general than the `Tag` type specified above, as
+there's no reason to rule out other uses of this pattern.
 
 ```haskell
 (#) :: ([Attr] -> a) -> String -> a
 k # i = k [("id", i)]
+
+attr_example1 = ul [("id", "x")]
+attr_example2 = ul # "x"
 ```
+
+### Variables
 
 In Serenade, variables are used by prefixing them with a `@` character.  For
 example, if I have the `name` variable in scope, and would like to use it in the
@@ -124,33 +134,66 @@ li Hello, my name is @name
 ```
 
 The way that I might approach this in Haskell is to view `@` as something that
-joins a piece of text with the content of a variable.  Assuming that all
-variables in Serenade are strings, this can be viewed as a combinator that takes
-some `Serenade` thing on the left, and a variable that contains a `String` on
-the right:
+joins a piece of text with the value of a variable.  Assuming that all
+variables in Serenade contain strings, this can be viewed as a combinator that
+takes some `Serenade` thing on the left, and a variable that contains a `String`
+on the right:
 
 ```haskell
 (@@) :: Serenade -> String -> Serenade
 l @@ r = l <> text r
 ```
 
-Thus, the original example that uses the `li` tag can be turned into something
-that looks like a function:
+Thus, the original example that uses the `li` tag can be turned into a function
+that expects to have its `name` value provided.
 
 ```haskell
 li_example :: String -> Serenade
 li_example name = li [] ("Hello, my name is " @@name)
 ```
 
-Modulo the extra `@` symbol to avoid the built-in use of `@` in Haskell, I feel
-like this is fairly close to the intent of the original template.
+Modulo the extra `@` symbol to avoid the built-in use of `@` in Haskell, this
+conveys the intent of the original serenade template.
+
+### Collections
+
+Serenade provides a way to, given a collection of key/value structures, run a
+serenade template over each structure.
+
+```
+ul#comments
+  - collection @comments
+      li @title
+```
+
+As a Haskell programmer, this seems like the `map` function, but with a little
+bit of extra information about how to put together the results.  The `vcat`
+function from the pretty library covers how we'd like to join together the
+documents generated from each element of the list, joining them together on
+separate lines.  As a result, the Haskell implementation of the collection
+function in Serenade should end up being just as powerful, as anything that you
+can make into a `Serenade` thing, you can lift over lists.
 
 ```haskell
 collection :: [a] -> (a -> Serenade) -> Serenade
 collection as k = vcat (map k as)
 ```
 
+Now, the example above can be encoded using the new `collection` combinator as
+such, using the `text` function from the pretty library to turn the title string
+into a Serenade document.
+
 ```haskell
-example1 name = h1 [("title",name)] (text "His name is " @@ name)
-example2 col  = ul # "comments" $ collection $ li [] . text
+col_example comments = ul # "comments"
+                       $ collection comments
+                       $ \title -> li [] (text title)
 ```
+
+Ignoring the lambda, and the introduction of the comments as an argument to the
+example, this looks quite similar to the example in the Serenade templating
+language.
+
+Conclusion
+----------
+
+[serenade]: http://elabs.se/blog/33-why-serenade
