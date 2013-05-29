@@ -8,12 +8,11 @@ published: false
 ---
 
 One of the things that I think is great about Haskell is the way that you can
-use the language to replicate what is in other languages, done via parsing and
-processing.  After reading [a quick introduction to Serenade.js][serenade], one
-of the features that caught my eye was their templating system.  It has a fairly
-elegant interface, in which you don't really need to specify much information to
-generate html, though it seemed like a heavyweight solution to me, as you end up
-needing to roll a parser to implement it.
+use the language to design new syntax.  After reading
+[a quick introduction to Serenade.js][serenade], one of the features that caught
+my eye was their templating system.  It has a fairly elegant interface that
+provides a concise language for generating HTML, though it seems like a
+heavyweight solution, as it requires implementing a parser.
 
 Upon closer inspection the examples provided seemed to be presenting a few key
 combinators for constructing html.  After a bit of scaffolding, I'll demonstrate
@@ -35,8 +34,8 @@ Many of the unpleasant tasks of generating strings can be boiled down to elegant
 uses of the combinators it provides.*
 
 The type that the pretty package defines for pretty-printed documents is the
-`Doc` type.  As I am going to be rendering out html in my `Serenade` type, it's
-natural to make it an alias to the `Doc` type.
+`Doc` type.  As I am going to be rendering out HTML as text in my `Serenade`
+type, it's natural to make it an alias to the `Doc` type.
 
 ```haskell
 type Serenade = Doc
@@ -56,23 +55,23 @@ attrs :: [Attr] -> Serenade
 attrs  = hsep . map attr
 ```
 
-Tags are implemented as functions from their attributes and a body document, to
+Tags are implemented as functions from their attributes and a child document, to
 a new document.  The `tag` primitive is a function that takes a boolean value
 that specifies if its content should be nested, or on the same line, and the
 name of the tag as a `String`.  When the resulting `Tag` is used, it prints out
-open/close pairs of tags with their attributes, optionally placing the text
-content of the tag on a new line.
+open/close pairs of tags with their attributes, optionally placing the child
+content of the tag on a new line, and indenting it by two spaces when it is.
 
 There is currently no notion of a empty tag, such as `<br />`, though it would
-be easy to generate that tag when the body argument was empty.
+be easy to generate that tag when the child argument was empty.
 
 ```haskell
 type Tag = [Attr] -> Serenade -> Serenade
 
 tag :: Bool -> String -> Tag
-tag nl name as body =
+tag nl name as child =
      char '<' <> text name <+> attrs as <> char '>'
-  ^^ nest 2 body
+  ^^ nest 2 child
   ^^ text "</" <> text name <> char '>'
   where
   infixr 0 ^^
@@ -85,7 +84,7 @@ Combinators
 -----------
 
 One of the thing that struck me about the Serenade templates was their
-simplicity.  You don't have to write out the open/close tag pairs, and instead
+simplicity: you don't have to write out the open/close tag pairs, and instead
 just rely on layout to denote blocks.  Being a Haskell programmer, this just
 seemed right.  Let's start by adding a few tag definitions so that the rest of
 the examples have some motivation:
@@ -100,8 +99,8 @@ h1 = tag False "h1"
 ### Attributes
 
 The first example that caught my eye was the difference between using a tag with
-a list of attributes, and using a tag with a specific attribute, id.  There are
-two flavors of syntax in Serenade to support this functionality, the most
+a list of attributes, and using a tag with a specific attribute: `id`.  There
+are two flavors of syntax in Serenade to support this functionality, the most
 general form first:
 
 ```
@@ -191,9 +190,47 @@ col_example comments = ul # "comments"
 
 Ignoring the lambda, and the introduction of the comments as an argument to the
 example, this looks quite similar to the example in the Serenade templating
-language.
+language.  Focusing on the lambda, the programmer now has control over the
+naming of the fields in the collection; in Serenade, you would be coupled to the
+field names defined by the code calling the template, whereas in the Haskell
+version, the programmer gets to use normal pattern matching to introduce names
+that are convenient to them.
+
+The neat thing about the `collection` combinator defined in Haskell is that it
+only cares about the fact that you give it a list of things, and a way to turn
+an individual thing into a `Serenade` thing.  If you wanted  to take a list of
+lists that contained titles, and flatten them into a single list of titles, you
+could modify `col_example` to look like this:
+
+```haskell
+col_of cols = ul # "cols"
+            $ collection cols               -- outer collection
+            $ \ col -> collection col       -- inner collection
+            $ \ title -> li [] (text title)
+```
+
+Now each item of the outer collection is passed again to another use of the
+`collection` combinator, emitting one `li` tag for each inner title.  When given
+the list `[ ["a"], ["b", "c"] ]`, the `col_of` function will produce the HTML:
+
+```html
+<ul id="cols">
+  <li>a</li>
+  <li>b</li>
+  <li>c</li>
+</ul>
+```
 
 Conclusion
 ----------
+
+It's amazing what you can do with just functions in Haskell. Careful attention
+by the language designers to things like name scope mean that you no longer need
+to rely on the names that someone else has chosen, you can choose your own
+names and expect them to remain stable.  Templates written in the Haskell
+Serenade approximation outlined above also benefit from Haskell's type system,
+in that we're not bound to viewing everything as a hash of values: we can write
+functions that traverse structures in a more meaningful way, without falling
+back on hash tables.
 
 [serenade]: http://elabs.se/blog/33-why-serenade
