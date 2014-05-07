@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: 
+
+Sitemap: http://elliottt.github.io/sitemap.xml 

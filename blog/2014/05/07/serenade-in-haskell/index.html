@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Stuff and Things</title>
+  <title>Serenade in Haskell - Stuff and Things</title>
   <meta name="author" content="Trevor Elliott">
 
   
@@ -20,7 +20,7 @@ a quick &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://elliottt.github.io/">
+  <link rel="canonical" href="http://elliottt.github.io/blog/2014/05/07/serenade-in-haskell/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -64,15 +64,12 @@ a quick &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2014/05/07/serenade-in-haskell/">Serenade in Haskell</a></h1>
+      <h1 class="entry-title">Serenade in Haskell</h1>
     
     
       <p class="meta">
@@ -95,7 +92,7 @@ a quick &hellip;">
   </header>
 
 
-  <div class="entry-content"><p>One of the things that I think is great about Haskell is the way that you can
+<div class="entry-content"><p>One of the things that I think is great about Haskell is the way that you can
 use the language to design new syntax.  After reading
 <a href="http://elabs.se/blog/33-why-serenade">a quick introduction to Serenade.js</a>, one of the features that caught
 my eye was their templating system.  It has a fairly elegant interface that
@@ -378,75 +375,16 @@ in that we&rsquo;re not bound to viewing everything as a hash of values: we can 
 functions that traverse structures in a more meaningful way, without falling
 back on hash tables.</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/02/22/vim-mapping-context/">Vim Mapping Context</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Trevor Elliott</span></span>
 
-<time datetime="2013-02-22T10:49:00-08:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>If you&rsquo;re like me, you&rsquo;ve got a lot of filetype-specific macros defined in your
-vim config.  I tend to put these in <code>$VIM/after/syntax</code> so that I can keep it
-all self-contained, but up until recently, macros had been bleeding into
-different filetype contexts.  The problem was that I had been installing all
-macros into the global scope, instead of the buffer scope, like this:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>nmap <span class="p">&lt;</span>LocalLeader<span class="p">&gt;</span><span class="k">l</span> ...
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Luckily, vim has a provision for this, and adding <code>&lt;buffer&gt;</code> right after the use
-of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'>nmap <span class="p">&lt;</span>buffer<span class="p">&gt;</span> <span class="p">&lt;</span>LocalLeader<span class="p">&gt;</span><span class="k">l</span> ...
-</span></code></pre></td></tr></table></div></figure>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/02/19/vim-register-trick/">Vim Register Trick</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -458,41 +396,38 @@ of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
   
 
 
-<time datetime="2013-02-19T11:06:00-08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2013</time>
-        
-      </p>
+<time datetime="2014-05-07T00:00:00-07:00" pubdate data-updated="true">May 7<span>th</span>, 2014</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/haskell/'>Haskell</a>, <a class='category' href='/blog/categories/serenade/'>Serenade</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
-
-
-  <div class="entry-content"><p>Well, it&rsquo;s new to me.</p>
-
-<p>When you type <code>C-r</code> in edit mode, you get the opportunity to recall the contents
-of a register.  While I had known about this, I never thought to apply it when
-doing search and replace.  For example, if you search for something using <code>*</code>,
-then want to replace what you&rsquo;ve found with something else, you can type:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span>%<span class="k">s</span><span class="sr">/C-r//replacement/</span><span class="k">g</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The contents of your last search will magically show up when you type the <code>/</code>
-character, and your days of trying to remember the pattern for the last thing
-you searched for are over!</p>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elliottt.github.io/blog/2014/05/07/serenade-in-haskell/" data-via="" data-counturl="http://elliottt.github.io/blog/2014/05/07/serenade-in-haskell/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/02/22/vim-mapping-context/" title="Previous Post: Vim Mapping Context">&laquo; Vim Mapping Context</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -517,7 +452,7 @@ you searched for are over!</p>
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating&#8230;</li>
+    <li class="loading">Status updating...</li>
   </ul>
   
   <a href="https://github.com/elliottt">@elliottt</a> on GitHub
@@ -549,6 +484,7 @@ you searched for are over!</p>
 
   
 </aside>
+
 
     </div>
   </div>
