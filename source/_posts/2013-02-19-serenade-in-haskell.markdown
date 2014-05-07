@@ -1,10 +1,9 @@
 ---
 layout: post
 title: "Serenade in Haskell"
-date: 2013-04-12
+date: 2014-05-7
 comments: true
 categories: [Haskell,Serenade]
-published: false
 ---
 
 One of the things that I think is great about Haskell is the way that you can
@@ -24,6 +23,7 @@ Preliminaries
 -------------
 
 ```haskell
+{-# LANGUAGE OverloadedStrings #-}
 module Serenade where
 
 import Text.PrettyPrint.HughesPJ
@@ -35,13 +35,13 @@ uses of the combinators it provides.*
 
 The type that the pretty package defines for pretty-printed documents is the
 `Doc` type.  As I am going to be rendering out HTML as text in my `Serenade`
-type, it's natural to make it an alias to the `Doc` type.
+type, it's natural to make it a synonym of the `Doc` type.
 
 ```haskell
 type Serenade = Doc
 ```
 
-I've simplified attributes a bit to key/value pairs, though it works well for my
+I've simplified attributes to key/value pairs, which works well for my
 small example.  Their pretty printing just involves printing the name as text,
 followed by an '=' character, then the double quoted value.
 
@@ -83,9 +83,9 @@ tag nl name as child =
 Combinators
 -----------
 
-One of the thing that struck me about the Serenade templates was their
-simplicity: you don't have to write out the open/close tag pairs, and instead
-just rely on layout to denote blocks.  Being a Haskell programmer, this just
+One of the things that struck me about the Serenade templates was their
+simplicity: you don't write out the open/close tag pairs,
+relying on layout to denote blocks.  Being a Haskell programmer, this just
 seemed right.  Let's start by adding a few tag definitions so that the rest of
 the examples have some motivation:
 
@@ -122,11 +122,15 @@ attr_example1 = ul [("id", "x")]
 attr_example2 = ul # "x"
 ```
 
+If you recall the definition of the `Tag` synonym, you can substitute
+`Serenade -> Serenade` for `a` in the type of `(#)`, and see that it can quite
+easily be used as something of type `Tag -> String -> Serenade`.
+
 ### Variables
 
-In Serenade, variables are used by prefixing them with a `@` character.  For
-example, if I have the `name` variable in scope, and would like to use it in the
-body of an `li` tag, I can do this with the following snippet:
+In Serenade, variables are used by prefixing an identifier with a `@` character.
+For example, if I have the `name` variable in scope, and would like to use it in
+the body of an `li` tag, I can do this with the following snippet:
 
 ```
 li Hello, my name is @name
@@ -156,7 +160,7 @@ conveys the intent of the original serenade template.
 
 ### Collections
 
-Serenade provides a way to, given a collection of key/value structures, run a
+Serenade provides a way to, given a collection of key/value structures, map a
 serenade template over each structure.
 
 ```
@@ -170,7 +174,7 @@ bit of extra information about how to put together the results.  The `vcat`
 function from the pretty library covers how we'd like to join together the
 documents generated from each element of the list, joining them together on
 separate lines.  As a result, the Haskell implementation of the collection
-function in Serenade should end up being just as powerful, as anything that you
+function in Serenade should end up being just as powerful: anything that you
 can make into a `Serenade` thing, you can lift over lists.
 
 ```haskell
@@ -193,7 +197,7 @@ example, this looks quite similar to the example in the Serenade templating
 language.  Focusing on the lambda, the programmer now has control over the
 naming of the fields in the collection; in Serenade, you would be coupled to the
 field names defined by the code calling the template, whereas in the Haskell
-version, the programmer gets to use normal pattern matching to introduce names
+version, the programmer gets to use normal conventions introduce names
 that are convenient to them.
 
 The neat thing about the `collection` combinator defined in Haskell is that it
