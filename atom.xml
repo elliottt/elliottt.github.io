@@ -4,7 +4,7 @@
   <title><![CDATA[Stuff and Things]]></title>
   <link href="http://elliottt.github.io/atom.xml" rel="self"/>
   <link href="http://elliottt.github.io/"/>
-  <updated>2014-05-18T01:09:34-07:00</updated>
+  <updated>2014-05-18T09:18:18-07:00</updated>
   <id>http://elliottt.github.io/</id>
   <author>
     <name><![CDATA[Trevor Elliott]]></name>
@@ -266,7 +266,7 @@ route.  (Remember to replace <code>10.0.1.5</code> with the address you&rsquo;re
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo route add 10.37.0.0/24 via 10.0.1.5</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sudo ip route add 10.37.0.0/24 via 10.0.1.5</span></code></pre></td></tr></table></div></figure>
 
 
 <h2>Conclusion</h2>
