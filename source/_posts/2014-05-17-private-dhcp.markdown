@@ -191,7 +191,7 @@ $ sudo route -n 10.37.0.0/24 10.0.1.5
 
  * Linux
 ```
-$ sudo route add 10.37.0.0/24 via 10.0.1.5
+$ sudo ip route add 10.37.0.0/24 via 10.0.1.5
 ```
 
 Conclusion
