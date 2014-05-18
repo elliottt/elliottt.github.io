@@ -3,7 +3,7 @@ layout: post
 title: "Private DHCP"
 date: 2014-05-17 23:53:18 -0700
 comments: true
-categories: dhcp,networking,linux
+categories: [dhcp,networking,linux]
 ---
 
 Recently I was working on a project in which I was creating loads of tap
