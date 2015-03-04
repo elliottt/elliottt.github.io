@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Vim Register Trick - Stuff and Things</title>
+  <title>Debug Console on Xen - Stuff and Things</title>
   <meta name="author" content="Trevor Elliott">
 
   
-  <meta name="description" content="Well, it&rsquo;s new to me. When you type C-r in edit mode, you get the opportunity to recall the contents
-of a register. While I had known about &hellip;">
+  <meta name="description" content="When debugging HaLVM domains, the writeDebugConsole
+function from Hypervisor.Debug is invaluable. However, in order to see the
+messages printed, you &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@ of a register. While I had known about &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://elliottt.github.io/blog/2013/02/19/vim-register-trick/">
+  <link rel="canonical" href="http://elliottt.github.io/blog/2015/03/04/debug-console-on-xen/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +69,7 @@ of a register. While I had known about &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Vim Register Trick</h1>
+      <h1 class="entry-title">Debug Console on Xen</h1>
     
     
       <p class="meta">
@@ -84,28 +85,66 @@ of a register. While I had known about &hellip;">
   
 
 
-<time datetime="2013-02-19T11:06:00-08:00" pubdate data-updated="true"></time>
+<time datetime="2015-03-04T14:30:14-08:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Well, it&rsquo;s new to me.</p>
+<div class="entry-content"><p>When debugging <a href="http://halvm.org">HaLVM</a> domains, the <code>writeDebugConsole</code>
+function from <code>Hypervisor.Debug</code> is invaluable.  However, in order to see the
+messages printed, you must enable the emergency console in
+<a href="http://xen.org">Xen</a>.  This isn&rsquo;t too difficult, but it&rsquo;s not terribly well
+documented: there are many sources that describe parts of the process, but none
+that describe the whole thing.</p>
 
-<p>When you type <code>C-r</code> in edit mode, you get the opportunity to recall the contents
-of a register.  While I had known about this, I never thought to apply it when
-doing search and replace.  For example, if you search for something using <code>*</code>,
-then want to replace what you&rsquo;ve found with something else, you can type:</p>
+<h2>Rebuilding Xen</h2>
+
+<p>First, Xen must be rebuilt with the emergency console enabled.  This is a
+relatively simple step, especially if you&rsquo;re building rpms.  When running
+<code>make</code>, make sure to add the additional argument <code>verbose=y</code>, which enables the
+emergency console.  If rebuilding an rpm, just modify the <code>make</code> invocation in
+the <code>%build</code> section of the spec file.</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span>%<span class="k">s</span><span class="sr">/C-r//replacement/</span><span class="k">g</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>make <span class="nv">verbose</span><span class="o">=</span>y
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>The contents of your last search will magically show up when you type the <code>/</code>
-character, and your days of trying to remember the pattern for the last thing
-you searched for are over!</p>
+<h2>Booting Xen</h2>
+
+<p>Next, you will need to modify the command line passed to Xen on boot,
+instructing it to output messages to the debug console.  When using grub2, on
+Fedora, this is achieved by modifying the <code>/etc/default/grub</code> file, and
+rebuilding the grub configuration.</p>
+
+<p>First, append this line to <code>/etc/default/grub</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">GRUB_CMDLINE_XEN</span><span class="o">=</span><span class="s2">&quot;loglvl=all guest_loglvl=all sync_console console_to_ring&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This sets the logging level of both Xen and any guest domains to all, forces
+synchronous output to the console, and copies all guest console output to the
+console ring buffer.</p>
+
+<p>Next, run this command to regenerate your grub config:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, you should be able to just reboot, selecting Xen from the grub menu, and be
+able to see the output of calls to <code>writeDebugConsole</code>.</p>
+
+<h2>Wrapping Up</h2>
+
+<p>You should now be able to rebuild and configure Xen to allow guest domains to
+write to the emergency console.  In particular, you can use this new feature to
+aid the debugging of HaLVM domains.</p>
 </div>
 
 
@@ -128,12 +167,12 @@ you searched for are over!</p>
   
 
 
-<time datetime="2013-02-19T11:06:00-08:00" pubdate data-updated="true"></time>
+<time datetime="2015-03-04T14:30:14-08:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/vim/'>vim</a>
+    <a class='category' href='/blog/categories/xen/'>xen</a>
   
 </span>
 
@@ -142,7 +181,7 @@ you searched for are over!</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elliottt.github.io/blog/2013/02/19/vim-register-trick/" data-via="" data-counturl="http://elliottt.github.io/blog/2013/02/19/vim-register-trick/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elliottt.github.io/blog/2015/03/04/debug-console-on-xen/" data-via="" data-counturl="http://elliottt.github.io/blog/2015/03/04/debug-console-on-xen/" >Tweet</a>
   
   
   
@@ -151,8 +190,8 @@ you searched for are over!</p>
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2014/05/17/private-dhcp/" title="Previous Post: Private DHCP">&laquo; Private DHCP</a>
       
-        <a class="basic-alignment right" href="/blog/2013/02/22/vim-mapping-context/" title="Next Post: Vim Mapping Context">Vim Mapping Context &raquo;</a>
       
     </p>
   </footer>

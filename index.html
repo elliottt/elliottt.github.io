@@ -9,9 +9,9 @@
   <meta name="author" content="Trevor Elliott">
 
   
-  <meta name="description" content="Recently I was working on a project in which I was creating loads of tap
-devices, with HaNS instances connected to
-them. Initially, I was abusing the &hellip;">
+  <meta name="description" content="When debugging HaLVM domains, the writeDebugConsole
+function from Hypervisor.Debug is invaluable. However, in order to see the
+messages printed, you &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +72,94 @@ them. Initially, I was abusing the &hellip;">
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2015/03/04/debug-console-on-xen/">Debug Console on Xen</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-03-04T14:30:14-08:00" pubdate data-updated="true"></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>When debugging <a href="http://halvm.org">HaLVM</a> domains, the <code>writeDebugConsole</code>
+function from <code>Hypervisor.Debug</code> is invaluable.  However, in order to see the
+messages printed, you must enable the emergency console in
+<a href="http://xen.org">Xen</a>.  This isn&rsquo;t too difficult, but it&rsquo;s not terribly well
+documented: there are many sources that describe parts of the process, but none
+that describe the whole thing.</p>
+
+<h2>Rebuilding Xen</h2>
+
+<p>First, Xen must be rebuilt with the emergency console enabled.  This is a
+relatively simple step, especially if you&rsquo;re building rpms.  When running
+<code>make</code>, make sure to add the additional argument <code>verbose=y</code>, which enables the
+emergency console.  If rebuilding an rpm, just modify the <code>make</code> invocation in
+the <code>%build</code> section of the spec file.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>make <span class="nv">verbose</span><span class="o">=</span>y
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Booting Xen</h2>
+
+<p>Next, you will need to modify the command line passed to Xen on boot,
+instructing it to output messages to the debug console.  When using grub2, on
+Fedora, this is achieved by modifying the <code>/etc/default/grub</code> file, and
+rebuilding the grub configuration.</p>
+
+<p>First, append this line to <code>/etc/default/grub</code>:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">GRUB_CMDLINE_XEN</span><span class="o">=</span><span class="s2">&quot;loglvl=all guest_loglvl=all sync_console console_to_ring&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This sets the logging level of both Xen and any guest domains to all, forces
+synchronous output to the console, and copies all guest console output to the
+console ring buffer.</p>
+
+<p>Next, run this command to regenerate your grub config:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="nv">$ </span>sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, you should be able to just reboot, selecting Xen from the grub menu, and be
+able to see the output of calls to <code>writeDebugConsole</code>.</p>
+
+<h2>Wrapping Up</h2>
+
+<p>You should now be able to rebuild and configure Xen to allow guest domains to
+write to the emergency console.  In particular, you can use this new feature to
+aid the debugging of HaLVM domains.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2014/05/17/private-dhcp/">Private DHCP</a></h1>
     
     
@@ -88,7 +176,7 @@ them. Initially, I was abusing the &hellip;">
   
 
 
-<time datetime="2014-05-17T23:53:18-07:00" pubdate data-updated="true">May 17<span>th</span>, 2014</time>
+<time datetime="2014-05-17T23:53:18-07:00" pubdate data-updated="true"></time>
         
       </p>
     
@@ -131,7 +219,7 @@ disappeared with a reboot.</p>
 <p>Make sure that the ethernet device you&rsquo;re planning on using as your interface to
 the rest of the world is configured to your liking.  I&rsquo;m doing DHCP with mine to
 get configuration data from the outer network, so it looks like the following.
-(To make work easier, I&rsquo;m putting everything in the trusted firewall zone &mdash;
+(To make work easier, I&rsquo;m putting everything in the trusted firewall zone &ndash;
 this is a development VM, so I don&rsquo;t feel too bad.)</p>
 
 <ul>
@@ -379,7 +467,7 @@ breeze.</p>
   
 
 
-<time datetime="2014-05-07T00:00:00-07:00" pubdate data-updated="true">May 7<span>th</span>, 2014</time>
+<time datetime="2014-05-07T00:00:00-07:00" pubdate data-updated="true"></time>
         
       </p>
     
@@ -696,7 +784,7 @@ back on hash tables.</p>
   
 
 
-<time datetime="2013-02-22T10:49:00-08:00" pubdate data-updated="true">Feb 22<span>nd</span>, 2013</time>
+<time datetime="2013-02-22T10:49:00-08:00" pubdate data-updated="true"></time>
         
       </p>
     
@@ -749,7 +837,7 @@ of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
   
 
 
-<time datetime="2013-02-19T11:06:00-08:00" pubdate data-updated="true">Feb 19<span>th</span>, 2013</time>
+<time datetime="2013-02-19T11:06:00-08:00" pubdate data-updated="true"></time>
         
       </p>
     
@@ -789,6 +877,10 @@ you searched for are over!</p>
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/03/04/debug-console-on-xen/">Debug Console on Xen</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2014/05/17/private-dhcp/">Private DHCP</a>
@@ -848,7 +940,7 @@ you searched for are over!</p>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2014 - Trevor Elliott -
+  Copyright &copy; 2015 - Trevor Elliott -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 

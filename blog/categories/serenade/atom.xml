@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Serenade | Stuff and Things]]></title>
+  <title><![CDATA[Category: serenade | Stuff and Things]]></title>
   <link href="http://elliottt.github.io/blog/categories/serenade/atom.xml" rel="self"/>
   <link href="http://elliottt.github.io/"/>
-  <updated>2014-05-18T09:18:18-07:00</updated>
+  <updated>2015-03-04T14:52:02-08:00</updated>
   <id>http://elliottt.github.io/</id>
   <author>
     <name><![CDATA[Trevor Elliott]]></name>
@@ -33,12 +33,11 @@ language, but rather just an exploration of a Haskell embedding.</p>
 
 <h2>Preliminaries</h2>
 
-<p>```haskell
-{&ndash;# LANGUAGE OverloadedStrings #&ndash;}
-module Serenade where</p>
+<pre><code class="haskell">{-# LANGUAGE OverloadedStrings #-}
+module Serenade where
 
-<p>import Text.PrettyPrint.HughesPJ
-```</p>
+import Text.PrettyPrint.HughesPJ
+</code></pre>
 
 <p><em>If you don&rsquo;t already know the pretty package on hackage, it&rsquo;s worth learning.
 Many of the unpleasant tasks of generating strings can be boiled down to elegant
@@ -48,23 +47,21 @@ uses of the combinators it provides.</em></p>
 <code>Doc</code> type.  As I am going to be rendering out HTML as text in my <code>Serenade</code>
 type, it&rsquo;s natural to make it a synonym of the <code>Doc</code> type.</p>
 
-<p><code>haskell
-type Serenade = Doc
-</code></p>
+<pre><code class="haskell">type Serenade = Doc
+</code></pre>
 
 <p>I&rsquo;ve simplified attributes to key/value pairs, which works well for my
 small example.  Their pretty printing just involves printing the name as text,
 followed by an &lsquo;=&rsquo; character, then the double quoted value.</p>
 
-<p>```haskell
-type Attr = (String,String)</p>
+<pre><code class="haskell">type Attr = (String,String)
 
-<p>attr :: Attr &ndash;> Serenade
-attr (n,v) = text n &lt;> char &lsquo;=&rsquo; &lt;> doubleQuotes (text v)</p>
+attr :: Attr -&gt; Serenade
+attr (n,v) = text n &lt;&gt; char '=' &lt;&gt; doubleQuotes (text v)
 
-<p>attrs :: [Attr] &ndash;> Serenade
+attrs :: [Attr] -&gt; Serenade
 attrs  = hsep . map attr
-```</p>
+</code></pre>
 
 <p>Tags are implemented as functions from their attributes and a child document, to
 a new document.  The <code>tag</code> primitive is a function that takes a boolean value
@@ -76,25 +73,18 @@ content of the tag on a new line, and indenting it by two spaces when it is.</p>
 <p>There is currently no notion of a empty tag, such as <code>&lt;br /&gt;</code>, though it would
 be easy to generate that tag when the child argument was empty.</p>
 
-<p>```haskell
-type Tag = [Attr] &ndash;> Serenade &ndash;> Serenade</p>
+<pre><code class="haskell">type Tag = [Attr] -&gt; Serenade -&gt; Serenade
 
-<p>tag :: Bool &ndash;> String &ndash;> Tag
-tag nl name as child =</p>
-
-<pre><code> char '&lt;' &lt;&gt; text name &lt;+&gt; attrs as &lt;&gt; char '&gt;'
-</code></pre>
-
-<p>  ^^ nest 2 child
-  ^^ text &ldquo;&lt;/&rdquo; &lt;> text name &lt;> char &lsquo;>&rsquo;
+tag :: Bool -&gt; String -&gt; Tag
+tag nl name as child =
+     char '&lt;' &lt;&gt; text name &lt;+&gt; attrs as &lt;&gt; char '&gt;'
+  ^^ nest 2 child
+  ^^ text "&lt;/" &lt;&gt; text name &lt;&gt; char '&gt;'
   where
   infixr 0 ^^
-  (^^) | nl        = ($$)</p>
-
-<pre><code>   | otherwise = (&lt;&gt;)
+  (^^) | nl        = ($$)
+       | otherwise = (&lt;&gt;)
 </code></pre>
-
-<p>```</p>
 
 <h2>Combinators</h2>
 
@@ -104,12 +94,11 @@ relying on layout to denote blocks.  Being a Haskell programmer, this just
 seemed right.  Let&rsquo;s start by adding a few tag definitions so that the rest of
 the examples have some motivation:</p>
 
-<p><code>haskell
-ul, li, h1 :: Tag
+<pre><code class="haskell">ul, li, h1 :: Tag
 ul = tag True  "ul"
 li = tag False "li"
 h1 = tag False "h1"
-</code></p>
+</code></pre>
 
 <h3>Attributes</h3>
 
@@ -118,10 +107,9 @@ a list of attributes, and using a tag with a specific attribute: <code>id</code>
 are two flavors of syntax in Serenade to support this functionality, the most
 general form first:</p>
 
-<p><code>
-ul[id="x"] ...
+<pre><code>ul[id="x"] ...
 ul#"x" ...
-</code></p>
+</code></pre>
 
 <p>In the first example, you are just applying the <code>ul</code> tag to a list list of
 attributes, whereas in the second example, you&rsquo;re using some special syntax to
@@ -129,13 +117,12 @@ set only the <code>id</code> attribute.  I&rsquo;ve chosen to implement this as 
 takes something a little more general than the <code>Tag</code> type specified above, as
 there&rsquo;s no reason to rule out other uses of this pattern.</p>
 
-<p>```haskell
-(#) :: ([Attr] &ndash;> a) &ndash;> String &ndash;> a
-k # i = k [(&ldquo;id&rdquo;, i)]</p>
+<pre><code class="haskell">(#) :: ([Attr] -&gt; a) -&gt; String -&gt; a
+k # i = k [("id", i)]
 
-<p>attr_example1 = ul [(&ldquo;id&rdquo;, &ldquo;x&rdquo;)]
-attr_example2 = ul # &ldquo;x&rdquo;
-```</p>
+attr_example1 = ul [("id", "x")]
+attr_example2 = ul # "x"
+</code></pre>
 
 <p>If you recall the definition of the <code>Tag</code> synonym, you can substitute
 <code>Serenade -&gt; Serenade</code> for <code>a</code> in the type of <code>(#)</code>, and see that it can quite
@@ -147,9 +134,8 @@ easily be used as something of type <code>Tag -&gt; String -&gt; Serenade</code>
 For example, if I have the <code>name</code> variable in scope, and would like to use it in
 the body of an <code>li</code> tag, I can do this with the following snippet:</p>
 
-<p><code>
-li Hello, my name is @name
-</code></p>
+<pre><code>li Hello, my name is @name
+</code></pre>
 
 <p>The way that I might approach this in Haskell is to view <code>@</code> as something that
 joins a piece of text with the value of a variable.  Assuming that all
@@ -157,18 +143,16 @@ variables in Serenade contain strings, this can be viewed as a combinator that
 takes some <code>Serenade</code> thing on the left, and a variable that contains a <code>String</code>
 on the right:</p>
 
-<p><code>haskell
-(@@) :: Serenade -&gt; String -&gt; Serenade
+<pre><code class="haskell">(@@) :: Serenade -&gt; String -&gt; Serenade
 l @@ r = l &lt;&gt; text r
-</code></p>
+</code></pre>
 
 <p>Thus, the original example that uses the <code>li</code> tag can be turned into a function
 that expects to have its <code>name</code> value provided.</p>
 
-<p><code>haskell
-li_example :: String -&gt; Serenade
+<pre><code class="haskell">li_example :: String -&gt; Serenade
 li_example name = li [] ("Hello, my name is " @@name)
-</code></p>
+</code></pre>
 
 <p>Modulo the extra <code>@</code> symbol to avoid the built-in use of <code>@</code> in Haskell, this
 conveys the intent of the original serenade template.</p>
@@ -178,14 +162,10 @@ conveys the intent of the original serenade template.</p>
 <p>Serenade provides a way to, given a collection of key/value structures, map a
 serenade template over each structure.</p>
 
-<p>```
-ul#comments
-  &ndash; collection @comments</p>
-
-<pre><code>  li @title
+<pre><code>ul#comments
+  - collection @comments
+      li @title
 </code></pre>
-
-<p>```</p>
 
 <p>As a Haskell programmer, this seems like the <code>map</code> function, but with a little
 bit of extra information about how to put together the results.  The <code>vcat</code>
@@ -195,23 +175,18 @@ separate lines.  As a result, the Haskell implementation of the collection
 function in Serenade should end up being just as powerful: anything that you
 can make into a <code>Serenade</code> thing, you can lift over lists.</p>
 
-<p><code>haskell
-collection :: [a] -&gt; (a -&gt; Serenade) -&gt; Serenade
+<pre><code class="haskell">collection :: [a] -&gt; (a -&gt; Serenade) -&gt; Serenade
 collection as k = vcat (map k as)
-</code></p>
+</code></pre>
 
 <p>Now, the example above can be encoded using the new <code>collection</code> combinator as
 such, using the <code>text</code> function from the pretty library to turn the title string
 into a Serenade document.</p>
 
-<p>```haskell
-col_example comments = ul # &ldquo;comments&rdquo;</p>
-
-<pre><code>                   $ collection comments
-                   $ \title -&gt; li [] (text title)
+<pre><code class="haskell">col_example comments = ul # "comments"
+                       $ collection comments
+                       $ \title -&gt; li [] (text title)
 </code></pre>
-
-<p>```</p>
 
 <p>Ignoring the lambda, and the introduction of the comments as an argument to the
 example, this looks quite similar to the example in the Serenade templating
@@ -227,21 +202,17 @@ an individual thing into a <code>Serenade</code> thing.  If you wanted  to take 
 lists that contained titles, and flatten them into a single list of titles, you
 could modify <code>col_example</code> to look like this:</p>
 
-<p>```haskell
-col_of cols = ul # &ldquo;cols&rdquo;</p>
-
-<pre><code>        $ collection cols               -- outer collection
-        $ \ col -&gt; collection col       -- inner collection
-        $ \ title -&gt; li [] (text title)
+<pre><code class="haskell">col_of cols = ul # "cols"
+            $ collection cols               -- outer collection
+            $ \ col -&gt; collection col       -- inner collection
+            $ \ title -&gt; li [] (text title)
 </code></pre>
-
-<p>```</p>
 
 <p>Now each item of the outer collection is passed again to another use of the
 <code>collection</code> combinator, emitting one <code>li</code> tag for each inner title.  When given
 the list <code>[ ["a"], ["b", "c"] ]</code>, the <code>col_of</code> function will produce the HTML:</p>
 
-<p>```html</p>
+<p>&#8220;`html</p>
 
 <ul id="cols">
   <li>a</li>
@@ -250,7 +221,7 @@ the list <code>[ ["a"], ["b", "c"] ]</code>, the <code>col_of</code> function wi
 </ul>
 
 
-<p>```</p>
+<p>&#8220;`</p>
 
 <h2>Conclusion</h2>
 

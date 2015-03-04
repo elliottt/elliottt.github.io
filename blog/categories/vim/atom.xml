@@ -4,7 +4,7 @@
   <title><![CDATA[Category: vim | Stuff and Things]]></title>
   <link href="http://elliottt.github.io/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://elliottt.github.io/"/>
-  <updated>2014-05-18T09:18:18-07:00</updated>
+  <updated>2015-03-04T14:52:02-08:00</updated>
   <id>http://elliottt.github.io/</id>
   <author>
     <name><![CDATA[Trevor Elliott]]></name>
@@ -24,16 +24,14 @@ all self-contained, but up until recently, macros had been bleeding into
 different filetype contexts.  The problem was that I had been installing all
 macros into the global scope, instead of the buffer scope, like this:</p>
 
-<p><code>vim
-nmap &lt;LocalLeader&gt;l ...
-</code></p>
+<pre><code class="vim">nmap &lt;LocalLeader&gt;l ...
+</code></pre>
 
 <p>Luckily, vim has a provision for this, and adding <code>&lt;buffer&gt;</code> right after the use
 of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
 
-<p><code>vim
-nmap &lt;buffer&gt; &lt;LocalLeader&gt;l ...
-</code></p>
+<pre><code class="vim">nmap &lt;buffer&gt; &lt;LocalLeader&gt;l ...
+</code></pre>
 ]]></content>
   </entry>
   
@@ -49,9 +47,8 @@ of a register.  While I had known about this, I never thought to apply it when
 doing search and replace.  For example, if you search for something using <code>*</code>,
 then want to replace what you&rsquo;ve found with something else, you can type:</p>
 
-<p><code>vim
-:%s/C-r//replacement/g
-</code></p>
+<pre><code class="vim">:%s/C-r//replacement/g
+</code></pre>
 
 <p>The contents of your last search will magically show up when you type the <code>/</code>
 character, and your days of trying to remember the pattern for the last thing

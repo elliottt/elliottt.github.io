@@ -4,7 +4,7 @@
   <title><![CDATA[Category: linux | Stuff and Things]]></title>
   <link href="http://elliottt.github.io/blog/categories/linux/atom.xml" rel="self"/>
   <link href="http://elliottt.github.io/"/>
-  <updated>2014-05-18T09:18:18-07:00</updated>
+  <updated>2015-03-04T14:52:02-08:00</updated>
   <id>http://elliottt.github.io/</id>
   <author>
     <name><![CDATA[Trevor Elliott]]></name>
@@ -34,10 +34,9 @@ and DHCP.  My first step was then to configure the network.</p>
 <p><code>NetworkManager</code> injects a bit too much uncertainty into the network
 configuration, so I opted to disable it, and configure the network manually.</p>
 
-<p><code>
-$ sudo systemctl stop NetworkManager
+<pre><code>$ sudo systemctl stop NetworkManager
 $ sudo systemctl disable NetworkManager
-</code></p>
+</code></pre>
 
 <p>I&rsquo;ll be configuring all devices using the config scripts stored in
 <code>/etc/sysconfig/network-scripts</code>, which requires enabling the <code>network</code> service.
@@ -46,14 +45,13 @@ know that I should be able to just start it after my configuration is done, but
 I was experiencing some odd crashes when following that workflow that
 disappeared with a reboot.</p>
 
-<p><code>
-$ sudo systemctl enable network
-</code></p>
+<pre><code>$ sudo systemctl enable network
+</code></pre>
 
 <p>Make sure that the ethernet device you&rsquo;re planning on using as your interface to
 the rest of the world is configured to your liking.  I&rsquo;m doing DHCP with mine to
 get configuration data from the outer network, so it looks like the following.
-(To make work easier, I&rsquo;m putting everything in the trusted firewall zone &mdash;
+(To make work easier, I&rsquo;m putting everything in the trusted firewall zone &ndash;
 this is a development VM, so I don&rsquo;t feel too bad.)</p>
 
 <ul>
@@ -61,15 +59,14 @@ this is a development VM, so I don&rsquo;t feel too bad.)</p>
 </ul>
 
 
-<p><code>
-DEVICE="p2p1"
+<pre><code>DEVICE="p2p1"
 ONBOOT=yes
 BOOTPROTO="dhcp"
 HWADDR="08:00:27:59:00:f8"
 TYPE=Ethernet
 NAME="p2p1"
 ZONE="trusted"
-</code></p>
+</code></pre>
 
 <p>Additionally, I&rsquo;ve created a bridge named <code>br0</code> and a dummy device to occupy it,
 named <code>dummy0</code>:</p>
@@ -105,50 +102,43 @@ to forward traffic between <code>br0</code> and <code>p2p1</code>.  Loading the 
 straightforward, as I can just dump the following listing into
 <code>/etc/sysconfig/modules/dummy.modules</code></p>
 
-<p>```</p>
+<pre><code>#!/bin/sh
 
-<h1>!/bin/sh</h1>
-
-<p>modprobe -a dummy
-```</p>
+modprobe -a dummy
+</code></pre>
 
 <p>Next, let&rsquo;s make sure that packets will be forwarded between <code>p2p1</code> and <code>br0</code> by
 setting the <code>net.ipv4.ip_forward</code> sysctl in /etc/sysctl.conf.</p>
 
-<p><code>
-net.ipv4.ip_forward = 1
-</code></p>
+<pre><code>net.ipv4.ip_forward = 1
+</code></pre>
 
 <p>Finally, we&rsquo;re ready to reboot, and then begin setting up <code>Dnamasq</code>.</p>
 
-<p><code>
-$ sudo reboot
-</code></p>
+<pre><code>$ sudo reboot
+</code></pre>
 
 <h2>Dnsmasq</h2>
 
 <p>First, let&rsquo;s install the server.</p>
 
-<p><code>
-$ sudo yum install dnsmasq
-</code></p>
+<pre><code>$ sudo yum install dnsmasq
+</code></pre>
 
 <p>Now, let&rsquo;s make minimal modifications to <code>/etc/dnsmasq.conf</code>, enabling the
 <code>domain-needed</code> and <code>bogus-priv</code> options to make us better netizens.  The
 effective full <code>dnsmasq.conf</code> file is included below.</p>
 
-<p><code>
-domain-needed
+<pre><code>domain-needed
 bogus-priv
 conf-dir=/etc/dnsmasq.d
-</code></p>
+</code></pre>
 
 <p>Now we&rsquo;ll configure the DHCP server in <code>/etc/dnsmasq.d/dhcp.conf</code>:</p>
 
-<p><code>
-listen-address=10.37.0.1
+<pre><code>listen-address=10.37.0.1
 dhcp-range=10.37.0.2,10.37.0.254,12h
-</code></p>
+</code></pre>
 
 <p>This gives us most of a /24 network to work with, and listens on the address we
 gave to the bridge in <code>/etc/sysconfig/network-scripts/ifcfg-br0</code>.</p>
@@ -194,10 +184,10 @@ machine that it&rsquo;s running on, you&rsquo;ll need to install a route to the
 <code>10.37.0.0/24</code> network.  You&rsquo;ll need to know the address of your ethernet device
 (<code>p2p1</code> here) to install this route.</p>
 
-<p><code>
-$ ip addr show dev p2p1
-</code>
-In my case, this was the address <code>10.0.1.5</code>.  Next, install the host-specific
+<pre><code>$ ip addr show dev p2p1
+</code></pre>
+
+<p>In my case, this was the address <code>10.0.1.5</code>.  Next, install the host-specific
 route.  (Remember to replace <code>10.0.1.5</code> with the address you&rsquo;re using.)</p>
 
 <ul>
