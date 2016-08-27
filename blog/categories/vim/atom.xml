@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: vim | Stuff and Things]]></title>
+  <title><![CDATA[Category: vim, | Stuff and Things]]></title>
   <link href="http://elliottt.github.io/blog/categories/vim/atom.xml" rel="self"/>
   <link href="http://elliottt.github.io/"/>
-  <updated>2015-03-04T14:52:02-08:00</updated>
+  <updated>2016-08-27T12:20:57-07:00</updated>
   <id>http://elliottt.github.io/</id>
   <author>
     <name><![CDATA[Trevor Elliott]]></name>
@@ -14,45 +14,39 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Vim Mapping Context]]></title>
-    <link href="http://elliottt.github.io/blog/2013/02/22/vim-mapping-context/"/>
-    <updated>2013-02-22T10:49:00-08:00</updated>
-    <id>http://elliottt.github.io/blog/2013/02/22/vim-mapping-context</id>
-    <content type="html"><![CDATA[<p>If you&rsquo;re like me, you&rsquo;ve got a lot of filetype-specific macros defined in your
-vim config.  I tend to put these in <code>$VIM/after/syntax</code> so that I can keep it
-all self-contained, but up until recently, macros had been bleeding into
-different filetype contexts.  The problem was that I had been installing all
-macros into the global scope, instead of the buffer scope, like this:</p>
+    <title type="html"><![CDATA[Vim's `findfile` function]]></title>
+    <link href="http://elliottt.github.io/blog/2016/08/27/vim-find-file/"/>
+    <updated>2016-08-27T12:07:30-07:00</updated>
+    <id>http://elliottt.github.io/blog/2016/08/27/vim-find-file</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve recently updated the tests for <code>stack.yaml</code> and <code>cabal.project</code> files in my
+<a href="https://github.com/elliottt/vim-haskell">vim haskell plugin</a>. The
+<code>haskell#StackYamlFileExists</code> and <code>haskell#CabalProjectFileExists</code> functions now
+take advantage of vim&rsquo;s <code>findfile</code> function for searching up the directory tree,
+rather than just require that either file exist in the current working
+directory. This change makes a bit more sense given the way that both <code>stack</code>
+and <code>cabal new-build</code> work, allowing the commands to be invoked from anywhere
+underneath the directory that contains <code>stack.yaml</code> or <code>cabal.project</code>.</p>
 
-<pre><code class="vim">nmap &lt;LocalLeader&gt;l ...
+<p>The <code>findfile</code> function is quite handy for this situation, as it&rsquo;s able to
+search up as well as down the directory tree. Simply specifying the directory to
+search from as <code>'.;'</code> instructs it to search up the tree, and passing the
+<code>{list}</code> argument as <code>-1</code> returns a list of the matches instead of the path of
+the first match.</p>
+
+<p>I&rsquo;ve now updated my
+<a href="https://github.com/elliottt/vim-config/blob/master/after/syntax/haskell.vim">personal haskell config</a>
+to choose which tool to use, based on the three predicates that the plugin
+provides:</p>
+
+<pre><code class="vim">" Configure :make
+if haskell#CabalProjectFileExists()
+    compiler cabal-new-build
+elseif haskell#StackYamlFileExists()
+    compiler stack-build
+elseif haskell#CabalFileExists()
+    compiler cabal-build
+endif
 </code></pre>
-
-<p>Luckily, vim has a provision for this, and adding <code>&lt;buffer&gt;</code> right after the use
-of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
-
-<pre><code class="vim">nmap &lt;buffer&gt; &lt;LocalLeader&gt;l ...
-</code></pre>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Vim Register Trick]]></title>
-    <link href="http://elliottt.github.io/blog/2013/02/19/vim-register-trick/"/>
-    <updated>2013-02-19T11:06:00-08:00</updated>
-    <id>http://elliottt.github.io/blog/2013/02/19/vim-register-trick</id>
-    <content type="html"><![CDATA[<p>Well, it&rsquo;s new to me.</p>
-
-<p>When you type <code>C-r</code> in edit mode, you get the opportunity to recall the contents
-of a register.  While I had known about this, I never thought to apply it when
-doing search and replace.  For example, if you search for something using <code>*</code>,
-then want to replace what you&rsquo;ve found with something else, you can type:</p>
-
-<pre><code class="vim">:%s/C-r//replacement/g
-</code></pre>
-
-<p>The contents of your last search will magically show up when you type the <code>/</code>
-character, and your days of trying to remember the pattern for the last thing
-you searched for are over!</p>
 ]]></content>
   </entry>
   

@@ -5,12 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Vim Register Trick - Stuff and Things</title>
+  <title>Vim's `findfile` function - Stuff and Things</title>
   <meta name="author" content="Trevor Elliott">
 
   
-  <meta name="description" content="Well, it&rsquo;s new to me. When you type C-r in edit mode, you get the opportunity to recall the contents
-of a register. While I had known about &hellip;">
+  <meta name="description" content="I&rsquo;ve recently updated the tests for stack.yaml and cabal.project files in my
+vim haskell plugin. The
+haskell#StackYamlFileExists and haskell# &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -19,7 +20,7 @@ of a register. While I had known about &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://elliottt.github.io/blog/2013/02/19/vim-register-trick/">
+  <link rel="canonical" href="http://elliottt.github.io/blog/2016/08/27/vim-find-file/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +69,7 @@ of a register. While I had known about &hellip;">
   
   <header>
     
-      <h1 class="entry-title">Vim Register Trick</h1>
+      <h1 class="entry-title">Vim's `findfile` Function</h1>
     
     
       <p class="meta">
@@ -84,28 +85,51 @@ of a register. While I had known about &hellip;">
   
 
 
-<time datetime="2013-02-19T11:06:00-08:00" pubdate data-updated="true"></time>
+<time datetime="2016-08-27T12:07:30-07:00" pubdate data-updated="true"></time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Well, it&rsquo;s new to me.</p>
+<div class="entry-content"><p>I&rsquo;ve recently updated the tests for <code>stack.yaml</code> and <code>cabal.project</code> files in my
+<a href="https://github.com/elliottt/vim-haskell">vim haskell plugin</a>. The
+<code>haskell#StackYamlFileExists</code> and <code>haskell#CabalProjectFileExists</code> functions now
+take advantage of vim&rsquo;s <code>findfile</code> function for searching up the directory tree,
+rather than just require that either file exist in the current working
+directory. This change makes a bit more sense given the way that both <code>stack</code>
+and <code>cabal new-build</code> work, allowing the commands to be invoked from anywhere
+underneath the directory that contains <code>stack.yaml</code> or <code>cabal.project</code>.</p>
 
-<p>When you type <code>C-r</code> in edit mode, you get the opportunity to recall the contents
-of a register.  While I had known about this, I never thought to apply it when
-doing search and replace.  For example, if you search for something using <code>*</code>,
-then want to replace what you&rsquo;ve found with something else, you can type:</p>
+<p>The <code>findfile</code> function is quite handy for this situation, as it&rsquo;s able to
+search up as well as down the directory tree. Simply specifying the directory to
+search from as <code>'.;'</code> instructs it to search up the tree, and passing the
+<code>{list}</code> argument as <code>-1</code> returns a list of the matches instead of the path of
+the first match.</p>
+
+<p>I&rsquo;ve now updated my
+<a href="https://github.com/elliottt/vim-config/blob/master/after/syntax/haskell.vim">personal haskell config</a>
+to choose which tool to use, based on the three predicates that the plugin
+provides:</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="p">:</span>%<span class="k">s</span><span class="sr">/C-r//replacement/</span><span class="k">g</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='vim'><span class='line'><span class="c">&quot; Configure :make</span>
+</span><span class='line'><span class="k">if</span> haskell#CabalProjectFileExists<span class="p">()</span>
+</span><span class='line'>    <span class="k">compiler</span> cabal<span class="p">-</span><span class="k">new</span><span class="p">-</span>build
+</span><span class='line'><span class="k">elseif</span> haskell#StackYamlFileExists<span class="p">()</span>
+</span><span class='line'>    <span class="k">compiler</span> stack<span class="p">-</span>build
+</span><span class='line'><span class="k">elseif</span> haskell#CabalFileExists<span class="p">()</span>
+</span><span class='line'>    <span class="k">compiler</span> cabal<span class="p">-</span>build
+</span><span class='line'><span class="k">endif</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-<p>The contents of your last search will magically show up when you type the <code>/</code>
-character, and your days of trying to remember the pattern for the last thing
-you searched for are over!</p>
 </div>
 
 
@@ -128,12 +152,12 @@ you searched for are over!</p>
   
 
 
-<time datetime="2013-02-19T11:06:00-08:00" pubdate data-updated="true"></time>
+<time datetime="2016-08-27T12:07:30-07:00" pubdate data-updated="true"></time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/vim/'>vim</a>
+    <a class='category' href='/blog/categories/haskell/'>haskell</a>, <a class='category' href='/blog/categories/vim/'>vim,</a>
   
 </span>
 
@@ -142,7 +166,7 @@ you searched for are over!</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elliottt.github.io/blog/2013/02/19/vim-register-trick/" data-via="" data-counturl="http://elliottt.github.io/blog/2013/02/19/vim-register-trick/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://elliottt.github.io/blog/2016/08/27/vim-find-file/" data-via="" data-counturl="http://elliottt.github.io/blog/2016/08/27/vim-find-file/" >Tweet</a>
   
   
   
@@ -151,8 +175,8 @@ you searched for are over!</p>
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2015/03/04/debug-console-on-xen/" title="Previous Post: Debug Console on Xen">&laquo; Debug Console on Xen</a>
       
-        <a class="basic-alignment right" href="/blog/2013/02/22/vim-mapping-context/" title="Next Post: Vim Mapping Context">Vim Mapping Context &raquo;</a>
       
     </p>
   </footer>

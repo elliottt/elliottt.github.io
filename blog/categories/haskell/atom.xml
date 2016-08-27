@@ -4,7 +4,7 @@
   <title><![CDATA[Category: haskell | Stuff and Things]]></title>
   <link href="http://elliottt.github.io/blog/categories/haskell/atom.xml" rel="self"/>
   <link href="http://elliottt.github.io/"/>
-  <updated>2015-03-04T14:52:02-08:00</updated>
+  <updated>2016-08-27T12:20:57-07:00</updated>
   <id>http://elliottt.github.io/</id>
   <author>
     <name><![CDATA[Trevor Elliott]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Vim's `findfile` function]]></title>
+    <link href="http://elliottt.github.io/blog/2016/08/27/vim-find-file/"/>
+    <updated>2016-08-27T12:07:30-07:00</updated>
+    <id>http://elliottt.github.io/blog/2016/08/27/vim-find-file</id>
+    <content type="html"><![CDATA[<p>I&rsquo;ve recently updated the tests for <code>stack.yaml</code> and <code>cabal.project</code> files in my
+<a href="https://github.com/elliottt/vim-haskell">vim haskell plugin</a>. The
+<code>haskell#StackYamlFileExists</code> and <code>haskell#CabalProjectFileExists</code> functions now
+take advantage of vim&rsquo;s <code>findfile</code> function for searching up the directory tree,
+rather than just require that either file exist in the current working
+directory. This change makes a bit more sense given the way that both <code>stack</code>
+and <code>cabal new-build</code> work, allowing the commands to be invoked from anywhere
+underneath the directory that contains <code>stack.yaml</code> or <code>cabal.project</code>.</p>
+
+<p>The <code>findfile</code> function is quite handy for this situation, as it&rsquo;s able to
+search up as well as down the directory tree. Simply specifying the directory to
+search from as <code>'.;'</code> instructs it to search up the tree, and passing the
+<code>{list}</code> argument as <code>-1</code> returns a list of the matches instead of the path of
+the first match.</p>
+
+<p>I&rsquo;ve now updated my
+<a href="https://github.com/elliottt/vim-config/blob/master/after/syntax/haskell.vim">personal haskell config</a>
+to choose which tool to use, based on the three predicates that the plugin
+provides:</p>
+
+<pre><code class="vim">" Configure :make
+if haskell#CabalProjectFileExists()
+    compiler cabal-new-build
+elseif haskell#StackYamlFileExists()
+    compiler stack-build
+elseif haskell#CabalFileExists()
+    compiler cabal-build
+endif
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Serenade in Haskell]]></title>
@@ -212,7 +249,7 @@ could modify <code>col_example</code> to look like this:</p>
 <code>collection</code> combinator, emitting one <code>li</code> tag for each inner title.  When given
 the list <code>[ ["a"], ["b", "c"] ]</code>, the <code>col_of</code> function will produce the HTML:</p>
 
-<p>&#8220;`html</p>
+<p>```html</p>
 
 <ul id="cols">
   <li>a</li>
@@ -221,7 +258,7 @@ the list <code>[ ["a"], ["b", "c"] ]</code>, the <code>col_of</code> function wi
 </ul>
 
 
-<p>&#8220;`</p>
+<p>```</p>
 
 <h2>Conclusion</h2>
 

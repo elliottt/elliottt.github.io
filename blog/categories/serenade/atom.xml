@@ -4,7 +4,7 @@
   <title><![CDATA[Category: serenade | Stuff and Things]]></title>
   <link href="http://elliottt.github.io/blog/categories/serenade/atom.xml" rel="self"/>
   <link href="http://elliottt.github.io/"/>
-  <updated>2015-03-04T14:52:02-08:00</updated>
+  <updated>2016-08-27T12:20:57-07:00</updated>
   <id>http://elliottt.github.io/</id>
   <author>
     <name><![CDATA[Trevor Elliott]]></name>
@@ -212,7 +212,7 @@ could modify <code>col_example</code> to look like this:</p>
 <code>collection</code> combinator, emitting one <code>li</code> tag for each inner title.  When given
 the list <code>[ ["a"], ["b", "c"] ]</code>, the <code>col_of</code> function will produce the HTML:</p>
 
-<p>&#8220;`html</p>
+<p>```html</p>
 
 <ul id="cols">
   <li>a</li>
@@ -221,7 +221,7 @@ the list <code>[ ["a"], ["b", "c"] ]</code>, the <code>col_of</code> function wi
 </ul>
 
 
-<p>&#8220;`</p>
+<p>```</p>
 
 <h2>Conclusion</h2>
 
