@@ -27,4 +27,5 @@ cp -r public/* _deploy
 pushd _deploy
   git add -A
   git commit -e -m "update on $(date "+%F %T")"
+  git push
 popd
