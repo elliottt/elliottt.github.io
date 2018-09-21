@@ -76,6 +76,19 @@
 </span>
         </header>
         
+            <div itemprop="summary">
+                <p>I've recently updated the tests for <code>stack.yaml</code> and <code>cabal.project</code> files in my
+<a href="https://github.com/elliottt/vim-haskell">vim haskell plugin</a>. The
+<code>haskell#StackYamlFileExists</code> and <code>haskell#CabalProjectFileExists</code> functions now
+take advantage of vim's <code>findfile</code> function for searching up the directory tree,
+rather than just require that either file exist in the current working
+directory. This change makes a bit more sense given the way that both <code>stack</code>
+and <code>cabal new-build</code> work, allowing the commands to be invoked from anywhere
+underneath the directory that contains <code>stack.yaml</code> or <code>cabal.project</code>.</p>
+
+                <nav class="readmore"><a itemprop="url" href="https://elliottt.github.io/vim-find-file/">Read More&nbsp;&raquo;</a></nav>
+            </div>
+        
     </article>
 
                 
@@ -102,6 +115,17 @@
     Published: 2015-03-04
 </span>
         </header>
+        
+            <div itemprop="summary">
+                <p>When debugging <a href="http://halvm.org">HaLVM</a> domains, the <code>writeDebugConsole</code>
+function from <code>Hypervisor.Debug</code> is invaluable.  However, in order to see the
+messages printed, you must enable the emergency console in
+<a href="http://xen.org">Xen</a>.  This isn't too difficult, but it's not terribly well
+documented: there are many sources that describe parts of the process, but none
+that describe the whole thing.</p>
+
+                <nav class="readmore"><a itemprop="url" href="https://elliottt.github.io/debug-console-on-xen/">Read More&nbsp;&raquo;</a></nav>
+            </div>
         
     </article>
 
@@ -130,6 +154,17 @@
 </span>
         </header>
         
+            <div itemprop="summary">
+                <p>Recently I was working on a project in which I was creating loads of tap
+devices, with <a href="https://github.com/galoisinc/hans">HaNS</a> instances connected to
+them.  Initially, I was abusing the Galois network, stealing away precious
+addresses from our internal /24 allocation.  This wasn't the end of the world,
+as I was reusing addresses I was given, but it got me thinking: shouldn't I
+be able to just allocate my own addresses?</p>
+
+                <nav class="readmore"><a itemprop="url" href="https://elliottt.github.io/private-dhcp/">Read More&nbsp;&raquo;</a></nav>
+            </div>
+        
     </article>
 
                 
@@ -157,6 +192,17 @@
 </span>
         </header>
         
+            <div itemprop="summary">
+                <p>One of the things that I think is great about Haskell is the way that you can
+use the language to design new syntax.  After reading
+[a quick introduction to Serenade.js][serenade], one of the features that caught
+my eye was their templating system.  It has a fairly elegant interface that
+provides a concise language for generating HTML, though it seems like a
+heavyweight solution, as it requires implementing a parser.</p>
+
+                <nav class="readmore"><a itemprop="url" href="https://elliottt.github.io/serenade-in-haskell/">Read More&nbsp;&raquo;</a></nav>
+            </div>
+        
     </article>
 
                 
@@ -183,6 +229,16 @@
     Published: 2013-02-22
 </span>
         </header>
+        
+            <div itemprop="summary">
+                <p>If you're like me, you've got a lot of filetype-specific macros defined in your
+vim config.  I tend to put these in <code>$VIM/after/syntax</code> so that I can keep it
+all self-contained, but up until recently, macros had been bleeding into
+different filetype contexts.  The problem was that I had been installing all
+macros into the global scope, instead of the buffer scope, like this:</p>
+
+                <nav class="readmore"><a itemprop="url" href="https://elliottt.github.io/vim-mapping-context/">Read More&nbsp;&raquo;</a></nav>
+            </div>
         
     </article>
 

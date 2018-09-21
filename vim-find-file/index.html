@@ -53,6 +53,7 @@ rather than just require that either file exist in the current working
 directory. This change makes a bit more sense given the way that both <code>stack</code>
 and <code>cabal new-build</code> work, allowing the commands to be invoked from anywhere
 underneath the directory that contains <code>stack.yaml</code> or <code>cabal.project</code>.</p>
+<p><a name="continue-reading"></a></p>
 <p>The <code>findfile</code> function is quite handy for this situation, as it's able to
 search up as well as down the directory tree. Simply specifying the directory to
 search from as <code>'.;'</code> instructs it to search up the tree, and passing the
