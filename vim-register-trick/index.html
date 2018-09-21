@@ -1,0 +1,83 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+      <title>stuff and things</title>
+
+      
+
+      
+          <link rel="stylesheet" href="https:&#x2F;&#x2F;elliottt.github.io&#x2F;site.css">
+      
+
+      
+      
+    </head>
+
+    <body class="hack dark main container">
+        
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        <h1 itemprop="headline">Vim Register Trick</h1>
+        <span class="muted">
+    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <circle cx="16" cy="16" r="14"/>
+        <path d="M16 8 L16 16 20 20"/>
+    </svg>
+    <span>0 minute read</span>
+    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
+         width="16" height="16" fill="none" stroke="currentcolor"
+         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
+        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
+    </svg>
+
+    Published: 2013-02-19
+</span>
+    </header>
+    <div itemprop="articleBody">
+      <p>Well, it's new to me.</p>
+<p>When you type <code>C-r</code> in edit mode, you get the opportunity to recall the contents
+of a register.  While I had known about this, I never thought to apply it when
+doing search and replace.  For example, if you search for something using <code>*</code>,
+then want to replace what you've found with something else, you can type:</p>
+<pre style="background-color:#2b303b">
+<span style="color:#c0c5ce;">:</span><span style="color:#b48ead;">%</span><span style="color:#c0c5ce;">s</span><span style="color:#96b5b4;">/C-r//replacement/</span><span style="color:#c0c5ce;">g</span><span style="color:#c0c5ce;">
+</span></pre>
+<p>The contents of your last search will magically show up when you type the <code>/</code>
+character, and your days of trying to remember the pattern for the last thing
+you searched for are over!</p>
+
+    </div>
+
+    
+        <footer>
+            <hr>
+            <p>
+                
+                
+                
+                    and tagged
+                    
+                        <a href="https:&#x2F;&#x2F;elliottt.github.io&#x2F;tags&#x2F;vim&#x2F;">vim</a>
+                        
+                    
+                
+            </p>
+        </footer>
+    
+</article>
+
+
+    </body>
+
+</html>
