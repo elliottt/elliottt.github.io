@@ -14,6 +14,8 @@ messages printed, you must enable the emergency console in
 documented: there are many sources that describe parts of the process, but none
 that describe the whole thing.
 
+<!-- more -->
+
 Rebuilding Xen
 --------------
 

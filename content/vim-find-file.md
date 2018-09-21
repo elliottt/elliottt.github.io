@@ -15,6 +15,8 @@ directory. This change makes a bit more sense given the way that both `stack`
 and `cabal new-build` work, allowing the commands to be invoked from anywhere
 underneath the directory that contains `stack.yaml` or `cabal.project`.
 
+<!-- more -->
+
 The `findfile` function is quite handy for this situation, as it's able to
 search up as well as down the directory tree. Simply specifying the directory to
 search from as `'.;'` instructs it to search up the tree, and passing the

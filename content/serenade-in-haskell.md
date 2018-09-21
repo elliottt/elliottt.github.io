@@ -13,6 +13,8 @@ my eye was their templating system.  It has a fairly elegant interface that
 provides a concise language for generating HTML, though it seems like a
 heavyweight solution, as it requires implementing a parser.
 
+<!-- more -->
+
 Upon closer inspection the examples provided seemed to be presenting a few key
 combinators for constructing html.  After a bit of scaffolding, I'll demonstrate
 my approach to replicating their examples in Haskell.  Just to be clear, this

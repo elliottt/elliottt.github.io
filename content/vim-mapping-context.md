@@ -12,6 +12,8 @@ all self-contained, but up until recently, macros had been bleeding into
 different filetype contexts.  The problem was that I had been installing all
 macros into the global scope, instead of the buffer scope, like this:
 
+<!-- more -->
+
 ```vim
 nmap <LocalLeader>l ...
 ```

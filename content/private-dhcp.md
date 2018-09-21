@@ -13,6 +13,8 @@ addresses from our internal /24 allocation.  This wasn't the end of the world,
 as I was reusing addresses I was given, but it got me thinking: shouldn't I
 be able to just allocate my own addresses?
 
+<!-- more -->
+
 After a bit of googling, I decided to use
 [Dnsmasq](http://www.thekelleys.org.uk/dnsmasq/doc.html) to manage DNS caching,
 and DHCP.  My first step was then to configure the network.

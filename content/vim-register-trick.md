@@ -12,6 +12,8 @@ of a register.  While I had known about this, I never thought to apply it when
 doing search and replace.  For example, if you search for something using `*`,
 then want to replace what you've found with something else, you can type:
 
+<!-- more -->
+
 ```vim
 :%s/C-r//replacement/g
 ```
