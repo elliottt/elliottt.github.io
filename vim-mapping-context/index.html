@@ -14,7 +14,7 @@
       
 
       
-          <link rel="stylesheet" href="https:&#x2F;&#x2F;elliottt.github.io&#x2F;site.css">
+          <link rel="stylesheet" href="https://elliottt.github.io/site.css">
       
 
       
@@ -51,12 +51,12 @@ all self-contained, but up until recently, macros had been bleeding into
 different filetype contexts.  The problem was that I had been installing all
 macros into the global scope, instead of the buffer scope, like this:</p>
 <pre style="background-color:#2b303b">
-<span style="color:#96b5b4;">nmap </span><span style="color:#c0c5ce;">&lt;LocalLeader&gt;l </span><span style="color:#b48ead;">...</span><span style="color:#c0c5ce;">
+<span style="background-color:#2b303b;color:#96b5b4;">nmap </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;LocalLeader&gt;l </span><span style="background-color:#2b303b;color:#b48ead;">...</span><span style="background-color:#2b303b;color:#c0c5ce;">
 </span></pre>
 <p>Luckily, vim has a provision for this, and adding <code>&lt;buffer&gt;</code> right after the use
 of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
 <pre style="background-color:#2b303b">
-<span style="color:#96b5b4;">nmap </span><span style="color:#c0c5ce;">&lt;buffer&gt; &lt;LocalLeader&gt;l </span><span style="color:#b48ead;">...</span><span style="color:#c0c5ce;">
+<span style="background-color:#2b303b;color:#96b5b4;">nmap </span><span style="background-color:#2b303b;color:#c0c5ce;">&lt;buffer&gt; &lt;LocalLeader&gt;l </span><span style="background-color:#2b303b;color:#b48ead;">...</span><span style="background-color:#2b303b;color:#c0c5ce;">
 </span></pre>
     </div>
 
@@ -69,7 +69,7 @@ of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
                 
                     and tagged
                     
-                        <a href="https:&#x2F;&#x2F;elliottt.github.io&#x2F;tags&#x2F;vim&#x2F;">vim</a>
+                        <a href="https://elliottt.github.io/tags/vim/">vim</a>
                         
                     
                 

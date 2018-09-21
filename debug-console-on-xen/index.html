@@ -14,7 +14,7 @@
       
 
       
-          <link rel="stylesheet" href="https:&#x2F;&#x2F;elliottt.github.io&#x2F;site.css">
+          <link rel="stylesheet" href="https://elliottt.github.io/site.css">
       
 
       
@@ -58,7 +58,7 @@ relatively simple step, especially if you're building rpms.  When running
 emergency console.  If rebuilding an rpm, just modify the <code>make</code> invocation in
 the <code>%build</code> section of the spec file.</p>
 <pre style="background-color:#2b303b">
-<span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> make verbose=y</span><span style="color:#c0c5ce;">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> make verbose=y</span><span style="background-color:#2b303b;color:#c0c5ce;">
 </span></pre><h2 id="booting-xen">Booting Xen</h2>
 <p>Next, you will need to modify the command line passed to Xen on boot,
 instructing it to output messages to the debug console.  When using grub2, on
@@ -66,14 +66,14 @@ Fedora, this is achieved by modifying the <code>/etc/default/grub</code> file, a
 rebuilding the grub configuration.</p>
 <p>First, append this line to <code>/etc/default/grub</code>:</p>
 <pre style="background-color:#2b303b">
-<span style="color:#bf616a;">GRUB_CMDLINE_XEN</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">loglvl=all guest_loglvl=all sync_console console_to_ring</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
+<span style="background-color:#2b303b;color:#bf616a;">GRUB_CMDLINE_XEN</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">loglvl=all guest_loglvl=all sync_console console_to_ring</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#c0c5ce;">
 </span></pre>
 <p>This sets the logging level of both Xen and any guest domains to all, forces
 synchronous output to the console, and copies all guest console output to the
 console ring buffer.</p>
 <p>Next, run this command to regenerate your grub config:</p>
 <pre style="background-color:#2b303b">
-<span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> sudo grub2-mkconfig</span><span style="color:#bf616a;"> -o</span><span style="color:#c0c5ce;"> /boot/grub2/grub.cfg</span><span style="color:#c0c5ce;">
+<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo grub2-mkconfig</span><span style="background-color:#2b303b;color:#bf616a;"> -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> /boot/grub2/grub.cfg</span><span style="background-color:#2b303b;color:#c0c5ce;">
 </span></pre>
 <p>Now, you should be able to just reboot, selecting Xen from the grub menu, and be
 able to see the output of calls to <code>writeDebugConsole</code>.</p>
@@ -93,7 +93,7 @@ aid the debugging of HaLVM domains.</p>
                 
                     and tagged
                     
-                        <a href="https:&#x2F;&#x2F;elliottt.github.io&#x2F;tags&#x2F;xen&#x2F;">xen</a>
+                        <a href="https://elliottt.github.io/tags/xen/">xen</a>
                         
                             
                                 
@@ -102,7 +102,7 @@ aid the debugging of HaLVM domains.</p>
                             
                         
                     
-                        <a href="https:&#x2F;&#x2F;elliottt.github.io&#x2F;tags&#x2F;halvm&#x2F;">halvm</a>
+                        <a href="https://elliottt.github.io/tags/halvm/">halvm</a>
                         
                             
                         
