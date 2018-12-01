@@ -24,27 +24,37 @@
     <body class="hack dark main container">
         
 
+  
+  
+
     
-	
-	    <header>
-		<nav itemscope itemtype="http://schema.org/SiteNavigationElement">
-		
-		    <a itemprop="url"
-		       class=""
-		       href="https://elliottt.github.io">
-			<span itemprop="name">home
-			</span></a>
-		
-		    <a itemprop="url"
-		       class=""
-		       href="https://elliottt.github.io/tags">
-			<span itemprop="name">tags
-			</span></a>
-		
-		</nav>
-	    </header>
-	
+        <header>
+        <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+        
+            <a itemprop="url"
+               class=""
+               href="https://elliottt.github.io">
+                <span itemprop="name">home
+                </span></a>
+        
+            <a itemprop="url"
+               class=""
+               href="https://elliottt.github.io/tags">
+                <span itemprop="name">tags
+                </span></a>
+        
+            <a itemprop="url"
+               class=""
+               href="https://elliottt.github.io/about">
+                <span itemprop="name">about
+                </span></a>
+        
+        </nav>
+    </header>
     
+
+
+  
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
     <header>
@@ -63,7 +73,9 @@
         <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
     </svg>
 
+    
     Published: 2016-08-27
+    
 </span>
     </header>
     <div itemprop="articleBody">
@@ -85,15 +97,15 @@ the first match.</p>
 <a href="https://github.com/elliottt/vim-config/blob/master/after/syntax/haskell.vim">personal haskell config</a>
 to choose which tool to use, based on the three predicates that the plugin
 provides:</p>
-<pre style="background-color:#2b303b">
-<span style="background-color:#2b303b;color:#65737e;">&quot; Configure :make</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#b48ead;">if </span><span style="background-color:#2b303b;color:#8fa1b3;">haskell#CabalProjectFileExists</span><span style="background-color:#2b303b;color:#c0c5ce;">()</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">compiler cabal-new-build</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#b48ead;">elseif </span><span style="background-color:#2b303b;color:#8fa1b3;">haskell#StackYamlFileExists</span><span style="background-color:#2b303b;color:#c0c5ce;">()</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">compiler stack-build</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#b48ead;">elseif </span><span style="background-color:#2b303b;color:#8fa1b3;">haskell#CabalFileExists</span><span style="background-color:#2b303b;color:#c0c5ce;">()</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#c0c5ce;">    </span><span style="background-color:#2b303b;color:#c0c5ce;">compiler cabal-build</span><span style="background-color:#2b303b;color:#c0c5ce;">
-</span><span style="background-color:#2b303b;color:#b48ead;">endif</span><span style="background-color:#2b303b;color:#c0c5ce;">
+<pre style="background-color:#2b303b;">
+<span style="color:#65737e;">&quot; Configure :make</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">if </span><span style="color:#8fa1b3;">haskell#CabalProjectFileExists</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">compiler cabal-new-build</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">elseif </span><span style="color:#8fa1b3;">haskell#StackYamlFileExists</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">compiler stack-build</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">elseif </span><span style="color:#8fa1b3;">haskell#CabalFileExists</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
+</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">compiler cabal-build</span><span style="color:#c0c5ce;">
+</span><span style="color:#b48ead;">endif</span><span style="color:#c0c5ce;">
 </span></pre>
     </div>
 

@@ -24,27 +24,37 @@
     <body class="hack dark main container">
         
 
+  
+  
+
     
-	
-	    <header>
-		<nav itemscope itemtype="http://schema.org/SiteNavigationElement">
-		
-		    <a itemprop="url"
-		       class=""
-		       href="https://elliottt.github.io">
-			<span itemprop="name">home
-			</span></a>
-		
-		    <a itemprop="url"
-		       class=""
-		       href="https://elliottt.github.io/tags">
-			<span itemprop="name">tags
-			</span></a>
-		
-		</nav>
-	    </header>
-	
+        <header>
+        <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
+        
+            <a itemprop="url"
+               class=""
+               href="https://elliottt.github.io">
+                <span itemprop="name">home
+                </span></a>
+        
+            <a itemprop="url"
+               class=""
+               href="https://elliottt.github.io/tags">
+                <span itemprop="name">tags
+                </span></a>
+        
+            <a itemprop="url"
+               class=""
+               href="https://elliottt.github.io/about">
+                <span itemprop="name">about
+                </span></a>
+        
+        </nav>
+    </header>
     
+
+
+  
 
 <article itemscope itemtype="http://schema.org/BlogPosting">
     <header>
@@ -63,7 +73,9 @@
         <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
     </svg>
 
+    
     Published: 2015-03-04
+    
 </span>
     </header>
     <div itemprop="articleBody">
@@ -80,23 +92,23 @@ relatively simple step, especially if you're building rpms.  When running
 <code>make</code>, make sure to add the additional argument <code>verbose=y</code>, which enables the
 emergency console.  If rebuilding an rpm, just modify the <code>make</code> invocation in
 the <code>%build</code> section of the spec file.</p>
-<pre style="background-color:#2b303b">
-<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> make verbose=y</span><span style="background-color:#2b303b;color:#c0c5ce;">
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> make verbose=y</span><span style="color:#c0c5ce;">
 </span></pre><h2 id="booting-xen">Booting Xen</h2>
 <p>Next, you will need to modify the command line passed to Xen on boot,
 instructing it to output messages to the debug console.  When using grub2, on
 Fedora, this is achieved by modifying the <code>/etc/default/grub</code> file, and
 rebuilding the grub configuration.</p>
 <p>First, append this line to <code>/etc/default/grub</code>:</p>
-<pre style="background-color:#2b303b">
-<span style="background-color:#2b303b;color:#bf616a;">GRUB_CMDLINE_XEN</span><span style="background-color:#2b303b;color:#c0c5ce;">=&quot;</span><span style="background-color:#2b303b;color:#a3be8c;">loglvl=all guest_loglvl=all sync_console console_to_ring</span><span style="background-color:#2b303b;color:#c0c5ce;">&quot;</span><span style="background-color:#2b303b;color:#c0c5ce;">
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">GRUB_CMDLINE_XEN</span><span style="color:#c0c5ce;">=&quot;</span><span style="color:#a3be8c;">loglvl=all guest_loglvl=all sync_console console_to_ring</span><span style="color:#c0c5ce;">&quot;</span><span style="color:#c0c5ce;">
 </span></pre>
 <p>This sets the logging level of both Xen and any guest domains to all, forces
 synchronous output to the console, and copies all guest console output to the
 console ring buffer.</p>
 <p>Next, run this command to regenerate your grub config:</p>
-<pre style="background-color:#2b303b">
-<span style="background-color:#2b303b;color:#bf616a;">$</span><span style="background-color:#2b303b;color:#c0c5ce;"> sudo grub2-mkconfig</span><span style="background-color:#2b303b;color:#bf616a;"> -o</span><span style="background-color:#2b303b;color:#c0c5ce;"> /boot/grub2/grub.cfg</span><span style="background-color:#2b303b;color:#c0c5ce;">
+<pre style="background-color:#2b303b;">
+<span style="color:#bf616a;">$</span><span style="color:#c0c5ce;"> sudo grub2-mkconfig</span><span style="color:#bf616a;"> -o</span><span style="color:#c0c5ce;"> /boot/grub2/grub.cfg</span><span style="color:#c0c5ce;">
 </span></pre>
 <p>Now, you should be able to just reboot, selecting Xen from the grub menu, and be
 able to see the output of calls to <code>writeDebugConsole</code>.</p>
