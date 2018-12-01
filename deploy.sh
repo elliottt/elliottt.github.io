@@ -4,7 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # build the site
-gutenberg build
+zola build
 
 # by default, deploy to the master branch
 deploy_target=${1:-master}

@@ -1,6 +1,6 @@
 +++
 title = "Private DHCP"
-date = 2014-05-17 
+date = 2014-05-17
 
 [taxonomies]
 tags = ["networking", "dhcp", "hans"]
