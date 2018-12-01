@@ -25,4 +25,5 @@ after_dark_title = "stuff and things"
 after_dark_menu = [
     {url = "$BASE_URL", name = "home"},
     {url = "$BASE_URL/tags", name = "tags"},
+    {url = "$BASE_URL/about", name = "about"},
 ]
