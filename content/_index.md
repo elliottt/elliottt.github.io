@@ -1,7 +1,8 @@
 +++
-title = "Stuff and things"
+title = "blog"
 
 paginate_by = 5
 
 sort_by = "date"
+
 +++
