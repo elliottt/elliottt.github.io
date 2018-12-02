@@ -129,7 +129,7 @@ library.
 [ivory]: https://ivorylang.org "Ivory"
 [msf-haskell]: https://github.com/galoisinc/msf-haskell "MSF-Haskell"
 [hans]: https://github.com/galoisinc/hans "HaNS"
-[halvm]: https://halvm.org "HaLVM"
+[halvm]: https://github.com/galoisinc/halvm "HaLVM"
 [cereal]: https://github.com/galoisinc/cereal "cereal"
 [llvm-pretty]: https://github.com/elliottt/llvm-pretty "llvm-pretty"
 [llvm-pretty-bc-parser]: https://github.com/galoisinc/llvm-pretty-bc-parser
