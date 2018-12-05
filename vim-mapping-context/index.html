@@ -92,12 +92,12 @@ different filetype contexts.  The problem was that I had been installing all
 macros into the global scope, instead of the buffer scope, like this:</p>
 <p><a name="continue-reading"></a></p>
 <pre style="background-color:#2b303b;">
-<span style="color:#96b5b4;">nmap </span><span style="color:#c0c5ce;">&lt;LocalLeader&gt;l </span><span style="color:#b48ead;">...</span><span style="color:#c0c5ce;">
+<span style="color:#96b5b4;">nmap </span><span style="color:#c0c5ce;">&lt;LocalLeader&gt;l </span><span style="color:#b48ead;">...
 </span></pre>
 <p>Luckily, vim has a provision for this, and adding <code>&lt;buffer&gt;</code> right after the use
 of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#96b5b4;">nmap </span><span style="color:#c0c5ce;">&lt;buffer&gt; &lt;LocalLeader&gt;l </span><span style="color:#b48ead;">...</span><span style="color:#c0c5ce;">
+<span style="color:#96b5b4;">nmap </span><span style="color:#c0c5ce;">&lt;buffer&gt; &lt;LocalLeader&gt;l </span><span style="color:#b48ead;">...
 </span></pre>
     </div>
 

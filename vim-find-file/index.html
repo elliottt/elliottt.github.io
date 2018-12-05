@@ -104,14 +104,14 @@ the first match.</p>
 to choose which tool to use, based on the three predicates that the plugin
 provides:</p>
 <pre style="background-color:#2b303b;">
-<span style="color:#65737e;">&quot; Configure :make</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">if </span><span style="color:#8fa1b3;">haskell#CabalProjectFileExists</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">compiler cabal-new-build</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">elseif </span><span style="color:#8fa1b3;">haskell#StackYamlFileExists</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">compiler stack-build</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">elseif </span><span style="color:#8fa1b3;">haskell#CabalFileExists</span><span style="color:#c0c5ce;">()</span><span style="color:#c0c5ce;">
-</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">compiler cabal-build</span><span style="color:#c0c5ce;">
-</span><span style="color:#b48ead;">endif</span><span style="color:#c0c5ce;">
+<span style="color:#65737e;">&quot; Configure :make
+</span><span style="color:#b48ead;">if </span><span style="color:#8fa1b3;">haskell#CabalProjectFileExists</span><span style="color:#c0c5ce;">()
+</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">compiler cabal-new-build
+</span><span style="color:#b48ead;">elseif </span><span style="color:#8fa1b3;">haskell#StackYamlFileExists</span><span style="color:#c0c5ce;">()
+</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">compiler stack-build
+</span><span style="color:#b48ead;">elseif </span><span style="color:#8fa1b3;">haskell#CabalFileExists</span><span style="color:#c0c5ce;">()
+</span><span style="color:#c0c5ce;">    </span><span style="color:#c0c5ce;">compiler cabal-build
+</span><span style="color:#b48ead;">endif
 </span></pre>
     </div>
 
