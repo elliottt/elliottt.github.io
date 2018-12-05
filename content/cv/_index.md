@@ -2,30 +2,38 @@
 title = "cv"
 +++
 
-For the past decade or so, I've been applying functional programming to various
-problems, from high-level language design to network stack and OS
-implementation.
+A [PDF resume](resume.pdf) is also available.
+
+Over a decade of experience applying functional programming to hard problems:
+program analysis, cyber-security, and language design.
 
 # Work Experience
 
 ## groq, inc. Sept 2017 - Present
-**Compiler Engineer** - Developing a compiler for tensorflow models targeting a
-custom ASIC for accelerating inference.
+**Compiler Engineer** - Working on a compiler for tensorflow models,
+targeting a custom ASIC that accelerates inference. Focusing on compiler
+performance and optimization of results.
 
 ## Galois, Inc. - Sept 2007 - Sept 2017
-**Member of the technical staff** - Contributed to a broad range of projects.
-Developed domain specific languages in Haskell for a number of different
-domains. Worked on multiple full language implementations, including [cryptol],
-and the [salty] reactive synthesis DSL.
+**Member of the technical staff** - Contributed to a broad range of projects,
+notably:
+* Developed domain specific languages in Haskell, including the
+  [msf-haskell] metasploit DSL and the [ivory] DSL for memory-safe
+  embedded programming
+* Developed and contributed to multiple full language implementations,
+  including [cryptol] and the [salty] GR(1) reactive synthesis DSL
+* Implemented the [hans] network stack
+* Aided ASIC design and verification for lightweight cryptographic
+  primitives from Cryptol specifications
 
 ## CollegeNET, July 2004 - September 2007
-**Developer** - Helped to transition a desktop application to a suite of web
-services, and developed tools based off of those web services. Assisted with
-some front-end web development.
+**Developer** - Helped to transition a large desktop application to a suite of
+web services, and developed tools based off of those web services. Also
+assisted with some front-end web development, and implemented an LDAP-based
+authentication system.
 
 ## CollegeNET, July 2002 - July 2004
-**Technical Support** - Provided support for a desktop application to a large
-client base.
+**Technical Support** - Provided technical support to a large client base.
 
 ---
 
@@ -36,14 +44,12 @@ Portland State University, Portland, OR
 
 ---
 
-# Skills
+# Technologies
 
-## Programming Languages
-haskell, rust, fsharp, c/c++, java, javascript, python, ruby, assemble (x86,
-arm), coq, isabelle/hol, shell scripting
+**Expert** - haskell, c, git, gnu make, vim/neovim
 
-## Tools
-z3, smt-lib, gdb, gnu make, apache ant, vim/neovim
+**Proficient** - rust, java, javascript, fsharp, ocaml, python, ruby, assembly
+(x86, arm), coq, isabelle/hol, shell scripting, z3, smt-lib, gdb, apache ant
 
 
 ---
