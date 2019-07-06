@@ -4,7 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 # build the site
-. build.sh
+. scripts/build.sh
 
 # by default, deploy to the master branch
 deploy_target=${1:-master}
