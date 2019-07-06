@@ -9,7 +9,10 @@ program analysis, cyber-security, and language design.
 
 # Work Experience
 
-## groq, inc. Sept 2017 - Present
+## Stripe - April 2019 - Present
+**Infrastructure Engineer** - Working on the [sorbet] typechecker for ruby.
+
+## groq, inc. Sept 2017 - March 2019
 **Compiler Engineer** - Working on a compiler for tensorflow models,
 targeting a custom ASIC that accelerates inference. Focusing on compiler
 performance and optimization of results.
@@ -48,8 +51,9 @@ Portland State University, Portland, OR
 
 **Expert** - haskell, c, git, gnu make, vim/neovim
 
-**Proficient** - rust, java, javascript, fsharp, ocaml, python, ruby, assembly
-(x86, arm), coq, isabelle/hol, shell scripting, z3, smt-lib, gdb, apache ant
+**Proficient** - bazel, c++, rust, java, javascript, fsharp, ocaml, python,
+ruby, assembly (x86, arm), coq, isabelle/hol, shell scripting, z3, smt-lib, gdb,
+apache ant
 
 
 ---
@@ -144,3 +148,4 @@ library.
 [smaccmpilot]: https://smaccmpilot.org/ "SMACCMPilot"
 [haskell orc]: https://hackage.haskell.org/package/orc "Orc"
 [orc]: http://orc.csres.utexas.edu/research.shtml "Orc"
+[sorbet]: https://sorbet.org
