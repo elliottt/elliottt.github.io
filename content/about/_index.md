@@ -2,7 +2,7 @@
 title = "about"
 +++
 
-My name is Trevor Elliott, I'm a compiler engineer at [groq](https://groq.com).
+My name is Trevor Elliott, I'm a engineer at [stripe](https://stripe.com).
 
 * [github](https://github.com/elliottt)
 * [twitter](https://twitter.com/moltarx)
