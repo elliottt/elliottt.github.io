@@ -13,7 +13,7 @@ program analysis, cyber-security, and language design.
 **Infrastructure Engineer** - Working on the [sorbet] typechecker for ruby.
 
 ## groq, inc. Sept 2017 - March 2019
-**Compiler Engineer** - Working on a compiler for tensorflow models,
+**Compiler Engineer** - Worked on a compiler for tensorflow models,
 targeting a custom ASIC that accelerates inference. Focusing on compiler
 performance and optimization of results.
 
