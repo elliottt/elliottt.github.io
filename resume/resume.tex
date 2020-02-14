@@ -1,0 +1,86 @@
+\documentclass[letter,10pt]{moderncv}
+\usepackage[scale=0.8]{geometry}
+
+\moderncvstyle{casual}
+\moderncvcolor{black}
+
+\name{Trevor}{Elliott}
+\email{awesomelyawesome@gmail.com}
+\phone[mobile]{(503) 936-6575}
+\social[github]{elliottt}
+\homepage{elliottt.github.io}
+
+\begin{document}
+
+\makecvtitle
+
+\section{Experience}
+
+\cventry{2019--Present}{Infrastructure Engineer}{Stripe}{Portland, OR}
+  {}{Working on the \href{https://sorbet.org}{sorbet} typechecker for ruby.}
+
+\cventry{2017--2019}{Compiler Engineer}{Groq, Inc.}{Portland, OR}
+  {}{Worked on a compiler for tensorflow models, targeting a custom ASIC
+  that accelerates inference. Focusing on compiler performance and optimization
+  of results.}
+
+\cventry{2007--2017}{Engineer and Researcher}{Galois, Inc.}{Portland, OR}
+  {}{Contributed to a broad range of projects, notably:
+  \begin{itemize}%
+  \item Developed domain specific languages in Haskell, including the
+    \href{https://github.com/galoisinc/msf-haskell}{msf-haskell} metasploit DSL
+    and the \href{https://github.com/galoisinc/ivory}{Ivory} DSL for memory-safe
+    embedded programming
+  \item Developed and contributed to multiple full language implementations,
+    including \href{https://github.com/galoisinc/cryptol}{Cryptol} and the
+    \href{https://github.com/galoisinc/salty}{Salty} GR(1) reactive synthesis DSL
+  \item Implemented the HaNS network stack
+  \item Aided ASIC design and verification for lightweight cryptographic
+    primitives from Cryptol specifications
+  \end{itemize}}
+
+\cventry{2004--2007}{Developer}{CollegeNET}{Portland, OR}
+  {}{Helped to transition a large desktop application to a suite of web
+  services, and developed tools based off of those web services. Also assisted
+  with some front-end web development, and implemented an LDAP-based
+  authentication system.}
+
+\cventry{2002--2004}{Technical Support}{CollegeNET}{Portland, OR}
+  {}{Provided technical support to a large client base.}
+
+\section{Education}
+
+\cventry{2008}{B.S. Computer Science}{Portland State University}{Portland, OR}{}{}
+
+\section{Open Source Projects}
+\cvitem{\href{https://github.com/galoisinc/cereal}{cereal}}
+  {Haskell library for fast binary format parsing/rendering}
+\cvitem{\href{https://github.com/galoisinc/ivory}{ivory}}
+  {Haskell EDSL for memory-safe embedded programming}
+\cvitem{\href{https://github.com/galoisinc/salty}{salty}}
+  {Reactive synthesis DSL for GR(1) specifications}
+\cvitem{\href{https://github.com/galoisinc/msf-haskell}{msf-haskell}}
+  {Haskell EDSL for interacting with the metasploit framework}
+\cvitem{\href{https://github.com/galoisinc/hans}{HaNS}}
+  {A TCP/IP network stack implemented in haskell}
+\cvitem{\href{https://github.com/galoisinc/cryptol}{Cryptol}}
+  {DSL for implementation and verification of cryptographic algorithms}
+\cvitem{\href{https://github.com/galoisinc/halvm}{HaLVM}}
+  {Port of the GHC runtime to the Xen hypervisor}
+\cvitem{\href{https://github.com/elliottt/llvm-pretty}{llvm-pretty}}
+  {An EDSL for generating textual llvm bitcode}
+\cvitem{\href{https://github.com/elliottt/huff}{huff}}
+  {A fast-forward based classical planning EDSL}
+\cvitem{\href{https://github.com/haskell/pretty}{pretty}}
+  {Contributed support for document annotations}
+
+\section{Skills}
+\cvitem{Languages}{haskell, rust, c/c++, java, javascript, fsharp, ocaml,
+  python, ruby, assembly (x86, arm), coq, isabelle/hol, shell scripting}
+\cvitem{Tools}{z3, smt-lib, gdb, gnu make, apache ant, vim/neovim}
+
+\nocite{*}
+\bibliographystyle{plain}
+\bibliography{publications}
+
+\end{document}

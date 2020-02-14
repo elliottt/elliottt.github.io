@@ -1,3 +1,35 @@
-baseURL = "http://example.org/"
+baseurl = "/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+theme = "terminal"
+paginate = 5
+
+[params]
+fullWidthTheme = false
+centerTheme = true
+
+[language]
+
+[languages.en]
+languageName = "English"
+title = "trevor elliott"
+
+[languages.en.params.logo]
+logoText = "stuff and things"
+logoHomeLink = "/"
+
+[languages.en.menu]
+
+[[languages.en.menu.main]]
+identifier = "blog"
+name = "blog"
+url = "/"
+
+[[languages.en.menu.main]]
+identifier = "about"
+name = "about"
+url = "/about"
+
+[[languages.en.menu.main]]
+identifier = "cv"
+name = "cv"
+url = "/cv"
