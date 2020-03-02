@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Trevor Elliott" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.65.3" />
+
+<link rel="canonical" href="/posts/vim-find-file/">
+<meta property="og:title" content="Vim&#39;s `findfile` function" />
+<meta property="og:description" content="I&rsquo;ve recently updated the tests for stack.yaml and cabal.project files in my vim haskell plugin. The haskell#StackYamlFileExists and haskell#CabalProjectFileExists functions now take advantage of vim&rsquo;s findfile function for searching up the directory tree, rather than just require that either file exist in the current working directory. This change makes a bit more sense given the way that both stack and cabal new-build work, allowing the commands to be invoked from anywhere underneath the directory that contains stack." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/vim-find-file/" />
+<meta property="article:published_time" content="2016-08-27T00:00:00-07:00" />
+<meta property="article:modified_time" content="2016-08-27T00:00:00-07:00" /><meta property="og:site_name" content="trevor elliott" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vim&#39;s `findfile` function"/>
+<meta name="twitter:description" content="I&rsquo;ve recently updated the tests for stack.yaml and cabal.project files in my vim haskell plugin. The haskell#StackYamlFileExists and haskell#CabalProjectFileExists functions now take advantage of vim&rsquo;s findfile function for searching up the directory tree, rather than just require that either file exist in the current working directory. This change makes a bit more sense given the way that both stack and cabal new-build work, allowing the commands to be invoked from anywhere underneath the directory that contains stack."/>
+
+
+<meta itemprop="name" content="Vim&#39;s `findfile` function">
+<meta itemprop="description" content="I&rsquo;ve recently updated the tests for stack.yaml and cabal.project files in my vim haskell plugin. The haskell#StackYamlFileExists and haskell#CabalProjectFileExists functions now take advantage of vim&rsquo;s findfile function for searching up the directory tree, rather than just require that either file exist in the current working directory. This change makes a bit more sense given the way that both stack and cabal new-build work, allowing the commands to be invoked from anywhere underneath the directory that contains stack.">
+<meta itemprop="datePublished" content="2016-08-27T00:00:00-07:00" />
+<meta itemprop="dateModified" content="2016-08-27T00:00:00-07:00" />
+<meta itemprop="wordCount" content="172">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<link rel="stylesheet" href="/css/layout.css" />
+
+
+<link rel="stylesheet" href="/css/default-dark.css" />
+
+
+
+
+<title>
+
+
+     Vim&#39;s `findfile` function 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="/">trevor elliott</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/"><div class="nav-item-title">blog</div></a>
+    
+    <a class="nav-item" href="/about"><div class="nav-item-title">about</div></a>
+    
+    <a class="nav-item" href="/cv"><div class="nav-item-title">cv</div></a>
+    
+
+  </nav>
+
+  
+<div class="social-links-header">
+
+  
+
+  
+  <a href="https://github.com/elliottt" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">twtr</div></a>
+  
+
+  
+
+</div>
+
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> Vim&#39;s `findfile` function </h1>
+    <div class="content"> <p>I&rsquo;ve recently updated the tests for <code>stack.yaml</code> and <code>cabal.project</code> files in my
+<a href="https://github.com/elliottt/vim-haskell">vim haskell plugin</a>. The
+<code>haskell#StackYamlFileExists</code> and <code>haskell#CabalProjectFileExists</code> functions now
+take advantage of vim&rsquo;s <code>findfile</code> function for searching up the directory tree,
+rather than just require that either file exist in the current working
+directory. This change makes a bit more sense given the way that both <code>stack</code>
+and <code>cabal new-build</code> work, allowing the commands to be invoked from anywhere
+underneath the directory that contains <code>stack.yaml</code> or <code>cabal.project</code>.</p>
+<!-- raw HTML omitted -->
+<p>The <code>findfile</code> function is quite handy for this situation, as it&rsquo;s able to
+search up as well as down the directory tree. Simply specifying the directory to
+search from as <code>'.;'</code> instructs it to search up the tree, and passing the
+<code>{list}</code> argument as <code>-1</code> returns a list of the matches instead of the path of
+the first match.</p>
+<p>I&rsquo;ve now updated my
+<a href="https://github.com/elliottt/vim-config/blob/master/after/syntax/haskell.vim">personal haskell config</a>
+to choose which tool to use, based on the three predicates that the plugin
+provides:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#75715e">&#34; Configure :make</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">haskell</span>#<span style="color:#a6e22e">CabalProjectFileExists</span>()<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">compiler</span> <span style="color:#a6e22e">cabal</span>-<span style="color:#a6e22e">new</span>-<span style="color:#a6e22e">build</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">elseif</span> <span style="color:#a6e22e">haskell</span>#<span style="color:#a6e22e">StackYamlFileExists</span>()<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">compiler</span> <span style="color:#a6e22e">stack</span>-<span style="color:#a6e22e">build</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">elseif</span> <span style="color:#a6e22e">haskell</span>#<span style="color:#a6e22e">CabalFileExists</span>()<span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">compiler</span> <span style="color:#a6e22e">cabal</span>-<span style="color:#a6e22e">build</span><span style="color:#960050;background-color:#1e0010">
+</span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">endif</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div> </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+            
+<div class="tags">
+  
+</div>
+
+    <div class="date"> 2016-08-27 </div>
+    
+  </div>
+</footer>
+
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+
+  
+  <a href="https://github.com/elliottt" target="_blank"><div class="social-link">GitHub</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+
+  <div class="social-link">
+  <a href="/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright">  </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+

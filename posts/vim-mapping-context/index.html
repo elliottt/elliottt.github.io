@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Trevor Elliott" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.65.3" />
+
+<link rel="canonical" href="/posts/vim-mapping-context/">
+<meta property="og:title" content="Vim Mapping Context" />
+<meta property="og:description" content="If you&rsquo;re like me, you&rsquo;ve got a lot of filetype-specific macros defined in your vim config. I tend to put these in $VIM/after/syntax so that I can keep it all self-contained, but up until recently, macros had been bleeding into different filetype contexts. The problem was that I had been installing all macros into the global scope, instead of the buffer scope, like this:
+nmap &lt;LocalLeader&gt;l ...Luckily, vim has a provision for this, and adding &lt;buffer&gt; right after the use of nmap fixes the problem, and keeps the mapping buffer-local:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/vim-mapping-context/" />
+<meta property="article:published_time" content="2013-02-22T00:00:00-08:00" />
+<meta property="article:modified_time" content="2013-02-22T00:00:00-08:00" /><meta property="og:site_name" content="trevor elliott" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vim Mapping Context"/>
+<meta name="twitter:description" content="If you&rsquo;re like me, you&rsquo;ve got a lot of filetype-specific macros defined in your vim config. I tend to put these in $VIM/after/syntax so that I can keep it all self-contained, but up until recently, macros had been bleeding into different filetype contexts. The problem was that I had been installing all macros into the global scope, instead of the buffer scope, like this:
+nmap &lt;LocalLeader&gt;l ...Luckily, vim has a provision for this, and adding &lt;buffer&gt; right after the use of nmap fixes the problem, and keeps the mapping buffer-local:"/>
+
+
+<meta itemprop="name" content="Vim Mapping Context">
+<meta itemprop="description" content="If you&rsquo;re like me, you&rsquo;ve got a lot of filetype-specific macros defined in your vim config. I tend to put these in $VIM/after/syntax so that I can keep it all self-contained, but up until recently, macros had been bleeding into different filetype contexts. The problem was that I had been installing all macros into the global scope, instead of the buffer scope, like this:
+nmap &lt;LocalLeader&gt;l ...Luckily, vim has a provision for this, and adding &lt;buffer&gt; right after the use of nmap fixes the problem, and keeps the mapping buffer-local:">
+<meta itemprop="datePublished" content="2013-02-22T00:00:00-08:00" />
+<meta itemprop="dateModified" content="2013-02-22T00:00:00-08:00" />
+<meta itemprop="wordCount" content="94">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<link rel="stylesheet" href="/css/layout.css" />
+
+
+<link rel="stylesheet" href="/css/default-dark.css" />
+
+
+
+
+<title>
+
+
+     Vim Mapping Context 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="/">trevor elliott</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/"><div class="nav-item-title">blog</div></a>
+    
+    <a class="nav-item" href="/about"><div class="nav-item-title">about</div></a>
+    
+    <a class="nav-item" href="/cv"><div class="nav-item-title">cv</div></a>
+    
+
+  </nav>
+
+  
+<div class="social-links-header">
+
+  
+
+  
+  <a href="https://github.com/elliottt" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">twtr</div></a>
+  
+
+  
+
+</div>
+
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> Vim Mapping Context </h1>
+    <div class="content"> <p>If you&rsquo;re like me, you&rsquo;ve got a lot of filetype-specific macros defined in your
+vim config.  I tend to put these in <code>$VIM/after/syntax</code> so that I can keep it
+all self-contained, but up until recently, macros had been bleeding into
+different filetype contexts.  The problem was that I had been installing all
+macros into the global scope, instead of the buffer scope, like this:</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a6e22e">nmap</span> &lt;<span style="color:#a6e22e">LocalLeader</span>&gt;<span style="color:#a6e22e">l</span> ...<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>Luckily, vim has a provision for this, and adding <code>&lt;buffer&gt;</code> right after the use
+of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim"><span style="color:#a6e22e">nmap</span> &lt;<span style="color:#a6e22e">buffer</span>&gt; &lt;<span style="color:#a6e22e">LocalLeader</span>&gt;<span style="color:#a6e22e">l</span> ...<span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div> </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+            
+<div class="tags">
+  
+</div>
+
+    <div class="date"> 2013-02-22 </div>
+    
+  </div>
+</footer>
+
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+
+  
+  <a href="https://github.com/elliottt" target="_blank"><div class="social-link">GitHub</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+
+  <div class="social-link">
+  <a href="/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright">  </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+

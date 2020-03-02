@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on trevor elliott</title>
+    <link>/posts/</link>
+    <description>Recent content in Posts on trevor elliott</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 Aug 2016 00:00:00 -0700</lastBuildDate>
+    
+	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vim&#39;s `findfile` function</title>
+      <link>/posts/vim-find-file/</link>
+      <pubDate>Sat, 27 Aug 2016 00:00:00 -0700</pubDate>
+      
+      <guid>/posts/vim-find-file/</guid>
+      <description>I&amp;rsquo;ve recently updated the tests for stack.yaml and cabal.project files in my vim haskell plugin. The haskell#StackYamlFileExists and haskell#CabalProjectFileExists functions now take advantage of vim&amp;rsquo;s findfile function for searching up the directory tree, rather than just require that either file exist in the current working directory. This change makes a bit more sense given the way that both stack and cabal new-build work, allowing the commands to be invoked from anywhere underneath the directory that contains stack.</description>
+    </item>
+    
+    <item>
+      <title>Debug Console on Xen</title>
+      <link>/posts/debug-console-on-xen/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 -0800</pubDate>
+      
+      <guid>/posts/debug-console-on-xen/</guid>
+      <description>When debugging HaLVM domains, the writeDebugConsole function from Hypervisor.Debug is invaluable. However, in order to see the messages printed, you must enable the emergency console in Xen. This isn&amp;rsquo;t too difficult, but it&amp;rsquo;s not terribly well documented: there are many sources that describe parts of the process, but none that describe the whole thing.
+Rebuilding Xen First, Xen must be rebuilt with the emergency console enabled. This is a relatively simple step, especially if you&amp;rsquo;re building rpms.</description>
+    </item>
+    
+    <item>
+      <title>Private DHCP</title>
+      <link>/posts/private-dhcp/</link>
+      <pubDate>Sat, 17 May 2014 00:00:00 -0700</pubDate>
+      
+      <guid>/posts/private-dhcp/</guid>
+      <description>Recently I was working on a project in which I was creating loads of tap devices, with HaNS instances connected to them. Initially, I was abusing the Galois network, stealing away precious addresses from our internal /24 allocation. This wasn&amp;rsquo;t the end of the world, as I was reusing addresses I was given, but it got me thinking: shouldn&amp;rsquo;t I be able to just allocate my own addresses?
+After a bit of googling, I decided to use Dnsmasq to manage DNS caching, and DHCP.</description>
+    </item>
+    
+    <item>
+      <title>Serenade in Haskell</title>
+      <link>/posts/serenade-in-haskell/</link>
+      <pubDate>Wed, 07 May 2014 00:00:00 -0700</pubDate>
+      
+      <guid>/posts/serenade-in-haskell/</guid>
+      <description>One of the things that I think is great about Haskell is the way that you can use the language to design new syntax. After reading a quick introduction to Serenade.js, one of the features that caught my eye was their templating system. It has a fairly elegant interface that provides a concise language for generating HTML, though it seems like a heavyweight solution, as it requires implementing a parser.</description>
+    </item>
+    
+    <item>
+      <title>Vim Mapping Context</title>
+      <link>/posts/vim-mapping-context/</link>
+      <pubDate>Fri, 22 Feb 2013 00:00:00 -0800</pubDate>
+      
+      <guid>/posts/vim-mapping-context/</guid>
+      <description>If you&amp;rsquo;re like me, you&amp;rsquo;ve got a lot of filetype-specific macros defined in your vim config. I tend to put these in $VIM/after/syntax so that I can keep it all self-contained, but up until recently, macros had been bleeding into different filetype contexts. The problem was that I had been installing all macros into the global scope, instead of the buffer scope, like this:
+nmap &amp;lt;LocalLeader&amp;gt;l ...Luckily, vim has a provision for this, and adding &amp;lt;buffer&amp;gt; right after the use of nmap fixes the problem, and keeps the mapping buffer-local:</description>
+    </item>
+    
+    <item>
+      <title>Vim Register Trick</title>
+      <link>/posts/vim-register-trick/</link>
+      <pubDate>Tue, 19 Feb 2013 00:00:00 -0800</pubDate>
+      
+      <guid>/posts/vim-register-trick/</guid>
+      <description>Well, it&amp;rsquo;s new to me.
+When you type C-r in edit mode, you get the opportunity to recall the contents of a register. While I had known about this, I never thought to apply it when doing search and replace. For example, if you search for something using *, then want to replace what you&amp;rsquo;ve found with something else, you can type:
+:%s/C-r//replacement/gThe contents of your last search will magically show up when you type the / character, and your days of trying to remember the pattern for the last thing you searched for are over!</description>
+    </item>
+    
+  </channel>
+</rss>

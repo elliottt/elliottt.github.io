@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Trevor Elliott" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.65.3" />
+
+<link rel="canonical" href="/posts/vim-register-trick/">
+<meta property="og:title" content="Vim Register Trick" />
+<meta property="og:description" content="Well, it&rsquo;s new to me.
+When you type C-r in edit mode, you get the opportunity to recall the contents of a register. While I had known about this, I never thought to apply it when doing search and replace. For example, if you search for something using *, then want to replace what you&rsquo;ve found with something else, you can type:
+:%s/C-r//replacement/gThe contents of your last search will magically show up when you type the / character, and your days of trying to remember the pattern for the last thing you searched for are over!" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/vim-register-trick/" />
+<meta property="article:published_time" content="2013-02-19T00:00:00-08:00" />
+<meta property="article:modified_time" content="2013-02-19T00:00:00-08:00" /><meta property="og:site_name" content="trevor elliott" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Vim Register Trick"/>
+<meta name="twitter:description" content="Well, it&rsquo;s new to me.
+When you type C-r in edit mode, you get the opportunity to recall the contents of a register. While I had known about this, I never thought to apply it when doing search and replace. For example, if you search for something using *, then want to replace what you&rsquo;ve found with something else, you can type:
+:%s/C-r//replacement/gThe contents of your last search will magically show up when you type the / character, and your days of trying to remember the pattern for the last thing you searched for are over!"/>
+
+
+<meta itemprop="name" content="Vim Register Trick">
+<meta itemprop="description" content="Well, it&rsquo;s new to me.
+When you type C-r in edit mode, you get the opportunity to recall the contents of a register. While I had known about this, I never thought to apply it when doing search and replace. For example, if you search for something using *, then want to replace what you&rsquo;ve found with something else, you can type:
+:%s/C-r//replacement/gThe contents of your last search will magically show up when you type the / character, and your days of trying to remember the pattern for the last thing you searched for are over!">
+<meta itemprop="datePublished" content="2013-02-19T00:00:00-08:00" />
+<meta itemprop="dateModified" content="2013-02-19T00:00:00-08:00" />
+<meta itemprop="wordCount" content="96">
+
+
+
+<meta itemprop="keywords" content="" />
+
+<link rel="stylesheet" href="/css/layout.css" />
+
+
+<link rel="stylesheet" href="/css/default-dark.css" />
+
+
+
+
+<title>
+
+
+     Vim Register Trick 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="/">trevor elliott</a>
+    </div> 
+
+    
+    
+    <a class="nav-item" href="/"><div class="nav-item-title">blog</div></a>
+    
+    <a class="nav-item" href="/about"><div class="nav-item-title">about</div></a>
+    
+    <a class="nav-item" href="/cv"><div class="nav-item-title">cv</div></a>
+    
+
+  </nav>
+
+  
+<div class="social-links-header">
+
+  
+
+  
+  <a href="https://github.com/elliottt" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">twtr</div></a>
+  
+
+  
+
+</div>
+
+
+</div>
+
+
+</header>
+
+
+<article class="post">
+    <h1 class="title"> Vim Register Trick </h1>
+    <div class="content"> <p>Well, it&rsquo;s new to me.</p>
+<p>When you type <code>C-r</code> in edit mode, you get the opportunity to recall the contents
+of a register.  While I had known about this, I never thought to apply it when
+doing search and replace.  For example, if you search for something using <code>*</code>,
+then want to replace what you&rsquo;ve found with something else, you can type:</p>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vim" data-lang="vim">:%<span style="color:#a6e22e">s</span><span style="color:#e6db74">/C-r//replacement/</span><span style="color:#a6e22e">g</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>The contents of your last search will magically show up when you type the <code>/</code>
+character, and your days of trying to remember the pattern for the last thing
+you searched for are over!</p>
+ </div>
+    <footer class="post-footer">
+
+  <div class="post-footer-data">
+            
+<div class="tags">
+  
+</div>
+
+    <div class="date"> 2013-02-19 </div>
+    
+  </div>
+</footer>
+
+
+
+</article>
+
+  <footer>
+
+  <div class="social-links-footer">
+
+  
+
+  
+  <a href="https://github.com/elliottt" target="_blank"><div class="social-link">GitHub</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">Twitter</div></a>
+  
+
+  
+
+  <div class="social-link">
+  <a href="/index.xml" target="_blank">RSS</a>
+  </div>
+
+</div>
+
+
+  <div class="copyright">  </div>
+
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
+
+  </footer>
+
+</div> 
+
+</body>
+</html>
+

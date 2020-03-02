@@ -1,93 +1,61 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    
-        <url>
-            <loc>https://elliottt.github.io/debug-console-on-xen/</loc>
-            
-                <lastmod>2015-03-04</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://elliottt.github.io/private-dhcp/</loc>
-            
-                <lastmod>2014-05-17</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://elliottt.github.io/serenade-in-haskell/</loc>
-            
-                <lastmod>2014-05-07</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://elliottt.github.io/vim-find-file/</loc>
-            
-                <lastmod>2016-08-27</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://elliottt.github.io/vim-mapping-context/</loc>
-            
-                <lastmod>2013-02-22</lastmod>
-            
-        </url>
-    
-        <url>
-            <loc>https://elliottt.github.io/vim-register-trick/</loc>
-            
-                <lastmod>2013-02-19</lastmod>
-            
-        </url>
-    
-    
-        <url>
-            <loc>https://elliottt.github.io/</loc>
-        </url>
-    
-        <url>
-            <loc>https://elliottt.github.io/about/</loc>
-        </url>
-    
-        <url>
-            <loc>https://elliottt.github.io/cv/</loc>
-        </url>
-    
-    
-        
-        <url>
-            <loc>https://elliottt.github.io/tags/</loc>
-        </url>
-        
-        <url>
-            <loc>https://elliottt.github.io/tags/dhcp/</loc>
-        </url>
-        
-        <url>
-            <loc>https://elliottt.github.io/tags/halvm/</loc>
-        </url>
-        
-        <url>
-            <loc>https://elliottt.github.io/tags/hans/</loc>
-        </url>
-        
-        <url>
-            <loc>https://elliottt.github.io/tags/haskell/</loc>
-        </url>
-        
-        <url>
-            <loc>https://elliottt.github.io/tags/networking/</loc>
-        </url>
-        
-        <url>
-            <loc>https://elliottt.github.io/tags/vim/</loc>
-        </url>
-        
-        <url>
-            <loc>https://elliottt.github.io/tags/xen/</loc>
-        </url>
-        
-    
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2016-08-27T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2016-08-27T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/vim-find-file/</loc>
+    <lastmod>2016-08-27T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/debug-console-on-xen/</loc>
+    <lastmod>2015-03-04T00:00:00-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/private-dhcp/</loc>
+    <lastmod>2014-05-17T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/serenade-in-haskell/</loc>
+    <lastmod>2014-05-07T00:00:00-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/vim-mapping-context/</loc>
+    <lastmod>2013-02-22T00:00:00-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/vim-register-trick/</loc>
+    <lastmod>2013-02-19T00:00:00-08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/cv/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+  </url>
+  
 </urlset>

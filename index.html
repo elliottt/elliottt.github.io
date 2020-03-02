@@ -1,286 +1,304 @@
 
-
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<html lang="en-us">
 
-      <!-- Enable responsiveness on mobile devices-->
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+<head>
+<meta charset="utf-8" />
+<meta name="author" content="Trevor Elliott" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+<meta name="generator" content="Hugo 0.65.3" />
 
-      <title>trevor elliott</title>
+<link rel="canonical" href="/">
+<meta property="og:title" content="trevor elliott" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="/" />
+<meta property="og:updated_time" content="2016-08-27T00:00:00-07:00" /><meta property="og:site_name" content="trevor elliott" />
 
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="trevor elliott"/>
+<meta name="twitter:description" content=""/>
+
+
+<meta itemprop="name" content="trevor elliott">
+<meta itemprop="description" content="">
+
+<link rel="stylesheet" href="/css/layout.css" />
+
+
+<link rel="stylesheet" href="/css/default-dark.css" />
+
+
+
+
+<title>
+
+
+     trevor elliott 
+
+</title>
+
+</head>
+
+
+<body>
+<div class="main">
+<header>
+
+<div class="header-bar">
+
+  <nav>
+    <div class="siteTitle">
+      <a href="/">trevor elliott</a>
+    </div> 
+
+    
+    
+    <a class="nav-item active" href="/"><div class="nav-item-title">blog</div></a>
+    
+    <a class="nav-item" href="/about"><div class="nav-item-title">about</div></a>
+    
+    <a class="nav-item" href="/cv"><div class="nav-item-title">cv</div></a>
+    
+
+  </nav>
+
+  
+<div class="social-links-header">
+
+  
+
+  
+  <a href="https://github.com/elliottt" target="_blank"><div class="social-link">gh</div></a>
+  
+
+  
+
+  
+  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">twtr</div></a>
+  
+
+  
+
+</div>
+
+
+</div>
+
+
+</header>
+
+
+<main>
+
+
+  
+    <article class="post-preview">
+
+  <header>
+    <h2 class="title"> <a href='/posts/vim-find-file/'> Vim&#39;s `findfile` function</a> </h2>
+    <div class="meta">
+      <div class="date">
+      27 Aug, 2016 - 1 minutes
+      </div>
       
+<div class="tags">
+  
+</div>
 
+    </div>
+
+  </header>
+
+  <div class="summary">
+    I&rsquo;ve recently updated the tests for stack.yaml and cabal.project files in my vim haskell plugin. The haskell#StackYamlFileExists and haskell#CabalProjectFileExists functions now take advantage of vim&rsquo;s findfile function for searching up the directory tree, rather than just require that either file exist in the current working directory. This change makes a bit more sense given the way that both stack and cabal new-build work, allowing the commands to be invoked from anywhere underneath the directory that contains stack.
+  </div>
+
+  <div class="rmore">
+    <a href='/posts/vim-find-file/' class="rmore">Read more</a>
+  </div>
+
+
+</article>
+
+
+    <article class="post-preview">
+
+  <header>
+    <h2 class="title"> <a href='/posts/debug-console-on-xen/'> Debug Console on Xen</a> </h2>
+    <div class="meta">
+      <div class="date">
+      4 Mar, 2015 - 2 minutes
+      </div>
       
-          <link rel="stylesheet" href="https://elliottt.github.io/site.css">
+<div class="tags">
+  
+</div>
+
+    </div>
+
+  </header>
+
+  <div class="summary">
+    When debugging HaLVM domains, the writeDebugConsole function from Hypervisor.Debug is invaluable. However, in order to see the messages printed, you must enable the emergency console in Xen. This isn&rsquo;t too difficult, but it&rsquo;s not terribly well documented: there are many sources that describe parts of the process, but none that describe the whole thing.
+Rebuilding Xen First, Xen must be rebuilt with the emergency console enabled. This is a relatively simple step, especially if you&rsquo;re building rpms.
+  </div>
+
+  <div class="rmore">
+    <a href='/posts/debug-console-on-xen/' class="rmore">Read more</a>
+  </div>
+
+
+</article>
+
+
+    <article class="post-preview">
+
+  <header>
+    <h2 class="title"> <a href='/posts/private-dhcp/'> Private DHCP</a> </h2>
+    <div class="meta">
+      <div class="date">
+      17 May, 2014 - 4 minutes
+      </div>
       
+<div class="tags">
+  
+</div>
 
+    </div>
+
+  </header>
+
+  <div class="summary">
+    Recently I was working on a project in which I was creating loads of tap devices, with HaNS instances connected to them. Initially, I was abusing the Galois network, stealing away precious addresses from our internal /24 allocation. This wasn&rsquo;t the end of the world, as I was reusing addresses I was given, but it got me thinking: shouldn&rsquo;t I be able to just allocate my own addresses?
+After a bit of googling, I decided to use Dnsmasq to manage DNS caching, and DHCP.
+  </div>
+
+  <div class="rmore">
+    <a href='/posts/private-dhcp/' class="rmore">Read more</a>
+  </div>
+
+
+</article>
+
+
+    <article class="post-preview">
+
+  <header>
+    <h2 class="title"> <a href='/posts/serenade-in-haskell/'> Serenade in Haskell</a> </h2>
+    <div class="meta">
+      <div class="date">
+      7 May, 2014 - 7 minutes
+      </div>
       
+<div class="tags">
+  
+</div>
+
+    </div>
+
+  </header>
+
+  <div class="summary">
+    One of the things that I think is great about Haskell is the way that you can use the language to design new syntax. After reading a quick introduction to Serenade.js, one of the features that caught my eye was their templating system. It has a fairly elegant interface that provides a concise language for generating HTML, though it seems like a heavyweight solution, as it requires implementing a parser.
+  </div>
+
+  <div class="rmore">
+    <a href='/posts/serenade-in-haskell/' class="rmore">Read more</a>
+  </div>
+
+
+</article>
+
+
+    <article class="post-preview">
+
+  <header>
+    <h2 class="title"> <a href='/posts/vim-mapping-context/'> Vim Mapping Context</a> </h2>
+    <div class="meta">
+      <div class="date">
+      22 Feb, 2013 - 1 minutes
+      </div>
       
-    </head>
+<div class="tags">
+  
+</div>
 
-    <body class="hack dark main container">
-        
-            
-            
+    </div>
 
+  </header>
+
+  <div class="summary">
+    If you&rsquo;re like me, you&rsquo;ve got a lot of filetype-specific macros defined in your vim config. I tend to put these in $VIM/after/syntax so that I can keep it all self-contained, but up until recently, macros had been bleeding into different filetype contexts. The problem was that I had been installing all macros into the global scope, instead of the buffer scope, like this:
+nmap &lt;LocalLeader&gt;l ...Luckily, vim has a provision for this, and adding &lt;buffer&gt; right after the use of nmap fixes the problem, and keeps the mapping buffer-local:
+  </div>
+
+  <div class="rmore">
+    <a href='/posts/vim-mapping-context/' class="rmore">Read more</a>
+  </div>
+
+
+</article>
+
+
+
+
+<div class="page-nav">
+  <div class="page-prev">
     
-        <header>
-        <nav itemscope itemtype="http://schema.org/SiteNavigationElement">
-        
-            <a itemprop="url"
-               class=""
-               href="https://elliottt.github.io">
-                <span itemprop="name">home
-                </span></a>
-        
-            <a itemprop="url"
-               class=""
-               href="https://elliottt.github.io/tags">
-                <span itemprop="name">tags
-                </span></a>
-        
-            <a itemprop="url"
-               class=""
-               href="https://elliottt.github.io/about">
-                <span itemprop="name">about
-                </span></a>
-        
-            <a itemprop="url"
-               class=""
-               href="https://elliottt.github.io/cv">
-                <span itemprop="name">cv
-                </span></a>
-        
-        </nav>
-    </header>
+  </div> 
+
+  <div class="page-num">
+    1/2
+  </div> 
+
+  <div class="page-next">
     
-
-
-            
-
-            <main>
-                
-                    <header>
-                        <h1>blog</h1>
-                    </header>
-                
-                
-                    
-    <article itemscope itemtype="http://schema.org/CreativeWork">
-        <header>
-            <h2 itemprop="name">
-                <a href="https://elliottt.github.io/vim-find-file/">Vim&#x27;s &#96;findfile&#96; function</a>
-            </h2>
-            <span class="muted">
-    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <circle cx="16" cy="16" r="14"/>
-        <path d="M16 8 L16 16 20 20"/>
-    </svg>
-    <span>1 minute read</span>
-    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
-    </svg>
-
+    <a href="/page/2/" title="Next page"> >> </a>
     
-    Published: 2016-08-27
-    
-</span>
-        </header>
-        
-            <div itemprop="summary">
-                <p>I've recently updated the tests for <code>stack.yaml</code> and <code>cabal.project</code> files in my
-<a href="https://github.com/elliottt/vim-haskell">vim haskell plugin</a>. The
-<code>haskell#StackYamlFileExists</code> and <code>haskell#CabalProjectFileExists</code> functions now
-take advantage of vim's <code>findfile</code> function for searching up the directory tree,
-rather than just require that either file exist in the current working
-directory. This change makes a bit more sense given the way that both <code>stack</code>
-and <code>cabal new-build</code> work, allowing the commands to be invoked from anywhere
-underneath the directory that contains <code>stack.yaml</code> or <code>cabal.project</code>.</p>
+  </div> 
+</div> 
 
-                <nav class="readmore"><a itemprop="url" href="https://elliottt.github.io/vim-find-file/">Read More&nbsp;&raquo;</a></nav>
-            </div>
-        
-    </article>
 
-                
-                    
-    <article itemscope itemtype="http://schema.org/CreativeWork">
-        <header>
-            <h2 itemprop="name">
-                <a href="https://elliottt.github.io/debug-console-on-xen/">Debug Console on Xen</a>
-            </h2>
-            <span class="muted">
-    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <circle cx="16" cy="16" r="14"/>
-        <path d="M16 8 L16 16 20 20"/>
-    </svg>
-    <span>1 minute read</span>
-    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
-    </svg>
+</main>
 
-    
-    Published: 2015-03-04
-    
-</span>
-        </header>
-        
-            <div itemprop="summary">
-                <p>When debugging <a href="http://halvm.org">HaLVM</a> domains, the <code>writeDebugConsole</code>
-function from <code>Hypervisor.Debug</code> is invaluable.  However, in order to see the
-messages printed, you must enable the emergency console in
-<a href="http://xen.org">Xen</a>.  This isn't too difficult, but it's not terribly well
-documented: there are many sources that describe parts of the process, but none
-that describe the whole thing.</p>
+  <footer>
 
-                <nav class="readmore"><a itemprop="url" href="https://elliottt.github.io/debug-console-on-xen/">Read More&nbsp;&raquo;</a></nav>
-            </div>
-        
-    </article>
+  <div class="social-links-footer">
 
-                
-                    
-    <article itemscope itemtype="http://schema.org/CreativeWork">
-        <header>
-            <h2 itemprop="name">
-                <a href="https://elliottt.github.io/private-dhcp/">Private DHCP</a>
-            </h2>
-            <span class="muted">
-    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <circle cx="16" cy="16" r="14"/>
-        <path d="M16 8 L16 16 20 20"/>
-    </svg>
-    <span>4 minute read</span>
-    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
-    </svg>
+  
 
-    
-    Published: 2014-05-17
-    
-</span>
-        </header>
-        
-            <div itemprop="summary">
-                <p>Recently I was working on a project in which I was creating loads of tap
-devices, with <a href="https://github.com/galoisinc/hans">HaNS</a> instances connected to
-them.  Initially, I was abusing the Galois network, stealing away precious
-addresses from our internal /24 allocation.  This wasn't the end of the world,
-as I was reusing addresses I was given, but it got me thinking: shouldn't I
-be able to just allocate my own addresses?</p>
+  
+  <a href="https://github.com/elliottt" target="_blank"><div class="social-link">GitHub</div></a>
+  
 
-                <nav class="readmore"><a itemprop="url" href="https://elliottt.github.io/private-dhcp/">Read More&nbsp;&raquo;</a></nav>
-            </div>
-        
-    </article>
+  
 
-                
-                    
-    <article itemscope itemtype="http://schema.org/CreativeWork">
-        <header>
-            <h2 itemprop="name">
-                <a href="https://elliottt.github.io/serenade-in-haskell/">Serenade in Haskell</a>
-            </h2>
-            <span class="muted">
-    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <circle cx="16" cy="16" r="14"/>
-        <path d="M16 8 L16 16 20 20"/>
-    </svg>
-    <span>6 minute read</span>
-    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
-    </svg>
+  
+  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">Twitter</div></a>
+  
 
-    
-    Published: 2014-05-07
-    
-</span>
-        </header>
-        
-            <div itemprop="summary">
-                <p>One of the things that I think is great about Haskell is the way that you can
-use the language to design new syntax.  After reading
-<a href="http://elabs.se/blog/33-why-serenade">a quick introduction to Serenade.js</a>, one of the features that caught
-my eye was their templating system.  It has a fairly elegant interface that
-provides a concise language for generating HTML, though it seems like a
-heavyweight solution, as it requires implementing a parser.</p>
+  
 
-                <nav class="readmore"><a itemprop="url" href="https://elliottt.github.io/serenade-in-haskell/">Read More&nbsp;&raquo;</a></nav>
-            </div>
-        
-    </article>
+  <div class="social-link">
+  <a href="/index.xml" target="_blank">RSS</a>
+  </div>
 
-                
-                    
-    <article itemscope itemtype="http://schema.org/CreativeWork">
-        <header>
-            <h2 itemprop="name">
-                <a href="https://elliottt.github.io/vim-mapping-context/">Vim Mapping Context</a>
-            </h2>
-            <span class="muted">
-    <svg style="margin-bottom:-3px" class="i-clock" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <circle cx="16" cy="16" r="14"/>
-        <path d="M16 8 L16 16 20 20"/>
-    </svg>
-    <span>0 minute read</span>
-    <svg style="margin-bottom: -3px" class="i-edit" viewBox="0 0 32 32"
-         width="16" height="16" fill="none" stroke="currentcolor"
-         stroke-linecap="round" stroke-linejoin="round" stroke-width="6.25%">
-        <path d="M30 7 L25 2 5 22 3 29 10 27 Z M21 6 L26 11 Z M5 22 L10 27 Z"/>
-    </svg>
+</div>
 
-    
-    Published: 2013-02-22
-    
-</span>
-        </header>
-        
-            <div itemprop="summary">
-                <p>If you're like me, you've got a lot of filetype-specific macros defined in your
-vim config.  I tend to put these in <code>$VIM/after/syntax</code> so that I can keep it
-all self-contained, but up until recently, macros had been bleeding into
-different filetype contexts.  The problem was that I had been installing all
-macros into the global scope, instead of the buffer scope, like this:</p>
 
-                <nav class="readmore"><a itemprop="url" href="https://elliottt.github.io/vim-mapping-context/">Read More&nbsp;&raquo;</a></nav>
-            </div>
-        
-    </article>
+  <div class="copyright">  </div>
 
-                
+  <div class="poweredby">
+    Powered by <a href="https://gohugo.io/">Hugo</a>.
+  </div>
 
-                <nav>
-                  <p>
-                    
-                    <span>Page 1 of 2</span>
-                    
-                      | <a href="https:&#x2F;&#x2F;elliottt.github.io&#x2F;page&#x2F;2&#x2F;">Next &raquo;</a>
-                    
-                  </p>
-                </nav>
-            </main>
-        
-    </body>
+  </footer>
 
+</div> 
+
+</body>
 </html>
+
