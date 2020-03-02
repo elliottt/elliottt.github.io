@@ -28,10 +28,12 @@ echo "Committing to master"
 git add -A
 git commit --quiet -e -m "update on $(date "+%F %T")"
 git push
+popd > /dev/null
 
 # deploy elsewhere
 if [ -n "$deploy_host" ]; then
+  pushd public > /dev/null
+  echo "Deploying to $deploy_host"
   scp -r * "$deploy_host"
+  popd > /dev/null
 fi
-
-popd > /dev/null
