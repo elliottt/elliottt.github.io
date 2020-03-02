@@ -1,27 +1,32 @@
 #!/bin/bash
 
 set -euo pipefail
-IFS=$'\n\t'
 
-publish_host="${1:-}"
+deploy_host="${1:-}"
 
 # clone a copy of the repo for deployment
 if [ ! -d "_deploy" ]; then
-    remote=$(git config --get remote.origin.url)
-    git clone --reference=. "${remote}" _deploy
+  echo "_deploy dir missing, cloning the master branch into it"
+  remote=$(git config --get remote.origin.url)
+  git clone --reference=. --quiet "${remote}" _deploy
 else
-    (cd _deploy && git pull)
+  echo "Updating the _deploy directory"
+  git --git-dir=_deploy/.git pull --quiet
 fi
 
 # build the site
+echo "Building the site"
 . scripts/build.sh
 
-exit 1
+rm -rf _deploy/*
+cp -aL public/* _deploy/
 
 # commit the update
-pushd _deploy
+pushd _deploy > /dev/null
+
+echo "Committing to master"
 git add -A
-git commit -e -m "update on $(date "+%F %T")"
+git commit --quiet -e -m "update on $(date "+%F %T")"
 git push
 
 # deploy elsewhere
@@ -29,5 +34,4 @@ if [ -n "$deploy_host" ]; then
   scp -r * "$deploy_host"
 fi
 
-popd
-
+popd > /dev/null
