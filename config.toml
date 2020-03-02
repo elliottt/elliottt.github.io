@@ -3,6 +3,8 @@ languageCode = "en-us"
 theme = "dusk"
 paginate = 5
 
+publishdir = "_deploy"
+
 [author]
 name = "Trevor Elliott"
 
