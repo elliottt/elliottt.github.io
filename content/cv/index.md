@@ -1,5 +1,5 @@
 +++
-title = "trevor elliott"
+title = "cv"
 +++
 
 A [PDF resume](resume.pdf) is also available.

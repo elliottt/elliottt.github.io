@@ -1,11 +1,14 @@
 baseurl = "/"
 languageCode = "en-us"
-theme = "terminal"
+theme = "dusk"
 paginate = 5
 
+[author]
+name = "Trevor Elliott"
+
 [params]
-fullWidthTheme = false
-centerTheme = true
+github = "elliottt"
+twitter = "moltarx"
 
 [language]
 
@@ -23,13 +26,16 @@ logoHomeLink = "/"
 identifier = "blog"
 name = "blog"
 url = "/"
+weight = 1
 
 [[languages.en.menu.main]]
 identifier = "about"
 name = "about"
 url = "/about"
+weight = 2
 
 [[languages.en.menu.main]]
 identifier = "cv"
 name = "cv"
 url = "/cv"
+weight = 3
