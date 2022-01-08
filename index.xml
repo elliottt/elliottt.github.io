@@ -6,10 +6,32 @@
     <description>Recent content on trevor elliott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Aug 2016 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jan 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>cv</title>
+      <link>/cv/</link>
+      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/cv/</guid>
+      <description>A PDF resume is also available.
+Over a decade of experience applying functional programming to hard problems: program analysis, cyber-security, and language design.
+Work Experience Stripe - April 2019 - Present Infrastructure Engineer - Working on the sorbet typechecker and compiler for ruby.
+ Key contributor on the sorbet compiler, implementing optimizations and improving coverage for the ruby language. Generated native code with llvm, targeting the ruby vm&amp;rsquo;s c api. Implemented type-system features, and improved type-checker runtime performance.</description>
+    </item>
+    
+    <item>
+      <title>Dactyl Tight Build</title>
+      <link>/posts/dactyl-tight-build/</link>
+      <pubDate>Sat, 30 Jan 2021 16:18:11 -0800</pubDate>
+      
+      <guid>/posts/dactyl-tight-build/</guid>
+      <description>After reading about the tightyl on r/ergomechkeyboards, I decided to take the plunge and build my own hand-wired keyboard. The total time to assemble it was not as substantial as I expected, but there were some long gaps during the work due to not having ordered some necessary parts.
+Parts I&amp;rsquo;ve been using a gergo for about a year now, and decided that it would be nice to continue using a similar layout keyboard, but with lighter keys.</description>
+    </item>
     
     <item>
       <title>Vim&#39;s `findfile` function</title>
@@ -78,18 +100,6 @@ When you type C-r in edit mode, you get the opportunity to recall the contents o
       <guid>/about/</guid>
       <description>My name is Trevor Elliott, I&amp;rsquo;m a engineer at stripe.
  github twitter google scholar  </description>
-    </item>
-    
-    <item>
-      <title>cv</title>
-      <link>/cv/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/cv/</guid>
-      <description>A PDF resume is also available.
-Over a decade of experience applying functional programming to hard problems: program analysis, cyber-security, and language design.
-Work Experience Stripe - April 2019 - Present Infrastructure Engineer - Working on the sorbet typechecker for ruby.
-groq, inc. Sept 2017 - March 2019 Compiler Engineer - Worked on a compiler for tensorflow models, targeting a custom ASIC that accelerates inference. Focusing on compiler performance and optimization of results.</description>
     </item>
     
   </channel>

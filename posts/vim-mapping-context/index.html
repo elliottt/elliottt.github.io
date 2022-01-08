@@ -7,7 +7,7 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.65.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 <link rel="canonical" href="/posts/vim-mapping-context/">
 <meta property="og:title" content="Vim Mapping Context" />
@@ -16,7 +16,7 @@ nmap &lt;LocalLeader&gt;l ...Luckily, vim has a provision for this, and adding &
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/posts/vim-mapping-context/" />
 <meta property="article:published_time" content="2013-02-22T00:00:00-08:00" />
-<meta property="article:modified_time" content="2013-02-22T00:00:00-08:00" /><meta property="og:site_name" content="trevor elliott" />
+<meta property="article:modified_time" content="2020-02-14T13:07:10-08:00" /><meta property="og:site_name" content="trevor elliott" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Vim Mapping Context"/>
@@ -28,7 +28,7 @@ nmap &lt;LocalLeader&gt;l ...Luckily, vim has a provision for this, and adding &
 <meta itemprop="description" content="If you&rsquo;re like me, you&rsquo;ve got a lot of filetype-specific macros defined in your vim config. I tend to put these in $VIM/after/syntax so that I can keep it all self-contained, but up until recently, macros had been bleeding into different filetype contexts. The problem was that I had been installing all macros into the global scope, instead of the buffer scope, like this:
 nmap &lt;LocalLeader&gt;l ...Luckily, vim has a provision for this, and adding &lt;buffer&gt; right after the use of nmap fixes the problem, and keeps the mapping buffer-local:">
 <meta itemprop="datePublished" content="2013-02-22T00:00:00-08:00" />
-<meta itemprop="dateModified" content="2013-02-22T00:00:00-08:00" />
+<meta itemprop="dateModified" content="2020-02-14T13:07:10-08:00" />
 <meta itemprop="wordCount" content="94">
 
 
@@ -87,8 +87,6 @@ nmap &lt;LocalLeader&gt;l ...Luckily, vim has a provision for this, and adding &
   
 
   
-  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">twtr</div></a>
-  
 
   
 
@@ -143,8 +141,6 @@ of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
 
   
 
-  
-  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">Twitter</div></a>
   
 
   

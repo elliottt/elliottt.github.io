@@ -7,33 +7,35 @@
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.65.3" />
+<meta name="generator" content="Hugo 0.68.3" />
 
 <link rel="canonical" href="/cv/">
 <meta property="og:title" content="cv" />
 <meta property="og:description" content="A PDF resume is also available.
 Over a decade of experience applying functional programming to hard problems: program analysis, cyber-security, and language design.
-Work Experience Stripe - April 2019 - Present Infrastructure Engineer - Working on the sorbet typechecker for ruby.
-groq, inc. Sept 2017 - March 2019 Compiler Engineer - Worked on a compiler for tensorflow models, targeting a custom ASIC that accelerates inference. Focusing on compiler performance and optimization of results." />
+Work Experience Stripe - April 2019 - Present Infrastructure Engineer - Working on the sorbet typechecker and compiler for ruby.
+ Key contributor on the sorbet compiler, implementing optimizations and improving coverage for the ruby language. Generated native code with llvm, targeting the ruby vm&rsquo;s c api. Implemented type-system features, and improved type-checker runtime performance." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="/cv/" />
-<meta property="og:site_name" content="trevor elliott" />
+<meta property="article:published_time" content="2022-01-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-01-07T21:48:21-08:00" /><meta property="og:site_name" content="trevor elliott" />
 
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="cv"/>
 <meta name="twitter:description" content="A PDF resume is also available.
 Over a decade of experience applying functional programming to hard problems: program analysis, cyber-security, and language design.
-Work Experience Stripe - April 2019 - Present Infrastructure Engineer - Working on the sorbet typechecker for ruby.
-groq, inc. Sept 2017 - March 2019 Compiler Engineer - Worked on a compiler for tensorflow models, targeting a custom ASIC that accelerates inference. Focusing on compiler performance and optimization of results."/>
+Work Experience Stripe - April 2019 - Present Infrastructure Engineer - Working on the sorbet typechecker and compiler for ruby.
+ Key contributor on the sorbet compiler, implementing optimizations and improving coverage for the ruby language. Generated native code with llvm, targeting the ruby vm&rsquo;s c api. Implemented type-system features, and improved type-checker runtime performance."/>
 
 
 <meta itemprop="name" content="cv">
 <meta itemprop="description" content="A PDF resume is also available.
 Over a decade of experience applying functional programming to hard problems: program analysis, cyber-security, and language design.
-Work Experience Stripe - April 2019 - Present Infrastructure Engineer - Working on the sorbet typechecker for ruby.
-groq, inc. Sept 2017 - March 2019 Compiler Engineer - Worked on a compiler for tensorflow models, targeting a custom ASIC that accelerates inference. Focusing on compiler performance and optimization of results.">
-
-<meta itemprop="wordCount" content="551">
+Work Experience Stripe - April 2019 - Present Infrastructure Engineer - Working on the sorbet typechecker and compiler for ruby.
+ Key contributor on the sorbet compiler, implementing optimizations and improving coverage for the ruby language. Generated native code with llvm, targeting the ruby vm&rsquo;s c api. Implemented type-system features, and improved type-checker runtime performance.">
+<meta itemprop="datePublished" content="2022-01-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2022-01-07T21:48:21-08:00" />
+<meta itemprop="wordCount" content="678">
 
 
 
@@ -91,8 +93,6 @@ groq, inc. Sept 2017 - March 2019 Compiler Engineer - Worked on a compiler for t
   
 
   
-  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">twtr</div></a>
-  
 
   
 
@@ -112,7 +112,17 @@ groq, inc. Sept 2017 - March 2019 Compiler Engineer - Worked on a compiler for t
 program analysis, cyber-security, and language design.</p>
 <h1 id="work-experience">Work Experience</h1>
 <h2 id="stripe---april-2019---present">Stripe - April 2019 - Present</h2>
-<p><strong>Infrastructure Engineer</strong> - Working on the <a href="https://sorbet.org">sorbet</a> typechecker for ruby.</p>
+<p><strong>Infrastructure Engineer</strong> - Working on the <a href="https://sorbet.org" title="Sorbet">sorbet</a> typechecker and compiler
+for ruby.</p>
+<ul>
+<li>Key contributor on the sorbet compiler, implementing optimizations and
+improving coverage for the ruby language. Generated native code with llvm,
+targeting the ruby vm&rsquo;s c api.</li>
+<li>Implemented type-system features, and improved type-checker runtime
+performance.</li>
+<li>Mentored an intern on the sorbet compiler project, and organized/ran regular
+meetings with external contributors from other companies.</li>
+</ul>
 <h2 id="groq-inc-sept-2017---march-2019">groq, inc. Sept 2017 - March 2019</h2>
 <p><strong>Compiler Engineer</strong> - Worked on a compiler for tensorflow models,
 targeting a custom ASIC that accelerates inference. Focusing on compiler
@@ -143,10 +153,9 @@ authentication system.</p>
 <p>Portland State University, Portland, OR</p>
 <hr>
 <h1 id="technologies">Technologies</h1>
-<p><strong>Expert</strong> - haskell, c, git, gnu make, vim/neovim</p>
-<p><strong>Proficient</strong> - bazel, c++, rust, java, javascript, fsharp, ocaml, python,
-ruby, assembly (x86, arm), coq, isabelle/hol, shell scripting, z3, smt-lib, gdb,
-apache ant</p>
+<p><strong>Languages</strong> - haskell, c/c++, ruby, rust, java, javascript, fsharp, ocaml,
+python, coq, isabelle/hol, shell scripting, assembly (x86, arm)</p>
+<p><strong>Tools</strong> - git, gnu make, vim/neovim, bazel, z3, smt-lib, gdb, lldb</p>
 <hr>
 <h1 id="research-projects">Research Projects</h1>
 <ul>
@@ -167,6 +176,8 @@ Port of the GHC runtime to the Xen hypervisor.</li>
 <hr>
 <h1 id="open-source-projects">Open Source Projects</h1>
 <ul>
+<li><a href="https://sorbet.org" title="Sorbet">sorbet</a><br>
+The Sorbet typechecker for ruby.</li>
 <li><a href="https://github.com/galoisinc/cereal" title="cereal">cereal</a><br>
 Binary format parsing library</li>
 <li><a href="https://github.com/elliottt/llvm-pretty" title="llvm-pretty">llvm-pretty</a><br>
@@ -179,34 +190,45 @@ A fast-forward based classical planning EDSL.</li>
 Contributed support for document annotations.</li>
 </ul>
 <hr>
-<h1 id="publications">Publications</h1>
+<h1 id="publications-and-talks">Publications and Talks</h1>
+<h2 id="november-2021">November 2021</h2>
+<h3 id="compiling-ruby-to-native-code-with-sorbet">Compiling Ruby to Native Code with Sorbet</h3>
+<p>RubyConf 2021, introducing the Sorbet compiler, and discussing the background of
+the proect at Stripe. <a href="https://www.youtube.com/watch?v=BH8S1htcHXY" title="Compiling Ruby to Native Code with Sorbet &amp; LLVM">talk</a></p>
+<h2 id="may-2019">May 2019</h2>
+<h3 id="salty-a-domain-specific-language-for-gr1-specifications-and-designs">Salty-A Domain Specific Language for GR(1) Specifications and Designs</h3>
+<p>Salty is a domain specific language for GR(1) specifications. It makes it
+easier to write and debug specifications by adding richer types to the
+specification language, user-defined macros, specification optimizations, and
+type-checking. <a href="https://ieeexplore.ieee.org/document/8793722">ieee</a></p>
 <h2 id="september-2016">September 2016</h2>
 <h3 id="trackos-a-security-aware-real-time-operating-system-rv">TrackOS: A security-aware real-time operating system, RV.</h3>
 <p>Introduces the TrackOS embedded operating system. TrackOS allows for run-time
 monitoring of control flow for running tasks, with a control flow graph that is
 established during a post-processing pass that doesn&rsquo;t require access to source
-code.</p>
+code. <a href="https://leepike.github.io/pub_pages/rv2016.html">paper</a></p>
 <h2 id="august-2015">August 2015</h2>
-<h3 id="guilt-free-ivory-haskell-symposium">Guilt Free Ivory, Haskell Symposium</h3>
+<h3 id="guilt-free-ivory">Guilt Free Ivory</h3>
 <p>Describes the implementation of the Ivory domain specific language in Haskell,
-as well as the static guarantees that the language provides.</p>
+as well as the static guarantees that the language provides.
+<a href="https://github.com/GaloisInc/ivory/blob/master/ivory-paper/ivory.pdf?raw=true">paper</a>, <a href="https://www.youtube.com/watch?v=D1rm5SnvmKE" title="Guilt Free Ivory">talk</a></p>
 <h2 id="december-2014">December 2014</h2>
-<h3 id="multi-app-security-analysis-with-fuse-statically-detecting-android-app-collusion-pprew">Multi-App Security Analysis with FUSE: Statically Detecting Android App Collusion, PPREW</h3>
+<h3 id="multi-app-security-analysis-with-fuse">Multi-App Security Analysis with FUSE</h3>
 <p>Introduces the FUSE system, which is used to detect collusion between android
-apps installed on the same phone.</p>
+apps installed on the same phone. <a href="http://lilicoding.github.io/SA3Repo/papers/2014_ravitch2014multi.pdf">paper</a></p>
 <h2 id="november-2014">November 2014</h2>
-<h3 id="programming-languages-for-high-assurance-autonomous-vehicles-plpv">Programming Languages for High-Assurance Autonomous Vehicles, PLPV</h3>
+<h3 id="programming-languages-for-high-assurance-autonomous-vehicles">Programming Languages for High-Assurance Autonomous Vehicles</h3>
 <p>Introduces domain specific languages as a means for programmer productivity, in
-the realm of programming for autonomous vehicles.</p>
+the realm of programming for autonomous vehicles. [paper][plpv-tupaper]</p>
 <h2 id="august-2014">August 2014</h2>
 <h3 id="building-embedded-systems-with-embedded-dsls-icfp">Building Embedded Systems with Embedded DSLs, ICFP</h3>
 <p>An experience report detailing the development of the <a href="https://smaccmpilot.org/" title="SMACCMPilot">smaccmpilot</a> autopilot in
 the Ivory and Tower Haskell EDSLs. At the time, <a href="https://smaccmpilot.org/" title="SMACCMPilot">smaccmpilot</a> comprised 10K
-lines of haskell, and generated about 50K lines of C.</p>
+lines of haskell, and generated about 50K lines of C. <a href="https://leepike.github.io/pub_pages/icfp14.html">paper</a></p>
 <h2 id="september-2010">September 2010</h2>
 <h3 id="concurrent-orchestration-in-haskell-haskell-sympmosium">Concurrent Orchestration in Haskell, Haskell Sympmosium</h3>
 <p>Describes the embedding of the <a href="http://orc.csres.utexas.edu/research.shtml" title="Orc">orc</a> orchestration language as the <a href="https://hackage.haskell.org/package/orc" title="Orc">haskell orc</a>
-library.</p>
+library. <a href="https://dl.acm.org/doi/10.1145/1863523.1863534">acm</a></p>
  </div>
     <footer class="post-footer">
 
@@ -216,7 +238,7 @@ library.</p>
   
 </div>
 
-    <div class="date"> 0001-01-01 </div>
+    <div class="date"> 2022-01-05 </div>
     
   </div>
 </footer>
@@ -237,8 +259,6 @@ library.</p>
 
   
 
-  
-  <a href="https://twitter.com/moltarx" target="_blank"><div class="social-link">Twitter</div></a>
   
 
   

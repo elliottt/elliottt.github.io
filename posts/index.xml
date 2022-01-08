@@ -6,10 +6,20 @@
     <description>Recent content in Posts on trevor elliott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 27 Aug 2016 00:00:00 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 30 Jan 2021 16:18:11 -0800</lastBuildDate>
     
 	<atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Dactyl Tight Build</title>
+      <link>/posts/dactyl-tight-build/</link>
+      <pubDate>Sat, 30 Jan 2021 16:18:11 -0800</pubDate>
+      
+      <guid>/posts/dactyl-tight-build/</guid>
+      <description>After reading about the tightyl on r/ergomechkeyboards, I decided to take the plunge and build my own hand-wired keyboard. The total time to assemble it was not as substantial as I expected, but there were some long gaps during the work due to not having ordered some necessary parts.
+Parts I&amp;rsquo;ve been using a gergo for about a year now, and decided that it would be nice to continue using a similar layout keyboard, but with lighter keys.</description>
+    </item>
     
     <item>
       <title>Vim&#39;s `findfile` function</title>
