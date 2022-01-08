@@ -1,7 +1,6 @@
 #!/bin/bash
 
 set -euo pipefail
-IFS=$'\n\t'
 
 # build resume
 make -s -C resume

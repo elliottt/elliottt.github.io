@@ -16,10 +16,10 @@ fi
 
 # build the site
 echo "Building the site"
-. scripts/build.sh
+./scripts/build.sh
 
 rm -rf _deploy/*
-cp -aL public/* _deploy/
+cp -r public/* _deploy/
 
 # commit the update
 pushd _deploy > /dev/null
