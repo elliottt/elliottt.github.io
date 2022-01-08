@@ -123,33 +123,34 @@ type-checking. [ieee][salty-ieee]
 Introduces the TrackOS embedded operating system. TrackOS allows for run-time
 monitoring of control flow for running tasks, with a control flow graph that is
 established during a post-processing pass that doesn't require access to source
-code. [paper][trackos-paper]
+code. [paper](trackos-rv16.pdf)
 
 ## August 2015
 
 ### Guilt Free Ivory
 Describes the implementation of the Ivory domain specific language in Haskell,
 as well as the static guarantees that the language provides.
-[paper][ivory2015-paper], [talk][ivory2015-talk]
+[paper](ivory.pdf), [talk][ivory2015-talk]
 
 ## December 2014
 
 ### Multi-App Security Analysis with FUSE
 Introduces the FUSE system, which is used to detect collusion between android
-apps installed on the same phone. [paper][fuse-paper]
+apps installed on the same phone. [paper](2014_ravitch2014multi.pdf)
 
 ## November 2014
 
 ### Programming Languages for High-Assurance Autonomous Vehicles
 Introduces domain specific languages as a means for programmer productivity, in
-the realm of programming for autonomous vehicles. [paper][plpv-tupaper]
+the realm of programming for autonomous vehicles. [paper](pike-plpv14.pdf)
 
 ## August 2014
 
 ### Building Embedded Systems with Embedded DSLs, ICFP
 An experience report detailing the development of the [smaccmpilot] autopilot in
 the Ivory and Tower Haskell EDSLs. At the time, [smaccmpilot] comprised 10K
-lines of haskell, and generated about 50K lines of C. [paper][icfp-2014]
+lines of haskell, and generated about 50K lines of C.
+[paper](embedded-experience.pdf)
 
 ## September 2010
 
@@ -163,11 +164,7 @@ library. [acm][orc-acm]
 [salty]: https://github.com/galoisinc/salty "Salty"
 [salty-ieee]: https://ieeexplore.ieee.org/document/8793722
 [ivory]: https://ivorylang.org "Ivory"
-[ivory2015-paper]: https://github.com/GaloisInc/ivory/blob/master/ivory-paper/ivory.pdf?raw=true
 [ivory2015-talk]: https://www.youtube.com/watch?v=D1rm5SnvmKE "Guilt Free Ivory"
-[trackos-paper]: https://leepike.github.io/pub_pages/rv2016.html
-[plpv-paper]: https://leepike.github.io/pub_pages/plpv14.html
-[icfp-2014]: https://leepike.github.io/pub_pages/icfp14.html
 [msf-haskell]: https://github.com/galoisinc/msf-haskell "MSF-Haskell"
 [hans]: https://github.com/galoisinc/hans "HaNS"
 [halvm]: https://github.com/galoisinc/halvm "HaLVM"
