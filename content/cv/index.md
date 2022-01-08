@@ -1,5 +1,6 @@
 +++
 title = "cv"
+date = "2022-01-05"
 +++
 
 A [PDF resume](resume.pdf) is also available.
@@ -10,7 +11,15 @@ program analysis, cyber-security, and language design.
 # Work Experience
 
 ## Stripe - April 2019 - Present
-**Infrastructure Engineer** - Working on the [sorbet] typechecker for ruby.
+**Infrastructure Engineer** - Working on the [sorbet] typechecker and compiler
+for ruby.
+* Key contributor on the sorbet compiler, implementing optimizations and
+  improving coverage for the ruby language. Generated native code with llvm,
+  targeting the ruby vm's c api.
+* Implemented type-system features, and improved type-checker runtime
+  performance.
+* Mentored an intern on the sorbet compiler project, and organized/ran regular
+  meetings with external contributors from other companies.
 
 ## groq, inc. Sept 2017 - March 2019
 **Compiler Engineer** - Worked on a compiler for tensorflow models,
@@ -49,11 +58,10 @@ Portland State University, Portland, OR
 
 # Technologies
 
-**Expert** - haskell, c, git, gnu make, vim/neovim
+**Languages** - haskell, c/c++, ruby, rust, java, javascript, fsharp, ocaml,
+python, coq, isabelle/hol, shell scripting, assembly (x86, arm)
 
-**Proficient** - bazel, c++, rust, java, javascript, fsharp, ocaml, python,
-ruby, assembly (x86, arm), coq, isabelle/hol, shell scripting, z3, smt-lib, gdb,
-apache ant
+**Tools** - git, gnu make, vim/neovim, bazel, z3, smt-lib, gdb, lldb
 
 
 ---
@@ -78,6 +86,8 @@ apache ant
 
 # Open Source Projects
 
+- [sorbet]  
+  The Sorbet typechecker for ruby.
 - [cereal]  
   Binary format parsing library
 - [llvm-pretty]  
@@ -91,7 +101,21 @@ apache ant
 
 ---
 
-# Publications
+# Publications and Talks
+
+## November 2021
+
+### Compiling Ruby to Native Code with Sorbet
+RubyConf 2021, introducing the Sorbet compiler, and discussing the background of
+the proect at Stripe. [talk][sorbet2021]
+
+## May 2019
+
+### Salty-A Domain Specific Language for GR(1) Specifications and Designs
+Salty is a domain specific language for GR(1) specifications. It makes it
+easier to write and debug specifications by adding richer types to the
+specification language, user-defined macros, specification optimizations, and
+type-checking. [ieee][salty-ieee]
 
 ## September 2016
 
@@ -99,44 +123,51 @@ apache ant
 Introduces the TrackOS embedded operating system. TrackOS allows for run-time
 monitoring of control flow for running tasks, with a control flow graph that is
 established during a post-processing pass that doesn't require access to source
-code.
+code. [paper][trackos-paper]
 
 ## August 2015
 
-### Guilt Free Ivory, Haskell Symposium
+### Guilt Free Ivory
 Describes the implementation of the Ivory domain specific language in Haskell,
 as well as the static guarantees that the language provides.
+[paper][ivory2015-paper], [talk][ivory2015-talk]
 
 ## December 2014
 
-### Multi-App Security Analysis with FUSE: Statically Detecting Android App Collusion, PPREW
+### Multi-App Security Analysis with FUSE
 Introduces the FUSE system, which is used to detect collusion between android
-apps installed on the same phone.
+apps installed on the same phone. [paper][fuse-paper]
 
 ## November 2014
 
-### Programming Languages for High-Assurance Autonomous Vehicles, PLPV
+### Programming Languages for High-Assurance Autonomous Vehicles
 Introduces domain specific languages as a means for programmer productivity, in
-the realm of programming for autonomous vehicles.
+the realm of programming for autonomous vehicles. [paper][plpv-tupaper]
 
 ## August 2014
 
 ### Building Embedded Systems with Embedded DSLs, ICFP
 An experience report detailing the development of the [smaccmpilot] autopilot in
 the Ivory and Tower Haskell EDSLs. At the time, [smaccmpilot] comprised 10K
-lines of haskell, and generated about 50K lines of C.
+lines of haskell, and generated about 50K lines of C. [paper][icfp-2014]
 
 ## September 2010
 
 ### Concurrent Orchestration in Haskell, Haskell Sympmosium
 Describes the embedding of the [orc] orchestration language as the [haskell orc]
-library.
+library. [acm][orc-acm]
 
 
 
 [cryptol]: https://cryptol.net "Cryptol"
 [salty]: https://github.com/galoisinc/salty "Salty"
+[salty-ieee]: https://ieeexplore.ieee.org/document/8793722
 [ivory]: https://ivorylang.org "Ivory"
+[ivory2015-paper]: https://github.com/GaloisInc/ivory/blob/master/ivory-paper/ivory.pdf?raw=true
+[ivory2015-talk]: https://www.youtube.com/watch?v=D1rm5SnvmKE "Guilt Free Ivory"
+[trackos-paper]: https://leepike.github.io/pub_pages/rv2016.html
+[plpv-paper]: https://leepike.github.io/pub_pages/plpv14.html
+[icfp-2014]: https://leepike.github.io/pub_pages/icfp14.html
 [msf-haskell]: https://github.com/galoisinc/msf-haskell "MSF-Haskell"
 [hans]: https://github.com/galoisinc/hans "HaNS"
 [halvm]: https://github.com/galoisinc/halvm "HaLVM"
@@ -148,4 +179,7 @@ library.
 [smaccmpilot]: https://smaccmpilot.org/ "SMACCMPilot"
 [haskell orc]: https://hackage.haskell.org/package/orc "Orc"
 [orc]: http://orc.csres.utexas.edu/research.shtml "Orc"
-[sorbet]: https://sorbet.org
+[orc-acm]: https://dl.acm.org/doi/10.1145/1863523.1863534
+[sorbet]: https://sorbet.org "Sorbet"
+[sorbet2021]: https://www.youtube.com/watch?v=BH8S1htcHXY "Compiling Ruby to Native Code with Sorbet & LLVM"
+[fuse-paper]: http://lilicoding.github.io/SA3Repo/papers/2014_ravitch2014multi.pdf

@@ -8,7 +8,6 @@
 \email{awesomelyawesome@gmail.com}
 \phone[mobile]{(503) 936-6575}
 \social[github]{elliottt}
-\homepage{elliottt.github.io}
 
 \begin{document}
 
@@ -17,7 +16,15 @@
 \section{Experience}
 
 \cventry{2019--Present}{Infrastructure Engineer}{Stripe}{Portland, OR}
-  {}{Working on the \href{https://sorbet.org}{sorbet} typechecker for ruby.}
+  {}{Working on the \href{https://sorbet.org}{sorbet} typechecker and compiler for ruby.
+  \begin{itemize}%
+  \item Key contributor on the sorbet compiler, implementing optimizations and
+    improving coverage for the ruby language. Generated native code with llvm,
+    targeting the ruby vm's c api.
+  \item Implemented type-system features and improved type-checker runtime performance.
+  \item Mentored an intern on the sorbet compiler project, and organized/ran
+    regular meetings with external contributors from other companies.
+  \end{itemize}}
 
 \cventry{2017--2019}{Compiler Engineer}{Groq, Inc.}{Portland, OR}
   {}{Worked on a compiler for tensorflow models, targeting a custom ASIC
@@ -53,14 +60,14 @@
 \cventry{2008}{B.S. Computer Science}{Portland State University}{Portland, OR}{}{}
 
 \section{Open Source Projects}
+\cvitem{\href{https://github.com/sorbet/sorbet}{sorbet}}
+  {The sorbet typechecker and compiler for ruby}
 \cvitem{\href{https://github.com/galoisinc/cereal}{cereal}}
   {Haskell library for fast binary format parsing/rendering}
 \cvitem{\href{https://github.com/galoisinc/ivory}{ivory}}
   {Haskell EDSL for memory-safe embedded programming}
 \cvitem{\href{https://github.com/galoisinc/salty}{salty}}
   {Reactive synthesis DSL for GR(1) specifications}
-\cvitem{\href{https://github.com/galoisinc/msf-haskell}{msf-haskell}}
-  {Haskell EDSL for interacting with the metasploit framework}
 \cvitem{\href{https://github.com/galoisinc/hans}{HaNS}}
   {A TCP/IP network stack implemented in haskell}
 \cvitem{\href{https://github.com/galoisinc/cryptol}{Cryptol}}
@@ -71,13 +78,11 @@
   {An EDSL for generating textual llvm bitcode}
 \cvitem{\href{https://github.com/elliottt/huff}{huff}}
   {A fast-forward based classical planning EDSL}
-\cvitem{\href{https://github.com/haskell/pretty}{pretty}}
-  {Contributed support for document annotations}
 
 \section{Skills}
-\cvitem{Languages}{haskell, rust, c/c++, java, javascript, fsharp, ocaml,
-  python, ruby, assembly (x86, arm), coq, isabelle/hol, shell scripting}
-\cvitem{Tools}{z3, smt-lib, gdb, gnu make, apache ant, vim/neovim}
+\cvitem{Languages}{haskell, c/c++, rust, java, javascript, fsharp, ocaml,
+  python, ruby, lua, assembly (x86, arm), coq, isabelle/hol, shell scripting}
+\cvitem{Tools}{z3, smt-lib, lldb, gdb, bazel, gnu make, vim/neovim}
 
 \nocite{*}
 \bibliographystyle{plain}

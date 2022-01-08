@@ -2,13 +2,19 @@ baseurl = "/"
 languageCode = "en-us"
 theme = "dusk"
 paginate = 5
+enableGitInfo = true
 
 [author]
 name = "Trevor Elliott"
 
 [params]
 github = "elliottt"
-twitter = "moltarx"
+
+[frontmatter]
+date = ["date", "publishDate", "lastmod"]
+lastmod = ["lastmod", ":git", "date", "publishDate"]
+publishDate = ["publishDate", "date"]
+expiryDate = ["expiryDate"]
 
 [language]
 
