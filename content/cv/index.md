@@ -23,7 +23,7 @@ for ruby.
 
 ## groq, inc. Sept 2017 - March 2019
 **Compiler Engineer** - Worked on a compiler for tensorflow models,
-targeting a custom ASIC that accelerates inference. Focusing on compiler
+targeting a custom ASIC that accelerates inference. Focused on compiler
 performance and optimization of results.
 
 ## Galois, Inc. - Sept 2007 - Sept 2017
