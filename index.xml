@@ -6,7 +6,7 @@
     <description>Recent content on trevor elliott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Jan 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,13 +14,14 @@
     <item>
       <title>cv</title>
       <link>/cv/</link>
-      <pubDate>Wed, 05 Jan 2022 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/cv/</guid>
       <description>A PDF resume is also available.
 Over a decade of experience applying functional programming to hard problems: program analysis, cyber-security, and language design.
-Work Experience Stripe - April 2019 - Present Infrastructure Engineer - Working on the sorbet typechecker and compiler for ruby.
- Key contributor on the sorbet compiler, implementing optimizations and improving coverage for the ruby language. Generated native code with llvm, targeting the ruby vm&amp;rsquo;s c api. Implemented type-system features, and improved type-checker runtime performance.</description>
+Work Experience Fastly - May 2022 - Present Principal Engineer - Working on the Compute@Edge team.
+Stripe - April 2019 - May 2022 Infrastructure Engineer - Worked on the sorbet typechecker and compiler for ruby.
+ Key contributor on the sorbet compiler, implemented optimizations and improved coverage for the ruby language.</description>
     </item>
     
     <item>
