@@ -1,6 +1,6 @@
 +++
 title = "cv"
-date = "2022-01-05"
+date = "2022-06-25"
 +++
 
 A [PDF resume](resume.pdf) is also available.
@@ -10,12 +10,15 @@ program analysis, cyber-security, and language design.
 
 # Work Experience
 
-## Stripe - April 2019 - Present
-**Infrastructure Engineer** - Working on the [sorbet] typechecker and compiler
+## Fastly - May 2022 - Present
+**Principal Engineer** - Working on the Compute@Edge team.
+
+## Stripe - April 2019 - May 2022
+**Infrastructure Engineer** - Worked on the [sorbet] typechecker and compiler
 for ruby.
-* Key contributor on the sorbet compiler, implementing optimizations and
-  improving coverage for the ruby language. Generated native code with llvm,
-  targeting the ruby vm's c api.
+* Key contributor on the sorbet compiler, implemented optimizations and improved
+  coverage for the ruby language. Generated native code with llvm, targeting the
+  ruby vm's c api.
 * Implemented type-system features, and improved type-checker runtime
   performance.
 * Mentored an intern on the sorbet compiler project, and organized/ran regular
