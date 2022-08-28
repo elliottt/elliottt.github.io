@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>vim on trevor elliott</title>
+    <link>/tags/vim/</link>
+    <description>Recent content in vim on trevor elliott</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 Aug 2016 00:00:00 +0000</lastBuildDate><atom:link href="/tags/vim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vim&#39;s `findfile` function</title>
+      <link>/vim-find-file/</link>
+      <pubDate>Sat, 27 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/vim-find-file/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve recently updated the tests for &lt;code&gt;stack.yaml&lt;/code&gt; and &lt;code&gt;cabal.project&lt;/code&gt; files in my
+&lt;a href=&#34;https://github.com/elliottt/vim-haskell&#34;&gt;vim haskell plugin&lt;/a&gt;. The
+&lt;code&gt;haskell#StackYamlFileExists&lt;/code&gt; and &lt;code&gt;haskell#CabalProjectFileExists&lt;/code&gt; functions now
+take advantage of vim&amp;rsquo;s &lt;code&gt;findfile&lt;/code&gt; function for searching up the directory tree,
+rather than just require that either file exist in the current working
+directory. This change makes a bit more sense given the way that both &lt;code&gt;stack&lt;/code&gt;
+and &lt;code&gt;cabal new-build&lt;/code&gt; work, allowing the commands to be invoked from anywhere
+underneath the directory that contains &lt;code&gt;stack.yaml&lt;/code&gt; or &lt;code&gt;cabal.project&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vim Mapping Context</title>
+      <link>/vim-mapping-context/</link>
+      <pubDate>Fri, 22 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/vim-mapping-context/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re like me, you&amp;rsquo;ve got a lot of filetype-specific macros defined in your
+vim config.  I tend to put these in &lt;code&gt;$VIM/after/syntax&lt;/code&gt; so that I can keep it
+all self-contained, but up until recently, macros had been bleeding into
+different filetype contexts.  The problem was that I had been installing all
+macros into the global scope, instead of the buffer scope, like this:&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Vim Register Trick</title>
+      <link>/vim-register-trick/</link>
+      <pubDate>Tue, 19 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>/vim-register-trick/</guid>
+      <description>&lt;p&gt;Well, it&amp;rsquo;s new to me.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

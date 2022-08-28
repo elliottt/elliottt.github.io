@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+  <link rel="stylesheet" href="/scss/main.min.8d1c5e6ac66e5e501cc99b30911b7c065f5ef83e8180c6cdb86cca8b99f0bb92.css" />
+
+
+
+  <script src="/js/feather.min.js"></script>
+
+
+
+  <title>trevor elliott | Private DHCP</title>
+</head>
+<body>
+    <div id="container">
+      <div></div>
+      <div id="content">
+<h1 class="title">Private DHCP</h1>
+<div class="header">
+  <nav id="nav">
+    
+    <a href="/">
+      blog
+    </a>
+    
+    <a href="/about">
+      about
+    </a>
+    
+    <a href="/cv">
+      cv
+    </a>
+    
+  </nav>
+</div>
+
+<div class="box">
+  <div class="content"> <p>Recently I was working on a project in which I was creating loads of tap
+devices, with <a href="https://github.com/galoisinc/hans">HaNS</a> instances connected to
+them.  Initially, I was abusing the Galois network, stealing away precious
+addresses from our internal /24 allocation.  This wasn&rsquo;t the end of the world,
+as I was reusing addresses I was given, but it got me thinking: shouldn&rsquo;t I
+be able to just allocate my own addresses?</p>
+<p>After a bit of googling, I decided to use
+<a href="http://www.thekelleys.org.uk/dnsmasq/doc.html">Dnsmasq</a> to manage DNS caching,
+and DHCP.  My first step was then to configure the network.</p>
+<h2 id="network-configuration">Network Configuration</h2>
+<p><code>NetworkManager</code> injects a bit too much uncertainty into the network
+configuration, so I opted to disable it, and configure the network manually.</p>
+<pre tabindex="0"><code>$ sudo systemctl stop NetworkManager
+$ sudo systemctl disable NetworkManager
+</code></pre><p>I&rsquo;ll be configuring all devices using the config scripts stored in
+<code>/etc/sysconfig/network-scripts</code>, which requires enabling the <code>network</code> service.
+I&rsquo;m not going to enable it here, but instead just restart the machine later.  I
+know that I should be able to just start it after my configuration is done, but
+I was experiencing some odd crashes when following that workflow that
+disappeared with a reboot.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo systemctl enable network
+</span></span></code></pre></div><p>Make sure that the ethernet device you&rsquo;re planning on using as your interface to
+the rest of the world is configured to your liking.  I&rsquo;m doing DHCP with mine to
+get configuration data from the outer network, so it looks like the following.
+(To make work easier, I&rsquo;m putting everything in the trusted firewall zone &ndash;
+this is a development VM, so I don&rsquo;t feel too bad.)</p>
+<ul>
+<li><code>/etc/sysconfig/network-scripts/ifcfg-p2p1</code></li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>DEVICE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;p2p1&#34;</span>
+</span></span><span style="display:flex;"><span>ONBOOT<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>BOOTPROTO<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;dhcp&#34;</span>
+</span></span><span style="display:flex;"><span>HWADDR<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;08:00:27:59:00:f8&#34;</span>
+</span></span><span style="display:flex;"><span>TYPE<span style="color:#f92672">=</span>Ethernet
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;p2p1&#34;</span>
+</span></span><span style="display:flex;"><span>ZONE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;trusted&#34;</span>
+</span></span></code></pre></div><p>Additionally, I&rsquo;ve created a bridge named <code>br0</code> and a dummy device to occupy it,
+named <code>dummy0</code>:</p>
+<ul>
+<li>
+<p><code>/etc/sysconfig/network-scripts/ifcfg-br0</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>DEVICE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;br0&#34;</span>
+</span></span><span style="display:flex;"><span>ONBOOT<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>BOOTPROTO<span style="color:#f92672">=</span>static
+</span></span><span style="display:flex;"><span>TYPE<span style="color:#f92672">=</span>Bridge
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;br0&#34;</span>
+</span></span><span style="display:flex;"><span>ZONE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;trusted&#34;</span>
+</span></span><span style="display:flex;"><span>IPADDR<span style="color:#f92672">=</span>10.37.0.1
+</span></span><span style="display:flex;"><span>NETMASK<span style="color:#f92672">=</span>255.255.255.0
+</span></span></code></pre></div></li>
+<li>
+<p><code>/etc/sysconfig/network-scripts/ifcfg-dummy0</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>DEVNAME<span style="color:#f92672">=</span>dummy0
+</span></span><span style="display:flex;"><span>ONBOOT<span style="color:#f92672">=</span>yes
+</span></span><span style="display:flex;"><span>BOOTPROTO<span style="color:#f92672">=</span>none
+</span></span><span style="display:flex;"><span>TYPE<span style="color:#f92672">=</span>Ethernet
+</span></span><span style="display:flex;"><span>NAME<span style="color:#f92672">=</span>dummy0
+</span></span><span style="display:flex;"><span>ZONE<span style="color:#f92672">=</span>trusted
+</span></span><span style="display:flex;"><span>BRIDGE<span style="color:#f92672">=</span>br0
+</span></span></code></pre></div></li>
+</ul>
+<p>At this point, the layout of the network is all set.  Now, I just need to make
+sure that the <code>dummy</code> kernel module will load at startup, and that I&rsquo;ll be able
+to forward traffic between <code>br0</code> and <code>p2p1</code>.  Loading the module is fairly
+straightforward, as I can just dump the following listing into
+<code>/etc/sysconfig/modules/dummy.modules</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/sh
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>modprobe -a dummy
+</span></span></code></pre></div><p>Next, let&rsquo;s make sure that packets will be forwarded between <code>p2p1</code> and <code>br0</code> by
+setting the <code>net.ipv4.ip_forward</code> sysctl in /etc/sysctl.conf.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>net.ipv4.ip_forward <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Finally, we&rsquo;re ready to reboot, and then begin setting up <code>Dnamasq</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo reboot
+</span></span></code></pre></div><h2 id="dnsmasq">Dnsmasq</h2>
+<p>First, let&rsquo;s install the server.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo yum install dnsmasq
+</span></span></code></pre></div><p>Now, let&rsquo;s make minimal modifications to <code>/etc/dnsmasq.conf</code>, enabling the
+<code>domain-needed</code> and <code>bogus-priv</code> options to make us better netizens.  The
+effective full <code>dnsmasq.conf</code> file is included below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>domain-needed
+</span></span><span style="display:flex;"><span>bogus-priv
+</span></span><span style="display:flex;"><span>conf-dir<span style="color:#f92672">=</span>/etc/dnsmasq.d
+</span></span></code></pre></div><p>Now we&rsquo;ll configure the DHCP server in <code>/etc/dnsmasq.d/dhcp.conf</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>listen-address<span style="color:#f92672">=</span>10.37.0.1
+</span></span><span style="display:flex;"><span>dhcp-range<span style="color:#f92672">=</span>10.37.0.2,10.37.0.254,12h
+</span></span></code></pre></div><p>This gives us most of a /24 network to work with, and listens on the address we
+gave to the bridge in <code>/etc/sysconfig/network-scripts/ifcfg-br0</code>.</p>
+<p>At this point, dnsmasq can be started, and we can test that everything is
+working by using the <code>tcp-test</code> program from
+<a href="https://github.com/galoisinc/hans">HaNS</a>.</p>
+<ul>
+<li>
+<p>Enable <code>Dnsmasq</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo systemctl enable dnsmasq
+</span></span><span style="display:flex;"><span>$ sudo systemctl start dnsmasq
+</span></span></code></pre></div></li>
+<li>
+<p>Create a tap device for <code>tcp-test</code> to use, and add it to the brige that
+<code>Dnsmasq</code> is listening on</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ owner<span style="color:#f92672">=</span>$USER
+</span></span><span style="display:flex;"><span>$ sudo tunctl -p -u $owner -t tap6
+</span></span><span style="display:flex;"><span>$ sudo brctl addif br0 tap0
+</span></span><span style="display:flex;"><span>$ sudo ip link set tap0 up
+</span></span></code></pre></div></li>
+<li>
+<p>Start <code>tcp-test</code> (assuming that you&rsquo;ve already built it with <code>cabal build</code>,
+and are in the base of the <a href="https://github.com/galoisinc/hans">HaNS</a> repo)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ./dist/build/tcp-test/tcp-test dhcp
+</span></span><span style="display:flex;"><span>Network stack running...
+</span></span><span style="display:flex;"><span>Discovering address
+</span></span><span style="display:flex;"><span>Bound to address: 10.37.0.89
+</span></span><span style="display:flex;"><span>accepting
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div></li>
+</ul>
+<p>From a separate terminal you should be able to ping the address that <code>tcp-test</code>
+outputted, <code>10.37.0.89</code> in this case`, and see fairly quick responses.</p>
+<h2 id="external-access">External Access</h2>
+<p>In order to have access to this new network node, from a host outside of the
+machine that it&rsquo;s running on, you&rsquo;ll need to install a route to the
+<code>10.37.0.0/24</code> network.  You&rsquo;ll need to know the address of your ethernet device
+(<code>p2p1</code> here) to install this route.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ ip addr show dev p2p1
+</span></span></code></pre></div><p>In my case, this was the address <code>10.0.1.5</code>.  Next, install the host-specific
+route.  (Remember to replace <code>10.0.1.5</code> with the address you&rsquo;re using.)</p>
+<ul>
+<li>
+<p>Mac OSX</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo route -n 10.37.0.0/24 10.0.1.5
+</span></span></code></pre></div></li>
+<li>
+<p>Linux</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo ip route add 10.37.0.0/24 via 10.0.1.5
+</span></span></code></pre></div></li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Hooray!  Now you can manage all of the devices that are added to the bridge
+<code>br0</code> with a real DHCP server, making the propegation of configuration data a
+breeze.</p> </div>
+  <div class="metadata">
+
+
+<i data-feather="calendar"></i>
+<time datetime="2014-05-17">2014-05-17</time>
+
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/networking">networking</a>
+
+
+<a href="/tags/dhcp">dhcp</a>
+
+
+<a href="/tags/hans">hans</a>
+
+
+</div>
+
+</div>
+<div class="footer">
+  Copyright © 2022 Trevor Elliott
+</div>
+<script>feather.replace({ width: "1em", height: "0.75em" });</script>
+</div>
+      <div></div>
+    </div>
+  </body>
+</html>

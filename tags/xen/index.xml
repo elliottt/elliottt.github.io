@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>xen on trevor elliott</title>
+    <link>/tags/xen/</link>
+    <description>Recent content in xen on trevor elliott</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 04 Mar 2015 00:00:00 +0000</lastBuildDate><atom:link href="/tags/xen/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debug Console on Xen</title>
+      <link>/debug-console-on-xen/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/debug-console-on-xen/</guid>
+      <description>&lt;p&gt;When debugging &lt;a href=&#34;http://halvm.org&#34;&gt;HaLVM&lt;/a&gt; domains, the &lt;code&gt;writeDebugConsole&lt;/code&gt;
+function from &lt;code&gt;Hypervisor.Debug&lt;/code&gt; is invaluable.  However, in order to see the
+messages printed, you must enable the emergency console in
+&lt;a href=&#34;http://xen.org&#34;&gt;Xen&lt;/a&gt;.  This isn&amp;rsquo;t too difficult, but it&amp;rsquo;s not terribly well
+documented: there are many sources that describe parts of the process, but none
+that describe the whole thing.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

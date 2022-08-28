@@ -1,300 +1,211 @@
-
 <!DOCTYPE html>
-<html lang="en-us">
-
-<head>
-<meta charset="utf-8" />
-<meta name="author" content="Trevor Elliott" />
-<meta name="description" content="" />
-<meta name="keywords" content="" />
-<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
-<meta name="generator" content="Hugo 0.68.3" />
-
-<link rel="canonical" href="/">
-<meta property="og:title" content="trevor elliott" />
-<meta property="og:description" content="" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="/" />
-<meta property="og:updated_time" content="2022-06-25T00:00:00+00:00" /><meta property="og:site_name" content="trevor elliott" />
-
-<meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="trevor elliott"/>
-<meta name="twitter:description" content=""/>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.101.0" />
 
 
-<meta itemprop="name" content="trevor elliott">
-<meta itemprop="description" content="">
-
-<link rel="stylesheet" href="/css/layout.css" />
+  <link rel="stylesheet" href="/scss/main.min.8d1c5e6ac66e5e501cc99b30911b7c065f5ef83e8180c6cdb86cca8b99f0bb92.css" />
 
 
-<link rel="stylesheet" href="/css/default-dark.css" />
+  <link rel="alternate" type="application/rss+xml" href="/index.xml" title="trevor elliott" />
+
+
+  <script src="/js/feather.min.js"></script>
 
 
 
-
-<title>
-
-
-     trevor elliott 
-
-</title>
-
+  <title>trevor elliott</title>
 </head>
-
-
 <body>
-<div class="main">
-<header>
-
-<div class="header-bar">
-
-  <nav>
-    <div class="siteTitle">
-      <a href="/">trevor elliott</a>
-    </div> 
-
+    <div id="container">
+      <div></div>
+      <div id="content">
+<div class="title">
+  <h1>
+  
+  trevor elliott
+  </h1>
+</div>
+<div class="header">
+  <nav id="nav">
     
+    <a href="/">
+      blog
+    </a>
     
-    <a class="nav-item active" href="/"><div class="nav-item-title">blog</div></a>
+    <a href="/about">
+      about
+    </a>
     
-    <a class="nav-item" href="/about"><div class="nav-item-title">about</div></a>
+    <a href="/cv">
+      cv
+    </a>
     
-    <a class="nav-item" href="/cv"><div class="nav-item-title">cv</div></a>
-    
-
   </nav>
+</div>
 
-  
-<div class="social-links-header">
 
-  
 
-  
-  <a href="https://github.com/elliottt" target="_blank"><div class="social-link">gh</div></a>
-  
+<div class="box">
+  <h3><a class="title" href="/dactyl-tight-build/">Dactyl Tight Build</a></h3>
+  <p><p>After reading about the
+<a href="https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/">tightyl</a> on r/ergomechkeyboards, I decided to take the
+plunge and build my own hand-wired keyboard. The total time to assemble it was
+not as substantial as I expected, but there were some long gaps during the work
+due to not having ordered some necessary parts.</p></p>
+  <div class="metadata">
 
-  
 
-  
+<i data-feather="calendar"></i>
+<time datetime="2021-01-30">2021-01-30</time>
 
-  
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/keyboard">keyboard</a>
+
+
+<a href="/tags/qmk">qmk</a>
+
+
+</div>
+
+</div>
+
+<div class="box">
+  <h3><a class="title" href="/vim-find-file/">Vim&#39;s `findfile` function</a></h3>
+  <p><p>I&rsquo;ve recently updated the tests for <code>stack.yaml</code> and <code>cabal.project</code> files in my
+<a href="https://github.com/elliottt/vim-haskell">vim haskell plugin</a>. The
+<code>haskell#StackYamlFileExists</code> and <code>haskell#CabalProjectFileExists</code> functions now
+take advantage of vim&rsquo;s <code>findfile</code> function for searching up the directory tree,
+rather than just require that either file exist in the current working
+directory. This change makes a bit more sense given the way that both <code>stack</code>
+and <code>cabal new-build</code> work, allowing the commands to be invoked from anywhere
+underneath the directory that contains <code>stack.yaml</code> or <code>cabal.project</code>.</p></p>
+  <div class="metadata">
+
+
+<i data-feather="calendar"></i>
+<time datetime="2016-08-27">2016-08-27</time>
+
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/vim">vim</a>
+
+
+</div>
+
+</div>
+
+<div class="box">
+  <h3><a class="title" href="/debug-console-on-xen/">Debug Console on Xen</a></h3>
+  <p><p>When debugging <a href="http://halvm.org">HaLVM</a> domains, the <code>writeDebugConsole</code>
+function from <code>Hypervisor.Debug</code> is invaluable.  However, in order to see the
+messages printed, you must enable the emergency console in
+<a href="http://xen.org">Xen</a>.  This isn&rsquo;t too difficult, but it&rsquo;s not terribly well
+documented: there are many sources that describe parts of the process, but none
+that describe the whole thing.</p></p>
+  <div class="metadata">
+
+
+<i data-feather="calendar"></i>
+<time datetime="2015-03-04">2015-03-04</time>
+
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/xen">xen</a>
+
+
+<a href="/tags/halvm">halvm</a>
+
+
+</div>
+
+</div>
+
+<div class="box">
+  <h3><a class="title" href="/private-dhcp/">Private DHCP</a></h3>
+  <p><p>Recently I was working on a project in which I was creating loads of tap
+devices, with <a href="https://github.com/galoisinc/hans">HaNS</a> instances connected to
+them.  Initially, I was abusing the Galois network, stealing away precious
+addresses from our internal /24 allocation.  This wasn&rsquo;t the end of the world,
+as I was reusing addresses I was given, but it got me thinking: shouldn&rsquo;t I
+be able to just allocate my own addresses?</p></p>
+  <div class="metadata">
+
+
+<i data-feather="calendar"></i>
+<time datetime="2014-05-17">2014-05-17</time>
+
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/networking">networking</a>
+
+
+<a href="/tags/dhcp">dhcp</a>
+
+
+<a href="/tags/hans">hans</a>
+
+
+</div>
+
+</div>
+
+<div class="box">
+  <h3><a class="title" href="/serenade-in-haskell/">Serenade in Haskell</a></h3>
+  <p><p>One of the things that I think is great about Haskell is the way that you can
+use the language to design new syntax.  After reading
+<a href="http://elabs.se/blog/33-why-serenade">a quick introduction to Serenade.js</a>, one of the features that caught
+my eye was their templating system.  It has a fairly elegant interface that
+provides a concise language for generating HTML, though it seems like a
+heavyweight solution, as it requires implementing a parser.</p></p>
+  <div class="metadata">
+
+
+<i data-feather="calendar"></i>
+<time datetime="2014-05-07">2014-05-07</time>
+
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/haskell">haskell</a>
+
+
+</div>
 
 </div>
 
 
-</div>
 
-
-</header>
-
-
-<main>
-
-
-  
-    <article class="post-preview">
-
-  <header>
-    <h2 class="title"> <a href='/posts/dactyl-tight-build/'> Dactyl Tight Build</a> </h2>
-    <div class="meta">
-      <div class="date">
-      30 Jan, 2021 - 3 minutes
-      </div>
-      
-<div class="tags">
-  
-</div>
-
-    </div>
-
-  </header>
-
-  <div class="summary">
-    After reading about the tightyl on r/ergomechkeyboards, I decided to take the plunge and build my own hand-wired keyboard. The total time to assemble it was not as substantial as I expected, but there were some long gaps during the work due to not having ordered some necessary parts.
-Parts I&rsquo;ve been using a gergo for about a year now, and decided that it would be nice to continue using a similar layout keyboard, but with lighter keys.
-  </div>
-
-  <div class="rmore">
-    <a href='/posts/dactyl-tight-build/' class="rmore">Read more</a>
-  </div>
-
-
-</article>
-
-
-    <article class="post-preview">
-
-  <header>
-    <h2 class="title"> <a href='/posts/vim-find-file/'> Vim&#39;s `findfile` function</a> </h2>
-    <div class="meta">
-      <div class="date">
-      27 Aug, 2016 - 1 minutes
-      </div>
-      
-<div class="tags">
-  
-</div>
-
-    </div>
-
-  </header>
-
-  <div class="summary">
-    I&rsquo;ve recently updated the tests for stack.yaml and cabal.project files in my vim haskell plugin. The haskell#StackYamlFileExists and haskell#CabalProjectFileExists functions now take advantage of vim&rsquo;s findfile function for searching up the directory tree, rather than just require that either file exist in the current working directory. This change makes a bit more sense given the way that both stack and cabal new-build work, allowing the commands to be invoked from anywhere underneath the directory that contains stack.
-  </div>
-
-  <div class="rmore">
-    <a href='/posts/vim-find-file/' class="rmore">Read more</a>
-  </div>
-
-
-</article>
-
-
-    <article class="post-preview">
-
-  <header>
-    <h2 class="title"> <a href='/posts/debug-console-on-xen/'> Debug Console on Xen</a> </h2>
-    <div class="meta">
-      <div class="date">
-      4 Mar, 2015 - 2 minutes
-      </div>
-      
-<div class="tags">
-  
-</div>
-
-    </div>
-
-  </header>
-
-  <div class="summary">
-    When debugging HaLVM domains, the writeDebugConsole function from Hypervisor.Debug is invaluable. However, in order to see the messages printed, you must enable the emergency console in Xen. This isn&rsquo;t too difficult, but it&rsquo;s not terribly well documented: there are many sources that describe parts of the process, but none that describe the whole thing.
-Rebuilding Xen First, Xen must be rebuilt with the emergency console enabled. This is a relatively simple step, especially if you&rsquo;re building rpms.
-  </div>
-
-  <div class="rmore">
-    <a href='/posts/debug-console-on-xen/' class="rmore">Read more</a>
-  </div>
-
-
-</article>
-
-
-    <article class="post-preview">
-
-  <header>
-    <h2 class="title"> <a href='/posts/private-dhcp/'> Private DHCP</a> </h2>
-    <div class="meta">
-      <div class="date">
-      17 May, 2014 - 4 minutes
-      </div>
-      
-<div class="tags">
-  
-</div>
-
-    </div>
-
-  </header>
-
-  <div class="summary">
-    Recently I was working on a project in which I was creating loads of tap devices, with HaNS instances connected to them. Initially, I was abusing the Galois network, stealing away precious addresses from our internal /24 allocation. This wasn&rsquo;t the end of the world, as I was reusing addresses I was given, but it got me thinking: shouldn&rsquo;t I be able to just allocate my own addresses?
-After a bit of googling, I decided to use Dnsmasq to manage DNS caching, and DHCP.
-  </div>
-
-  <div class="rmore">
-    <a href='/posts/private-dhcp/' class="rmore">Read more</a>
-  </div>
-
-
-</article>
-
-
-    <article class="post-preview">
-
-  <header>
-    <h2 class="title"> <a href='/posts/serenade-in-haskell/'> Serenade in Haskell</a> </h2>
-    <div class="meta">
-      <div class="date">
-      7 May, 2014 - 7 minutes
-      </div>
-      
-<div class="tags">
-  
-</div>
-
-    </div>
-
-  </header>
-
-  <div class="summary">
-    One of the things that I think is great about Haskell is the way that you can use the language to design new syntax. After reading a quick introduction to Serenade.js, one of the features that caught my eye was their templating system. It has a fairly elegant interface that provides a concise language for generating HTML, though it seems like a heavyweight solution, as it requires implementing a parser.
-  </div>
-
-  <div class="rmore">
-    <a href='/posts/serenade-in-haskell/' class="rmore">Read more</a>
-  </div>
-
-
-</article>
-
-
-
-
-<div class="page-nav">
-  <div class="page-prev">
+<div class="pagination">
+  <div class="newer">
     
-  </div> 
-
-  <div class="page-num">
-    1/2
-  </div> 
-
-  <div class="page-next">
-    
-    <a href="/page/2/" title="Next page"> >> </a>
-    
-  </div> 
-</div> 
-
-
-</main>
-
-  <footer>
-
-  <div class="social-links-footer">
-
-  
-
-  
-  <a href="https://github.com/elliottt" target="_blank"><div class="social-link">GitHub</div></a>
-  
-
-  
-
-  
-
-  
-
-  <div class="social-link">
-  <a href="/index.xml" target="_blank">RSS</a>
   </div>
-
+  <div class="older">
+    
+    <a href="/page/2/">older</a>
+    
+  </div>
 </div>
 
 
-  <div class="copyright">  </div>
 
-  <div class="poweredby">
-    Powered by <a href="https://gohugo.io/">Hugo</a>.
-  </div>
-
-  </footer>
-
-</div> 
-
-</body>
+<div class="footer">
+  Copyright © 2022 Trevor Elliott
+</div>
+<script>feather.replace({ width: "1em", height: "0.75em" });</script>
+</div>
+      <div></div>
+    </div>
+  </body>
 </html>
-

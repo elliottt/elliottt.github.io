@@ -6,9 +6,87 @@
     <description>Recent content in Tags on trevor elliott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Sat, 30 Jan 2021 16:18:11 -0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>keyboard</title>
+      <link>/tags/keyboard/</link>
+      <pubDate>Sat, 30 Jan 2021 16:18:11 -0800</pubDate>
+      
+      <guid>/tags/keyboard/</guid>
+      <description></description>
+    </item>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>qmk</title>
+      <link>/tags/qmk/</link>
+      <pubDate>Sat, 30 Jan 2021 16:18:11 -0800</pubDate>
+      
+      <guid>/tags/qmk/</guid>
+      <description></description>
+    </item>
     
+    <item>
+      <title>vim</title>
+      <link>/tags/vim/</link>
+      <pubDate>Sat, 27 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/vim/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>halvm</title>
+      <link>/tags/halvm/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/halvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>xen</title>
+      <link>/tags/xen/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/xen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dhcp</title>
+      <link>/tags/dhcp/</link>
+      <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/dhcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hans</title>
+      <link>/tags/hans/</link>
+      <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/hans/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>networking</title>
+      <link>/tags/networking/</link>
+      <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>haskell</title>
+      <link>/tags/haskell/</link>
+      <pubDate>Wed, 07 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/tags/haskell/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

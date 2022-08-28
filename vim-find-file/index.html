@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+  <link rel="stylesheet" href="/scss/main.min.8d1c5e6ac66e5e501cc99b30911b7c065f5ef83e8180c6cdb86cca8b99f0bb92.css" />
+
+
+
+  <script src="/js/feather.min.js"></script>
+
+
+
+  <title>trevor elliott | Vim&#39;s `findfile` function</title>
+</head>
+<body>
+    <div id="container">
+      <div></div>
+      <div id="content">
+<h1 class="title">Vim&#39;s `findfile` function</h1>
+<div class="header">
+  <nav id="nav">
+    
+    <a href="/">
+      blog
+    </a>
+    
+    <a href="/about">
+      about
+    </a>
+    
+    <a href="/cv">
+      cv
+    </a>
+    
+  </nav>
+</div>
+
+<div class="box">
+  <div class="content"> <p>I&rsquo;ve recently updated the tests for <code>stack.yaml</code> and <code>cabal.project</code> files in my
+<a href="https://github.com/elliottt/vim-haskell">vim haskell plugin</a>. The
+<code>haskell#StackYamlFileExists</code> and <code>haskell#CabalProjectFileExists</code> functions now
+take advantage of vim&rsquo;s <code>findfile</code> function for searching up the directory tree,
+rather than just require that either file exist in the current working
+directory. This change makes a bit more sense given the way that both <code>stack</code>
+and <code>cabal new-build</code> work, allowing the commands to be invoked from anywhere
+underneath the directory that contains <code>stack.yaml</code> or <code>cabal.project</code>.</p>
+<p>The <code>findfile</code> function is quite handy for this situation, as it&rsquo;s able to
+search up as well as down the directory tree. Simply specifying the directory to
+search from as <code>'.;'</code> instructs it to search up the tree, and passing the
+<code>{list}</code> argument as <code>-1</code> returns a list of the matches instead of the path of
+the first match.</p>
+<p>I&rsquo;ve now updated my
+<a href="https://github.com/elliottt/vim-config/blob/master/after/syntax/haskell.vim">personal haskell config</a>
+to choose which tool to use, based on the three predicates that the plugin
+provides:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#75715e">&#34; Configure :make</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">if</span> <span style="color:#a6e22e">haskell</span>#<span style="color:#a6e22e">CabalProjectFileExists</span>()<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">compiler</span> <span style="color:#a6e22e">cabal</span>-<span style="color:#a6e22e">new</span>-<span style="color:#a6e22e">build</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">elseif</span> <span style="color:#a6e22e">haskell</span>#<span style="color:#a6e22e">StackYamlFileExists</span>()<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">compiler</span> <span style="color:#a6e22e">stack</span>-<span style="color:#a6e22e">build</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">elseif</span> <span style="color:#a6e22e">haskell</span>#<span style="color:#a6e22e">CabalFileExists</span>()<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    <span style="color:#a6e22e">compiler</span> <span style="color:#a6e22e">cabal</span>-<span style="color:#a6e22e">build</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">endif</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div> </div>
+  <div class="metadata">
+
+
+<i data-feather="calendar"></i>
+<time datetime="2016-08-27">2016-08-27</time>
+
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/vim">vim</a>
+
+
+</div>
+
+</div>
+<div class="footer">
+  Copyright © 2022 Trevor Elliott
+</div>
+<script>feather.replace({ width: "1em", height: "0.75em" });</script>
+</div>
+      <div></div>
+    </div>
+  </body>
+</html>

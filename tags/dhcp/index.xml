@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>dhcp on trevor elliott</title>
+    <link>/tags/dhcp/</link>
+    <description>Recent content in dhcp on trevor elliott</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 May 2014 00:00:00 +0000</lastBuildDate><atom:link href="/tags/dhcp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Private DHCP</title>
+      <link>/private-dhcp/</link>
+      <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
+      
+      <guid>/private-dhcp/</guid>
+      <description>&lt;p&gt;Recently I was working on a project in which I was creating loads of tap
+devices, with &lt;a href=&#34;https://github.com/galoisinc/hans&#34;&gt;HaNS&lt;/a&gt; instances connected to
+them.  Initially, I was abusing the Galois network, stealing away precious
+addresses from our internal /24 allocation.  This wasn&amp;rsquo;t the end of the world,
+as I was reusing addresses I was given, but it got me thinking: shouldn&amp;rsquo;t I
+be able to just allocate my own addresses?&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

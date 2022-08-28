@@ -8,14 +8,14 @@
   <link rel="stylesheet" href="/scss/main.min.8d1c5e6ac66e5e501cc99b30911b7c065f5ef83e8180c6cdb86cca8b99f0bb92.css" />
 
 
-  <link rel="alternate" type="application/rss+xml" href="/index.xml" title="trevor elliott" />
+  <link rel="alternate" type="application/rss+xml" href="/tags/vim/index.xml" title="trevor elliott" />
 
 
   <script src="/js/feather.min.js"></script>
 
 
 
-  <title>trevor elliott</title>
+  <title>trevor elliott | vim</title>
 </head>
 <body>
     <div id="container">
@@ -24,7 +24,9 @@
 <div class="title">
   <h1>
   
-  trevor elliott
+    <li data-feather="tag"></li>
+  
+  vim
   </h1>
 </div>
 <div class="header">
@@ -46,6 +48,33 @@
 </div>
 
 
+
+<div class="box">
+  <h3><a class="title" href="/vim-find-file/">Vim&#39;s `findfile` function</a></h3>
+  <p><p>I&rsquo;ve recently updated the tests for <code>stack.yaml</code> and <code>cabal.project</code> files in my
+<a href="https://github.com/elliottt/vim-haskell">vim haskell plugin</a>. The
+<code>haskell#StackYamlFileExists</code> and <code>haskell#CabalProjectFileExists</code> functions now
+take advantage of vim&rsquo;s <code>findfile</code> function for searching up the directory tree,
+rather than just require that either file exist in the current working
+directory. This change makes a bit more sense given the way that both <code>stack</code>
+and <code>cabal new-build</code> work, allowing the commands to be invoked from anywhere
+underneath the directory that contains <code>stack.yaml</code> or <code>cabal.project</code>.</p></p>
+  <div class="metadata">
+
+
+<i data-feather="calendar"></i>
+<time datetime="2016-08-27">2016-08-27</time>
+
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/vim">vim</a>
+
+
+</div>
+
+</div>
 
 <div class="box">
   <h3><a class="title" href="/vim-mapping-context/">Vim Mapping Context</a></h3>
@@ -92,17 +121,6 @@ macros into the global scope, instead of the buffer scope, like this:</p></p>
 </div>
 
 
-
-<div class="pagination">
-  <div class="newer">
-    
-    <a href="/">newer</a>
-    
-  </div>
-  <div class="older">
-    
-  </div>
-</div>
 
 
 

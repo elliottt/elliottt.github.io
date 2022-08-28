@@ -1,68 +1,59 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
-    <loc>/cv/</loc>
-    <lastmod>2022-06-25T14:04:14-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2022-06-25T14:04:14-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/dactyl-tight-build/</loc>
-    <lastmod>2021-01-30T18:43:47-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2021-01-30T18:43:47-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/vim-find-file/</loc>
-    <lastmod>2020-02-14T13:07:10-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/debug-console-on-xen/</loc>
-    <lastmod>2020-02-14T13:07:10-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/private-dhcp/</loc>
-    <lastmod>2020-02-14T13:07:10-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/serenade-in-haskell/</loc>
-    <lastmod>2020-02-14T13:07:10-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/vim-mapping-context/</loc>
-    <lastmod>2020-02-14T13:07:10-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/vim-register-trick/</loc>
-    <lastmod>2020-02-14T13:07:10-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2020-02-14T13:07:10-08:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-  </url>
-  
-  <url>
+    <loc>/dactyl-tight-build/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/tags/keyboard/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/tags/qmk/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
     <loc>/tags/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/tags/vim/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/vim-find-file/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/debug-console-on-xen/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/tags/halvm/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/tags/xen/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/tags/dhcp/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/tags/hans/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/tags/networking/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/private-dhcp/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/tags/haskell/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/serenade-in-haskell/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/vim-mapping-context/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
+  </url><url>
+    <loc>/vim-register-trick/</loc>
+    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
   </url>
-  
 </urlset>

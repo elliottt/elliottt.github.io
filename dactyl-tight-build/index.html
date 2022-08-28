@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+  <link rel="stylesheet" href="/scss/main.min.8d1c5e6ac66e5e501cc99b30911b7c065f5ef83e8180c6cdb86cca8b99f0bb92.css" />
+
+
+
+  <script src="/js/feather.min.js"></script>
+
+
+
+  <title>trevor elliott | Dactyl Tight Build</title>
+</head>
+<body>
+    <div id="container">
+      <div></div>
+      <div id="content">
+<h1 class="title">Dactyl Tight Build</h1>
+<div class="header">
+  <nav id="nav">
+    
+    <a href="/">
+      blog
+    </a>
+    
+    <a href="/about">
+      about
+    </a>
+    
+    <a href="/cv">
+      cv
+    </a>
+    
+  </nav>
+</div>
+
+<div class="box">
+  <div class="content"> <p>After reading about the
+<a href="https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/">tightyl</a> on r/ergomechkeyboards, I decided to take the
+plunge and build my own hand-wired keyboard. The total time to assemble it was
+not as substantial as I expected, but there were some long gaps during the work
+due to not having ordered some necessary parts.</p>
+<h2 id="parts">Parts</h2>
+<p>I&rsquo;ve been using a <a href="https://www.gboards.ca/product/gergo">gergo</a> for about a year
+now, and decided that it would be nice to continue using a similar layout
+keyboard, but with lighter keys. The layout that I use has a number of different
+layers and a variant on home-row mods, so I am frequently pressing multiple keys
+at once.  After doing some research, I settled on gateron clears, which are
+linear and have a spring weight of 35g. I wasn&rsquo;t too sure about linear switches,
+having only used tactile switches before, but thought that it would be worth an
+experiment.</p>
+<p>The case itself was printed locally by a friend, for the cost of one reel of
+plastic. This worked out pretty well for me, as they have much more experience
+with 3d printing than I do, and it would have been quite the detour into 3d
+printing to get to the point where I could produce a nice print.</p>
+<h3 id="parts-list">Parts List</h3>
+<ul>
+<li><a href="https://www.thingiverse.com/thing:4416866">Both halves of the tightyl case</a></li>
+<li>50 <a href="https://flashquark.com/product/plate-mounted-gateron-switches/">gateron clear switches</a></li>
+<li>50 <a href="https://flashquark.com/product/translucent-dsa-keycaps/">clear translucent DSA keycaps</a></li>
+<li>50 <a href="https://flashquark.com/product/translucent-dsa-keycaps/">black translucent DSA keycaps</a></li>
+<li>100 <a href="https://flashquark.com/product/1n4148-diodes/">diodes</a></li>
+<li>2 <a href="https://www.amazon.com/gp/product/B07FXCTVQP">arduino clone microcontrollers</a></li>
+<li><a href="https://www.amazon.com/gp/product/B07FXCTVQP">dupont connector kit</a></li>
+<li>100 heat set nuts</li>
+<li>100 4mm M2.5 screws</li>
+</ul>
+<h2 id="assembly">Assembly</h2>
+<p>I followed the technique outlined in <a href="https://geekhack.org/index.php?topic=87689.0">cribbit&rsquo;s modern handwiring
+guide</a>. My wife had a set of
+round-tipped needle nose pliers for jewelry making that worked really well for
+wrapping the legs of the diodes into rings that would fit over the legs of the
+switches. I purchased a <a href="https://www.amazon.com/gp/product/B0788K4R8Z">wire
+stripper</a> from amazon like the one
+mentioned in the modern handwiring guide, and it really simplified the process
+of stripping insulation from the solid core wire for the columns of the matrix.</p>
+<p>For the connection to the microcontrollers I used a dupont connector kit from
+amazon. The stranded wire was easy to thread under the matrix and solder to the
+rows/columns, and the connectors fit well on the pins soldered to the
+microcontroller. The result was that it was easy to remove the microcontroller
+for debugging, which I needed to do plenty of when getting qmk setup.</p>
+<h2 id="qmk-setup">QMK Setup</h2>
+<p>I used the <code>util/new_keyboard.sh</code> script to create the initial configuration
+for the tightyl in <code>handwired/tightyl</code>. This script worked well, and the
+configuration that it setup was a great starting point.</p>
+<p>Getting the keyboard working took a bit of trial and error, though not with the
+feature that I would have expected: I had a lot of trouble getting the
+handedness detection working by setting one pin of the microcontroller high.
+However, reading through the split keyboard documentation in QMK provides a lot
+of options for handedness detection, and I ended up switching to using the
+<a href="https://beta.docs.qmk.fm/using-qmk/hardware-features/feature_split_keyboard#handedness-by-matrix-pin">unused
+intersection</a>
+in the keyboard matrix for identifying the left side of the keyboard.</p>
+<p>The configuration that I&rsquo;ve settled on is in my <a href="https://github.com/elliottt/qmk_firmware/tree/elliottt-config/keyboards/handwired/tightyl">qmk
+fork</a>.</p> </div>
+  <div class="metadata">
+
+
+<i data-feather="calendar"></i>
+<time datetime="2021-01-30">2021-01-30</time>
+
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/keyboard">keyboard</a>
+
+
+<a href="/tags/qmk">qmk</a>
+
+
+</div>
+
+</div>
+<div class="footer">
+  Copyright © 2022 Trevor Elliott
+</div>
+<script>feather.replace({ width: "1em", height: "0.75em" });</script>
+</div>
+      <div></div>
+    </div>
+  </body>
+</html>

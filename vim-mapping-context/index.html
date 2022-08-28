@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+  <link rel="stylesheet" href="/scss/main.min.8d1c5e6ac66e5e501cc99b30911b7c065f5ef83e8180c6cdb86cca8b99f0bb92.css" />
+
+
+
+  <script src="/js/feather.min.js"></script>
+
+
+
+  <title>trevor elliott | Vim Mapping Context</title>
+</head>
+<body>
+    <div id="container">
+      <div></div>
+      <div id="content">
+<h1 class="title">Vim Mapping Context</h1>
+<div class="header">
+  <nav id="nav">
+    
+    <a href="/">
+      blog
+    </a>
+    
+    <a href="/about">
+      about
+    </a>
+    
+    <a href="/cv">
+      cv
+    </a>
+    
+  </nav>
+</div>
+
+<div class="box">
+  <div class="content"> <p>If you&rsquo;re like me, you&rsquo;ve got a lot of filetype-specific macros defined in your
+vim config.  I tend to put these in <code>$VIM/after/syntax</code> so that I can keep it
+all self-contained, but up until recently, macros had been bleeding into
+different filetype contexts.  The problem was that I had been installing all
+macros into the global scope, instead of the buffer scope, like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#a6e22e">nmap</span> &lt;<span style="color:#a6e22e">LocalLeader</span>&gt;<span style="color:#a6e22e">l</span> ...<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>Luckily, vim has a provision for this, and adding <code>&lt;buffer&gt;</code> right after the use
+of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#a6e22e">nmap</span> &lt;<span style="color:#a6e22e">buffer</span>&gt; &lt;<span style="color:#a6e22e">LocalLeader</span>&gt;<span style="color:#a6e22e">l</span> ...<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div> </div>
+  <div class="metadata">
+
+
+<i data-feather="calendar"></i>
+<time datetime="2013-02-22">2013-02-22</time>
+
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/vim">vim</a>
+
+
+</div>
+
+</div>
+<div class="footer">
+  Copyright © 2022 Trevor Elliott
+</div>
+<script>feather.replace({ width: "1em", height: "0.75em" });</script>
+</div>
+      <div></div>
+    </div>
+  </body>
+</html>

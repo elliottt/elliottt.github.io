@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Hugo 0.101.0" />
+
+
+  <link rel="stylesheet" href="/scss/main.min.8d1c5e6ac66e5e501cc99b30911b7c065f5ef83e8180c6cdb86cca8b99f0bb92.css" />
+
+
+
+  <script src="/js/feather.min.js"></script>
+
+
+
+  <title>trevor elliott | Debug Console on Xen</title>
+</head>
+<body>
+    <div id="container">
+      <div></div>
+      <div id="content">
+<h1 class="title">Debug Console on Xen</h1>
+<div class="header">
+  <nav id="nav">
+    
+    <a href="/">
+      blog
+    </a>
+    
+    <a href="/about">
+      about
+    </a>
+    
+    <a href="/cv">
+      cv
+    </a>
+    
+  </nav>
+</div>
+
+<div class="box">
+  <div class="content"> <p>When debugging <a href="http://halvm.org">HaLVM</a> domains, the <code>writeDebugConsole</code>
+function from <code>Hypervisor.Debug</code> is invaluable.  However, in order to see the
+messages printed, you must enable the emergency console in
+<a href="http://xen.org">Xen</a>.  This isn&rsquo;t too difficult, but it&rsquo;s not terribly well
+documented: there are many sources that describe parts of the process, but none
+that describe the whole thing.</p>
+<h2 id="rebuilding-xen">Rebuilding Xen</h2>
+<p>First, Xen must be rebuilt with the emergency console enabled.  This is a
+relatively simple step, especially if you&rsquo;re building rpms.  When running
+<code>make</code>, make sure to add the additional argument <code>verbose=y</code>, which enables the
+emergency console.  If rebuilding an rpm, just modify the <code>make</code> invocation in
+the <code>%build</code> section of the spec file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ make verbose<span style="color:#f92672">=</span>y
+</span></span></code></pre></div><h2 id="booting-xen">Booting Xen</h2>
+<p>Next, you will need to modify the command line passed to Xen on boot,
+instructing it to output messages to the debug console.  When using grub2, on
+Fedora, this is achieved by modifying the <code>/etc/default/grub</code> file, and
+rebuilding the grub configuration.</p>
+<p>First, append this line to <code>/etc/default/grub</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>GRUB_CMDLINE_XEN<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;loglvl=all guest_loglvl=all sync_console console_to_ring&#34;</span>
+</span></span></code></pre></div><p>This sets the logging level of both Xen and any guest domains to all, forces
+synchronous output to the console, and copies all guest console output to the
+console ring buffer.</p>
+<p>Next, run this command to regenerate your grub config:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+</span></span></code></pre></div><p>Now, you should be able to just reboot, selecting Xen from the grub menu, and be
+able to see the output of calls to <code>writeDebugConsole</code>.</p>
+<h2 id="wrapping-up">Wrapping Up</h2>
+<p>You should now be able to rebuild and configure Xen to allow guest domains to
+write to the emergency console.  In particular, you can use this new feature to
+aid the debugging of HaLVM domains.</p> </div>
+  <div class="metadata">
+
+
+<i data-feather="calendar"></i>
+<time datetime="2015-03-04">2015-03-04</time>
+
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/xen">xen</a>
+
+
+<a href="/tags/halvm">halvm</a>
+
+
+</div>
+
+</div>
+<div class="footer">
+  Copyright © 2022 Trevor Elliott
+</div>
+<script>feather.replace({ width: "1em", height: "0.75em" });</script>
+</div>
+      <div></div>
+    </div>
+  </body>
+</html>

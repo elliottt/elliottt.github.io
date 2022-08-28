@@ -6,101 +6,98 @@
     <description>Recent content on trevor elliott</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Jun 2022 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>cv</title>
-      <link>/cv/</link>
-      <pubDate>Sat, 25 Jun 2022 00:00:00 +0000</pubDate>
-      
-      <guid>/cv/</guid>
-      <description>A PDF resume is also available.
-Over a decade of experience applying functional programming to hard problems: program analysis, cyber-security, and language design.
-Work Experience Fastly - May 2022 - Present Principal Engineer - Working on the Compute@Edge team.
-Stripe - April 2019 - May 2022 Infrastructure Engineer - Worked on the sorbet typechecker and compiler for ruby.
- Key contributor on the sorbet compiler, implemented optimizations and improved coverage for the ruby language.</description>
-    </item>
-    
+    <lastBuildDate>Sat, 30 Jan 2021 16:18:11 -0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dactyl Tight Build</title>
-      <link>/posts/dactyl-tight-build/</link>
+      <link>/dactyl-tight-build/</link>
       <pubDate>Sat, 30 Jan 2021 16:18:11 -0800</pubDate>
       
-      <guid>/posts/dactyl-tight-build/</guid>
-      <description>After reading about the tightyl on r/ergomechkeyboards, I decided to take the plunge and build my own hand-wired keyboard. The total time to assemble it was not as substantial as I expected, but there were some long gaps during the work due to not having ordered some necessary parts.
-Parts I&amp;rsquo;ve been using a gergo for about a year now, and decided that it would be nice to continue using a similar layout keyboard, but with lighter keys.</description>
+      <guid>/dactyl-tight-build/</guid>
+      <description>&lt;p&gt;After reading about the
+&lt;a href=&#34;https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/&#34;&gt;tightyl&lt;/a&gt; on r/ergomechkeyboards, I decided to take the
+plunge and build my own hand-wired keyboard. The total time to assemble it was
+not as substantial as I expected, but there were some long gaps during the work
+due to not having ordered some necessary parts.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Vim&#39;s `findfile` function</title>
-      <link>/posts/vim-find-file/</link>
-      <pubDate>Sat, 27 Aug 2016 00:00:00 -0700</pubDate>
+      <link>/vim-find-file/</link>
+      <pubDate>Sat, 27 Aug 2016 00:00:00 +0000</pubDate>
       
-      <guid>/posts/vim-find-file/</guid>
-      <description>I&amp;rsquo;ve recently updated the tests for stack.yaml and cabal.project files in my vim haskell plugin. The haskell#StackYamlFileExists and haskell#CabalProjectFileExists functions now take advantage of vim&amp;rsquo;s findfile function for searching up the directory tree, rather than just require that either file exist in the current working directory. This change makes a bit more sense given the way that both stack and cabal new-build work, allowing the commands to be invoked from anywhere underneath the directory that contains stack.</description>
+      <guid>/vim-find-file/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve recently updated the tests for &lt;code&gt;stack.yaml&lt;/code&gt; and &lt;code&gt;cabal.project&lt;/code&gt; files in my
+&lt;a href=&#34;https://github.com/elliottt/vim-haskell&#34;&gt;vim haskell plugin&lt;/a&gt;. The
+&lt;code&gt;haskell#StackYamlFileExists&lt;/code&gt; and &lt;code&gt;haskell#CabalProjectFileExists&lt;/code&gt; functions now
+take advantage of vim&amp;rsquo;s &lt;code&gt;findfile&lt;/code&gt; function for searching up the directory tree,
+rather than just require that either file exist in the current working
+directory. This change makes a bit more sense given the way that both &lt;code&gt;stack&lt;/code&gt;
+and &lt;code&gt;cabal new-build&lt;/code&gt; work, allowing the commands to be invoked from anywhere
+underneath the directory that contains &lt;code&gt;stack.yaml&lt;/code&gt; or &lt;code&gt;cabal.project&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Debug Console on Xen</title>
-      <link>/posts/debug-console-on-xen/</link>
-      <pubDate>Wed, 04 Mar 2015 00:00:00 -0800</pubDate>
+      <link>/debug-console-on-xen/</link>
+      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
       
-      <guid>/posts/debug-console-on-xen/</guid>
-      <description>When debugging HaLVM domains, the writeDebugConsole function from Hypervisor.Debug is invaluable. However, in order to see the messages printed, you must enable the emergency console in Xen. This isn&amp;rsquo;t too difficult, but it&amp;rsquo;s not terribly well documented: there are many sources that describe parts of the process, but none that describe the whole thing.
-Rebuilding Xen First, Xen must be rebuilt with the emergency console enabled. This is a relatively simple step, especially if you&amp;rsquo;re building rpms.</description>
+      <guid>/debug-console-on-xen/</guid>
+      <description>&lt;p&gt;When debugging &lt;a href=&#34;http://halvm.org&#34;&gt;HaLVM&lt;/a&gt; domains, the &lt;code&gt;writeDebugConsole&lt;/code&gt;
+function from &lt;code&gt;Hypervisor.Debug&lt;/code&gt; is invaluable.  However, in order to see the
+messages printed, you must enable the emergency console in
+&lt;a href=&#34;http://xen.org&#34;&gt;Xen&lt;/a&gt;.  This isn&amp;rsquo;t too difficult, but it&amp;rsquo;s not terribly well
+documented: there are many sources that describe parts of the process, but none
+that describe the whole thing.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Private DHCP</title>
-      <link>/posts/private-dhcp/</link>
-      <pubDate>Sat, 17 May 2014 00:00:00 -0700</pubDate>
+      <link>/private-dhcp/</link>
+      <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>/posts/private-dhcp/</guid>
-      <description>Recently I was working on a project in which I was creating loads of tap devices, with HaNS instances connected to them. Initially, I was abusing the Galois network, stealing away precious addresses from our internal /24 allocation. This wasn&amp;rsquo;t the end of the world, as I was reusing addresses I was given, but it got me thinking: shouldn&amp;rsquo;t I be able to just allocate my own addresses?
-After a bit of googling, I decided to use Dnsmasq to manage DNS caching, and DHCP.</description>
+      <guid>/private-dhcp/</guid>
+      <description>&lt;p&gt;Recently I was working on a project in which I was creating loads of tap
+devices, with &lt;a href=&#34;https://github.com/galoisinc/hans&#34;&gt;HaNS&lt;/a&gt; instances connected to
+them.  Initially, I was abusing the Galois network, stealing away precious
+addresses from our internal /24 allocation.  This wasn&amp;rsquo;t the end of the world,
+as I was reusing addresses I was given, but it got me thinking: shouldn&amp;rsquo;t I
+be able to just allocate my own addresses?&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Serenade in Haskell</title>
-      <link>/posts/serenade-in-haskell/</link>
-      <pubDate>Wed, 07 May 2014 00:00:00 -0700</pubDate>
+      <link>/serenade-in-haskell/</link>
+      <pubDate>Wed, 07 May 2014 00:00:00 +0000</pubDate>
       
-      <guid>/posts/serenade-in-haskell/</guid>
-      <description>One of the things that I think is great about Haskell is the way that you can use the language to design new syntax. After reading a quick introduction to Serenade.js, one of the features that caught my eye was their templating system. It has a fairly elegant interface that provides a concise language for generating HTML, though it seems like a heavyweight solution, as it requires implementing a parser.</description>
+      <guid>/serenade-in-haskell/</guid>
+      <description>&lt;p&gt;One of the things that I think is great about Haskell is the way that you can
+use the language to design new syntax.  After reading
+&lt;a href=&#34;http://elabs.se/blog/33-why-serenade&#34;&gt;a quick introduction to Serenade.js&lt;/a&gt;, one of the features that caught
+my eye was their templating system.  It has a fairly elegant interface that
+provides a concise language for generating HTML, though it seems like a
+heavyweight solution, as it requires implementing a parser.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Vim Mapping Context</title>
-      <link>/posts/vim-mapping-context/</link>
-      <pubDate>Fri, 22 Feb 2013 00:00:00 -0800</pubDate>
+      <link>/vim-mapping-context/</link>
+      <pubDate>Fri, 22 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>/posts/vim-mapping-context/</guid>
-      <description>If you&amp;rsquo;re like me, you&amp;rsquo;ve got a lot of filetype-specific macros defined in your vim config. I tend to put these in $VIM/after/syntax so that I can keep it all self-contained, but up until recently, macros had been bleeding into different filetype contexts. The problem was that I had been installing all macros into the global scope, instead of the buffer scope, like this:
-nmap &amp;lt;LocalLeader&amp;gt;l ...Luckily, vim has a provision for this, and adding &amp;lt;buffer&amp;gt; right after the use of nmap fixes the problem, and keeps the mapping buffer-local:</description>
+      <guid>/vim-mapping-context/</guid>
+      <description>&lt;p&gt;If you&amp;rsquo;re like me, you&amp;rsquo;ve got a lot of filetype-specific macros defined in your
+vim config.  I tend to put these in &lt;code&gt;$VIM/after/syntax&lt;/code&gt; so that I can keep it
+all self-contained, but up until recently, macros had been bleeding into
+different filetype contexts.  The problem was that I had been installing all
+macros into the global scope, instead of the buffer scope, like this:&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Vim Register Trick</title>
-      <link>/posts/vim-register-trick/</link>
-      <pubDate>Tue, 19 Feb 2013 00:00:00 -0800</pubDate>
+      <link>/vim-register-trick/</link>
+      <pubDate>Tue, 19 Feb 2013 00:00:00 +0000</pubDate>
       
-      <guid>/posts/vim-register-trick/</guid>
-      <description>Well, it&amp;rsquo;s new to me.
-When you type C-r in edit mode, you get the opportunity to recall the contents of a register. While I had known about this, I never thought to apply it when doing search and replace. For example, if you search for something using *, then want to replace what you&amp;rsquo;ve found with something else, you can type:
-:%s/C-r//replacement/gThe contents of your last search will magically show up when you type the / character, and your days of trying to remember the pattern for the last thing you searched for are over!</description>
-    </item>
-    
-    <item>
-      <title>about</title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>My name is Trevor Elliott, I&amp;rsquo;m a engineer at stripe.
- github twitter google scholar  </description>
+      <guid>/vim-register-trick/</guid>
+      <description>&lt;p&gt;Well, it&amp;rsquo;s new to me.&lt;/p&gt;</description>
     </item>
     
   </channel>
