@@ -3,12 +3,12 @@
 <div class="pagination">
   <div class="newer">
     {{ if .HasPrev }}
-    <a href="{{ .Prev.URL }}">newer</a>
+    <a href="{{ .Prev.URL }}"><li data-feather="chevrons-left"></li>newer</a>
     {{ end }}
   </div>
   <div class="older">
     {{ if .HasNext }}
-    <a href="{{ .Next.URL }}">older</a>
+    <a href="{{ .Next.URL }}">older<li data-feather="chevrons-right"></li></a>
     {{ end }}
   </div>
 </div>

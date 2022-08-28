@@ -1,5 +1,5 @@
 ---
-title: cv
+title: trevor elliott
 url: /cv/
 _build:
   list: "never"

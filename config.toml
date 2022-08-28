@@ -19,8 +19,6 @@ lastmod = ["lastmod", ":git", "date", "publishDate"]
 publishDate = ["publishDate", "date"]
 expiryDate = ["expiryDate"]
 
-[language]
-
 [languages.en]
 languageName = "English"
 title = "trevor elliott"
@@ -28,8 +26,6 @@ title = "trevor elliott"
 [languages.en.params.logo]
 logoText = "stuff and things"
 logoHomeLink = "/"
-
-[languages.en.menu]
 
 [[languages.en.menu.main]]
 identifier = "blog"
