@@ -1,18 +1,17 @@
-+++
-title = "Vim Register Trick"
-date = 2013-02-19
+---
+title: Vim Register Trick
+date: 2013-02-19
+tags: [vim]
+---
 
-[taxonomies]
-tags = ["vim"]
-+++
 Well, it's new to me.
+
+<!--more-->
 
 When you type `C-r` in edit mode, you get the opportunity to recall the contents
 of a register.  While I had known about this, I never thought to apply it when
 doing search and replace.  For example, if you search for something using `*`,
 then want to replace what you've found with something else, you can type:
-
-<!-- more -->
 
 ```vim
 :%s/C-r//replacement/g

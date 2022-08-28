@@ -1,0 +1,99 @@
+
+/*
+ * Using this palette:
+ * https://lospec.com/palette-list/late-night-bath
+ */
+
+$color1: #282d3c;
+$color2: #5b5d70;
+$color3: #74838c;
+$color4: #ffc4b8;
+$color5: #f69197;
+
+$main: $color4;
+$main_bg: $color2;
+$link: $color1;
+
+$item: $color2;
+$item_bg: $color4;
+$item_border: $color5;
+
+body {
+  font-family: Arial, Helvetica;
+  background-color: $main_bg;
+  color: $main;
+}
+
+div#container {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+}
+
+a {
+  text-decoration: none;
+
+  &:link {
+    color: $link;
+  }
+
+  &:active {
+    color: $link;
+  }
+
+  &:visited {
+    color: $link;
+  }
+
+  &:hover {
+    color: $link;
+  }
+}
+
+div.header {
+  margin-bottom: 5px;
+}
+
+div.footer {
+  font-size: 0.6em;
+  text-align: center;
+}
+
+div.box {
+  color: $item;
+  background-color: $item_bg;
+  margin-bottom: 10px;
+  padding: 1px 10px 10px 10px;
+  box-shadow: 5px 5px $item_border;
+
+  div.metadata {
+    font-size: 0.75em;
+  }
+}
+
+code {
+  padding: 5px;
+
+  span {
+    margin-left: 5px;
+  }
+}
+
+div.pagination {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  .header {
+    padding-top: 5px;
+  }
+
+  .newer {
+    text-align: left;
+  }
+
+  .older {
+    text-align: right;
+  }
+}
+
+div.highlight {
+}

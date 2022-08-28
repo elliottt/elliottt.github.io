@@ -1,10 +1,8 @@
-+++
-title = "Serenade in Haskell"
-date = 2014-05-07
-
-[taxonomies]
-tags = ["haskell"]
-+++
+---
+title: Serenade in Haskell
+date: 2014-05-07
+tags: [haskell]
+---
 
 One of the things that I think is great about Haskell is the way that you can
 use the language to design new syntax.  After reading
@@ -13,7 +11,7 @@ my eye was their templating system.  It has a fairly elegant interface that
 provides a concise language for generating HTML, though it seems like a
 heavyweight solution, as it requires implementing a parser.
 
-<!-- more -->
+<!--more-->
 
 Upon closer inspection the examples provided seemed to be presenting a few key
 combinators for constructing html.  After a bit of scaffolding, I'll demonstrate
@@ -165,7 +163,7 @@ conveys the intent of the original serenade template.
 Serenade provides a way to, given a collection of key/value structures, map a
 serenade template over each structure.
 
-```
+```text
 ul#comments
   - collection @comments
       li @title

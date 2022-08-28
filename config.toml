@@ -1,17 +1,20 @@
 baseurl = "/"
 languageCode = "en-us"
-theme = "dusk"
+theme = "elliottt"
 paginate = 5
 enableGitInfo = true
 
 [author]
 name = "Trevor Elliott"
 
+[taxonomies]
+tag = "tags"
+
 [params]
 github = "elliottt"
 
 [frontmatter]
-date = ["date", "publishDate", "lastmod"]
+date = ["date", "publishDate"]
 lastmod = ["lastmod", ":git", "date", "publishDate"]
 publishDate = ["publishDate", "date"]
 expiryDate = ["expiryDate"]

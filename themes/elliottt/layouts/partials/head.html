@@ -1,0 +1,20 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+{{ hugo.Generator }}
+{{ $style := resources.Get "/scss/main.scss" | toCSS }}
+{{ if .Site.IsServer }}
+  <link rel="stylesheet" href="{{ ($style).RelPermalink }}" />
+{{ else }}
+  <link rel="stylesheet" href="{{ ($style | minify | fingerprint).RelPermalink }}" />
+{{ end }}
+{{ with .OutputFormats.Get "rss" }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .RelPermalink $.Site.Title | safeHTML }}
+{{ end }}
+
+  <script src="/js/feather.min.js"></script>
+
+{{ $title := print .Site.Title " | " .Title }}
+{{ if .IsHome  }}{{ $title = .Site.Title }}{{ end }}
+  <title>{{ $title }}</title>
+</head>

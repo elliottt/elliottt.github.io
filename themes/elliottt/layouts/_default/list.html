@@ -1,0 +1,21 @@
+{{ define "title" }}
+<div class="title">
+  <h1>
+  {{ if eq .Page.Kind "term" }}
+    <li data-feather="tag"></li>
+  {{ end }}
+  {{ .Title }}
+  </h1>
+</div>
+{{ end }}
+{{ define "main" }}
+{{ $paginator := .Paginator }}
+{{ range $paginator.Pages }}
+<div class="box">
+  <h3><a class="title" href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <p>{{ .Summary }}</p>
+  {{ partial "metadata.html" .Page }}
+</div>
+{{ end }}
+{{ partial "pagination.html" $paginator }}
+{{ end }}

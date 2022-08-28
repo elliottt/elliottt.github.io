@@ -1,0 +1,16 @@
+
+{{ if gt .TotalPages 1 }}
+<div class="pagination">
+  <div class="newer">
+    {{ if .HasPrev }}
+    <a href="{{ .Prev.URL }}">newer</a>
+    {{ end }}
+  </div>
+  <div class="older">
+    {{ if .HasNext }}
+    <a href="{{ .Next.URL }}">older</a>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+

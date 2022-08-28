@@ -1,7 +1,9 @@
-+++
-title = "cv"
-date = "2022-06-25"
-+++
+---
+title: cv
+url: /cv/
+_build:
+  list: "never"
+---
 
 A [PDF resume](resume.pdf) is also available.
 

@@ -1,7 +1,8 @@
 ---
 title: "Dactyl Tight Build"
 date: 2021-01-30T16:18:11-08:00
-draft: true
+publishDate: 2021-01-30T16:18:11-08:00
+tags: [keyboard, qmk]
 ---
 
 After reading about the
@@ -9,6 +10,8 @@ After reading about the
 plunge and build my own hand-wired keyboard. The total time to assemble it was
 not as substantial as I expected, but there were some long gaps during the work
 due to not having ordered some necessary parts.
+
+<!--more-->
 
 ## Parts
 

@@ -1,0 +1,9 @@
+<div class="header">
+  <nav id="nav">
+    {{ range .Site.Menus.main }}
+    <a href="{{ .URL }}">
+      {{ print .Name | safeHTML }}
+    </a>
+    {{ end }}
+  </nav>
+</div>

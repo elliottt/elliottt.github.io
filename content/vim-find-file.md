@@ -1,10 +1,8 @@
-+++
-title = "Vim's `findfile` function"
-date = 2016-08-27
-
-[taxonomies]
-tags = ["vim"]
-+++
+---
+title: Vim's `findfile` function
+publishDate: "2016-08-27"
+tags: [vim]
+---
 
 I've recently updated the tests for `stack.yaml` and `cabal.project` files in my
 [vim haskell plugin](https://github.com/elliottt/vim-haskell). The
@@ -15,7 +13,7 @@ directory. This change makes a bit more sense given the way that both `stack`
 and `cabal new-build` work, allowing the commands to be invoked from anywhere
 underneath the directory that contains `stack.yaml` or `cabal.project`.
 
-<!-- more -->
+<!--more-->
 
 The `findfile` function is quite handy for this situation, as it's able to
 search up as well as down the directory tree. Simply specifying the directory to

@@ -1,8 +1,12 @@
-+++
-title = "about"
-+++
+---
+title: about
+url: /about/
 
-My name is Trevor Elliott, I'm a engineer at [stripe](https://stripe.com).
+_build:
+  list: "never"
+---
+
+My name is Trevor Elliott, I'm a programmer.
 
 * [github](https://github.com/elliottt)
 * [twitter](https://twitter.com/moltarx)

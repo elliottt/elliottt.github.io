@@ -1,4 +1,6 @@
 public/
+resources/
 _deploy/
 
 static/cv/resume.pdf
+.hugo_build.lock

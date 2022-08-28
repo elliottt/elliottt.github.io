@@ -1,11 +1,8 @@
-+++
-title = "Debug Console on Xen"
-date = 2015-03-04
-
-[taxonomies]
-tags = ["xen","halvm"]
-
-+++
+---
+title: Debug Console on Xen
+date: 2015-03-04
+tags: [xen,halvm]
+---
 
 When debugging [HaLVM](http://halvm.org) domains, the `writeDebugConsole`
 function from `Hypervisor.Debug` is invaluable.  However, in order to see the
@@ -14,7 +11,7 @@ messages printed, you must enable the emergency console in
 documented: there are many sources that describe parts of the process, but none
 that describe the whole thing.
 
-<!-- more -->
+<!--more-->
 
 Rebuilding Xen
 --------------

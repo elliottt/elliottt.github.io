@@ -1,0 +1,60 @@
+
+/*
+ * Using this palette:
+ * https://lospec.com/palette-list/rabbit5pm
+ *
+ * #ffe1cd
+ * #e4a39f
+ * #629098
+ * #4c3457
+ */
+
+body {
+  font-family: Arial, Helvetica;
+  background-color: #629098;
+  color: #ffe1cd;
+}
+
+div#container {
+  display: grid;
+  grid-template-columns: 1fr 8fr 1fr;
+}
+
+a {
+  text-decoration: none;
+}
+
+a: visited {
+  color: inherit;
+}
+
+div.footer {
+  font-size: 0.6em;
+  text-align: center;
+}
+
+div.list-item {
+  color: #423457;
+  background-color: #ffe1cd;
+  border-radius: 5px;
+  border: 2px solid #e4a39f;
+  margin-bottom: 10px;
+  padding: 1px 10px 1px 10px;
+}
+
+div.pagination {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+div.pagination .header {
+  padding-top: 5px;
+}
+
+div.pagination .newer {
+  text-align: left;
+}
+
+div.pagination .older {
+  text-align: right;
+}
