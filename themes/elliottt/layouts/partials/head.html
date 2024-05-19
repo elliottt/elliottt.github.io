@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {{ hugo.Generator }}
 {{- $style := resources.Get "/scss/main.scss" | toCSS -}}
-{{- if .Site.IsServer }}
+{{- if hugo.IsServer }}
   <link rel="stylesheet" href="{{ ($style).RelPermalink }}" />
 {{ else }}
   <link rel="stylesheet" href="{{ ($style | minify | fingerprint).RelPermalink }}" />
