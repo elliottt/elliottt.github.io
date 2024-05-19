@@ -13,7 +13,15 @@ program analysis, cyber-security, and language design.
 # Work Experience
 
 ## Fastly - May 2022 - Present
-**Principal Engineer** - Working on the Compute@Edge team.
+**Principal Engineer** - Working on the wasm team, contributing to a variety of
+projects centered around the running of WebAssembly
+* Contributor to wasamtime and the cranelift code generator
+* Contributor to the js-compute-sdk, as well as the viceroy local testing
+  environment
+* Helped with the implementation and specification of wasi-preview2, and
+  wasi-http
+* Participated in the RFC process for wasmtime to help set the direction for
+  debugging
 
 ## Stripe - April 2019 - May 2022
 **Infrastructure Engineer** - Worked on the [sorbet] typechecker and compiler
