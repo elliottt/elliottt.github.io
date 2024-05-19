@@ -2,7 +2,7 @@
 <html><head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.126.1">
   <link rel="stylesheet" href="/scss/main.min.8d1c5e6ac66e5e501cc99b30911b7c065f5ef83e8180c6cdb86cca8b99f0bb92.css" />
 <script src="/js/feather.min.js"></script>
 
@@ -38,11 +38,11 @@ vim config.  I tend to put these in <code>$VIM/after/syntax</code> so that I can
 all self-contained, but up until recently, macros had been bleeding into
 different filetype contexts.  The problem was that I had been installing all
 macros into the global scope, instead of the buffer scope, like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#a6e22e">nmap</span> &lt;<span style="color:#a6e22e">LocalLeader</span>&gt;<span style="color:#a6e22e">l</span> ...<span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div><p>Luckily, vim has a provision for this, and adding <code>&lt;buffer&gt;</code> right after the use
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#a6e22e">nmap</span> &lt;<span style="color:#a6e22e">LocalLeader</span>&gt;<span style="color:#a6e22e">l</span> ...
+</span></span></code></pre></div><p>Luckily, vim has a provision for this, and adding <code>&lt;buffer&gt;</code> right after the use
 of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#a6e22e">nmap</span> &lt;<span style="color:#a6e22e">buffer</span>&gt; &lt;<span style="color:#a6e22e">LocalLeader</span>&gt;<span style="color:#a6e22e">l</span> ...<span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div> </div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-vim" data-lang="vim"><span style="display:flex;"><span><span style="color:#a6e22e">nmap</span> &lt;<span style="color:#a6e22e">buffer</span>&gt; &lt;<span style="color:#a6e22e">LocalLeader</span>&gt;<span style="color:#a6e22e">l</span> ...
+</span></span></code></pre></div> </div>
   <div class="metadata">
 
 
@@ -60,7 +60,7 @@ of <code>nmap</code> fixes the problem, and keeps the mapping buffer-local:</p>
 
 </div>
 <div class="footer">
-  Copyright © 2022 Trevor Elliott
+  Copyright © 2024 Trevor Elliott
 </div>
 <script>feather.replace({ width: "1em", height: "0.75em" });</script>
 </div>

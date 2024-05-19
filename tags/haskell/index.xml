@@ -1,25 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>haskell on trevor elliott</title>
+    <title>Haskell on trevor elliott</title>
     <link>/tags/haskell/</link>
-    <description>Recent content in haskell on trevor elliott</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Wed, 07 May 2014 00:00:00 +0000</lastBuildDate><atom:link href="/tags/haskell/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Haskell on trevor elliott</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 27 Aug 2022 23:53:21 -0700</lastBuildDate>
+    <atom:link href="/tags/haskell/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Serenade in Haskell</title>
       <link>/serenade-in-haskell/</link>
       <pubDate>Wed, 07 May 2014 00:00:00 +0000</pubDate>
-      
       <guid>/serenade-in-haskell/</guid>
-      <description>&lt;p&gt;One of the things that I think is great about Haskell is the way that you can
-use the language to design new syntax.  After reading
-&lt;a href=&#34;http://elabs.se/blog/33-why-serenade&#34;&gt;a quick introduction to Serenade.js&lt;/a&gt;, one of the features that caught
-my eye was their templating system.  It has a fairly elegant interface that
-provides a concise language for generating HTML, though it seems like a
-heavyweight solution, as it requires implementing a parser.&lt;/p&gt;</description>
+      <description>&lt;p&gt;One of the things that I think is great about Haskell is the way that you can&#xA;use the language to design new syntax.  After reading&#xA;&lt;a href=&#34;http://elabs.se/blog/33-why-serenade&#34;&gt;a quick introduction to Serenade.js&lt;/a&gt;, one of the features that caught&#xA;my eye was their templating system.  It has a fairly elegant interface that&#xA;provides a concise language for generating HTML, though it seems like a&#xA;heavyweight solution, as it requires implementing a parser.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

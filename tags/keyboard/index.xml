@@ -1,24 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>keyboard on trevor elliott</title>
+    <title>Keyboard on trevor elliott</title>
     <link>/tags/keyboard/</link>
-    <description>Recent content in keyboard on trevor elliott</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 30 Jan 2021 16:18:11 -0800</lastBuildDate><atom:link href="/tags/keyboard/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Keyboard on trevor elliott</description>
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 27 Aug 2022 23:53:21 -0700</lastBuildDate>
+    <atom:link href="/tags/keyboard/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dactyl Tight Build</title>
       <link>/dactyl-tight-build/</link>
       <pubDate>Sat, 30 Jan 2021 16:18:11 -0800</pubDate>
-      
       <guid>/dactyl-tight-build/</guid>
-      <description>&lt;p&gt;After reading about the
-&lt;a href=&#34;https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/&#34;&gt;tightyl&lt;/a&gt; on r/ergomechkeyboards, I decided to take the
-plunge and build my own hand-wired keyboard. The total time to assemble it was
-not as substantial as I expected, but there were some long gaps during the work
-due to not having ordered some necessary parts.&lt;/p&gt;</description>
+      <description>&lt;p&gt;After reading about the&#xA;&lt;a href=&#34;https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/&#34;&gt;tightyl&lt;/a&gt; on r/ergomechkeyboards, I decided to take the&#xA;plunge and build my own hand-wired keyboard. The total time to assemble it was&#xA;not as substantial as I expected, but there were some long gaps during the work&#xA;due to not having ordered some necessary parts.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

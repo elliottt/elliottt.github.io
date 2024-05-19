@@ -4,101 +4,58 @@
     <title>trevor elliott</title>
     <link>/</link>
     <description>Recent content on trevor elliott</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 30 Jan 2021 16:18:11 -0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 27 Aug 2022 23:53:21 -0700</lastBuildDate>
+    <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Dactyl Tight Build</title>
       <link>/dactyl-tight-build/</link>
       <pubDate>Sat, 30 Jan 2021 16:18:11 -0800</pubDate>
-      
       <guid>/dactyl-tight-build/</guid>
-      <description>&lt;p&gt;After reading about the
-&lt;a href=&#34;https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/&#34;&gt;tightyl&lt;/a&gt; on r/ergomechkeyboards, I decided to take the
-plunge and build my own hand-wired keyboard. The total time to assemble it was
-not as substantial as I expected, but there were some long gaps during the work
-due to not having ordered some necessary parts.&lt;/p&gt;</description>
+      <description>&lt;p&gt;After reading about the&#xA;&lt;a href=&#34;https://www.reddit.com/r/ErgoMechKeyboards/comments/glfsqh/i_present_the_tightyl_a_tight_tiny_dactyl_manuform/&#34;&gt;tightyl&lt;/a&gt; on r/ergomechkeyboards, I decided to take the&#xA;plunge and build my own hand-wired keyboard. The total time to assemble it was&#xA;not as substantial as I expected, but there were some long gaps during the work&#xA;due to not having ordered some necessary parts.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Vim&#39;s `findfile` function</title>
       <link>/vim-find-file/</link>
       <pubDate>Sat, 27 Aug 2016 00:00:00 +0000</pubDate>
-      
       <guid>/vim-find-file/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve recently updated the tests for &lt;code&gt;stack.yaml&lt;/code&gt; and &lt;code&gt;cabal.project&lt;/code&gt; files in my
-&lt;a href=&#34;https://github.com/elliottt/vim-haskell&#34;&gt;vim haskell plugin&lt;/a&gt;. The
-&lt;code&gt;haskell#StackYamlFileExists&lt;/code&gt; and &lt;code&gt;haskell#CabalProjectFileExists&lt;/code&gt; functions now
-take advantage of vim&amp;rsquo;s &lt;code&gt;findfile&lt;/code&gt; function for searching up the directory tree,
-rather than just require that either file exist in the current working
-directory. This change makes a bit more sense given the way that both &lt;code&gt;stack&lt;/code&gt;
-and &lt;code&gt;cabal new-build&lt;/code&gt; work, allowing the commands to be invoked from anywhere
-underneath the directory that contains &lt;code&gt;stack.yaml&lt;/code&gt; or &lt;code&gt;cabal.project&lt;/code&gt;.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve recently updated the tests for &lt;code&gt;stack.yaml&lt;/code&gt; and &lt;code&gt;cabal.project&lt;/code&gt; files in my&#xA;&lt;a href=&#34;https://github.com/elliottt/vim-haskell&#34;&gt;vim haskell plugin&lt;/a&gt;. The&#xA;&lt;code&gt;haskell#StackYamlFileExists&lt;/code&gt; and &lt;code&gt;haskell#CabalProjectFileExists&lt;/code&gt; functions now&#xA;take advantage of vim&amp;rsquo;s &lt;code&gt;findfile&lt;/code&gt; function for searching up the directory tree,&#xA;rather than just require that either file exist in the current working&#xA;directory. This change makes a bit more sense given the way that both &lt;code&gt;stack&lt;/code&gt;&#xA;and &lt;code&gt;cabal new-build&lt;/code&gt; work, allowing the commands to be invoked from anywhere&#xA;underneath the directory that contains &lt;code&gt;stack.yaml&lt;/code&gt; or &lt;code&gt;cabal.project&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Debug Console on Xen</title>
       <link>/debug-console-on-xen/</link>
       <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
-      
       <guid>/debug-console-on-xen/</guid>
-      <description>&lt;p&gt;When debugging &lt;a href=&#34;http://halvm.org&#34;&gt;HaLVM&lt;/a&gt; domains, the &lt;code&gt;writeDebugConsole&lt;/code&gt;
-function from &lt;code&gt;Hypervisor.Debug&lt;/code&gt; is invaluable.  However, in order to see the
-messages printed, you must enable the emergency console in
-&lt;a href=&#34;http://xen.org&#34;&gt;Xen&lt;/a&gt;.  This isn&amp;rsquo;t too difficult, but it&amp;rsquo;s not terribly well
-documented: there are many sources that describe parts of the process, but none
-that describe the whole thing.&lt;/p&gt;</description>
+      <description>&lt;p&gt;When debugging &lt;a href=&#34;http://halvm.org&#34;&gt;HaLVM&lt;/a&gt; domains, the &lt;code&gt;writeDebugConsole&lt;/code&gt;&#xA;function from &lt;code&gt;Hypervisor.Debug&lt;/code&gt; is invaluable.  However, in order to see the&#xA;messages printed, you must enable the emergency console in&#xA;&lt;a href=&#34;http://xen.org&#34;&gt;Xen&lt;/a&gt;.  This isn&amp;rsquo;t too difficult, but it&amp;rsquo;s not terribly well&#xA;documented: there are many sources that describe parts of the process, but none&#xA;that describe the whole thing.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Private DHCP</title>
       <link>/private-dhcp/</link>
       <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
-      
       <guid>/private-dhcp/</guid>
-      <description>&lt;p&gt;Recently I was working on a project in which I was creating loads of tap
-devices, with &lt;a href=&#34;https://github.com/galoisinc/hans&#34;&gt;HaNS&lt;/a&gt; instances connected to
-them.  Initially, I was abusing the Galois network, stealing away precious
-addresses from our internal /24 allocation.  This wasn&amp;rsquo;t the end of the world,
-as I was reusing addresses I was given, but it got me thinking: shouldn&amp;rsquo;t I
-be able to just allocate my own addresses?&lt;/p&gt;</description>
+      <description>&lt;p&gt;Recently I was working on a project in which I was creating loads of tap&#xA;devices, with &lt;a href=&#34;https://github.com/galoisinc/hans&#34;&gt;HaNS&lt;/a&gt; instances connected to&#xA;them.  Initially, I was abusing the Galois network, stealing away precious&#xA;addresses from our internal /24 allocation.  This wasn&amp;rsquo;t the end of the world,&#xA;as I was reusing addresses I was given, but it got me thinking: shouldn&amp;rsquo;t I&#xA;be able to just allocate my own addresses?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Serenade in Haskell</title>
       <link>/serenade-in-haskell/</link>
       <pubDate>Wed, 07 May 2014 00:00:00 +0000</pubDate>
-      
       <guid>/serenade-in-haskell/</guid>
-      <description>&lt;p&gt;One of the things that I think is great about Haskell is the way that you can
-use the language to design new syntax.  After reading
-&lt;a href=&#34;http://elabs.se/blog/33-why-serenade&#34;&gt;a quick introduction to Serenade.js&lt;/a&gt;, one of the features that caught
-my eye was their templating system.  It has a fairly elegant interface that
-provides a concise language for generating HTML, though it seems like a
-heavyweight solution, as it requires implementing a parser.&lt;/p&gt;</description>
+      <description>&lt;p&gt;One of the things that I think is great about Haskell is the way that you can&#xA;use the language to design new syntax.  After reading&#xA;&lt;a href=&#34;http://elabs.se/blog/33-why-serenade&#34;&gt;a quick introduction to Serenade.js&lt;/a&gt;, one of the features that caught&#xA;my eye was their templating system.  It has a fairly elegant interface that&#xA;provides a concise language for generating HTML, though it seems like a&#xA;heavyweight solution, as it requires implementing a parser.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Vim Mapping Context</title>
       <link>/vim-mapping-context/</link>
       <pubDate>Fri, 22 Feb 2013 00:00:00 +0000</pubDate>
-      
       <guid>/vim-mapping-context/</guid>
-      <description>&lt;p&gt;If you&amp;rsquo;re like me, you&amp;rsquo;ve got a lot of filetype-specific macros defined in your
-vim config.  I tend to put these in &lt;code&gt;$VIM/after/syntax&lt;/code&gt; so that I can keep it
-all self-contained, but up until recently, macros had been bleeding into
-different filetype contexts.  The problem was that I had been installing all
-macros into the global scope, instead of the buffer scope, like this:&lt;/p&gt;</description>
+      <description>&lt;p&gt;If you&amp;rsquo;re like me, you&amp;rsquo;ve got a lot of filetype-specific macros defined in your&#xA;vim config.  I tend to put these in &lt;code&gt;$VIM/after/syntax&lt;/code&gt; so that I can keep it&#xA;all self-contained, but up until recently, macros had been bleeding into&#xA;different filetype contexts.  The problem was that I had been installing all&#xA;macros into the global scope, instead of the buffer scope, like this:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Vim Register Trick</title>
       <link>/vim-register-trick/</link>
       <pubDate>Tue, 19 Feb 2013 00:00:00 +0000</pubDate>
-      
       <guid>/vim-register-trick/</guid>
       <description>&lt;p&gt;Well, it&amp;rsquo;s new to me.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

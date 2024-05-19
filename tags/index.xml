@@ -4,89 +4,72 @@
     <title>Tags on trevor elliott</title>
     <link>/tags/</link>
     <description>Recent content in Tags on trevor elliott</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 30 Jan 2021 16:18:11 -0800</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo</generator>
+    <language>en</language>
+    <lastBuildDate>Sat, 27 Aug 2022 23:53:21 -0700</lastBuildDate>
+    <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>keyboard</title>
+      <title>Keyboard</title>
       <link>/tags/keyboard/</link>
-      <pubDate>Sat, 30 Jan 2021 16:18:11 -0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/tags/keyboard/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>qmk</title>
+      <title>Qmk</title>
       <link>/tags/qmk/</link>
-      <pubDate>Sat, 30 Jan 2021 16:18:11 -0800</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/tags/qmk/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>vim</title>
+      <title>Vim</title>
       <link>/tags/vim/</link>
-      <pubDate>Sat, 27 Aug 2016 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/tags/vim/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>halvm</title>
+      <title>Halvm</title>
       <link>/tags/halvm/</link>
-      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/tags/halvm/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>xen</title>
+      <title>Xen</title>
       <link>/tags/xen/</link>
-      <pubDate>Wed, 04 Mar 2015 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/tags/xen/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>dhcp</title>
+      <title>Dhcp</title>
       <link>/tags/dhcp/</link>
-      <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/tags/dhcp/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>hans</title>
+      <title>Hans</title>
       <link>/tags/hans/</link>
-      <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/tags/hans/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>networking</title>
+      <title>Networking</title>
       <link>/tags/networking/</link>
-      <pubDate>Sat, 17 May 2014 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/tags/networking/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>haskell</title>
+      <title>Haskell</title>
       <link>/tags/haskell/</link>
-      <pubDate>Wed, 07 May 2014 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/tags/haskell/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>
