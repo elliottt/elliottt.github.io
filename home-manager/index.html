@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Hugo 0.126.1">
+  <link rel="stylesheet" href="/scss/main.min.8d1c5e6ac66e5e501cc99b30911b7c065f5ef83e8180c6cdb86cca8b99f0bb92.css" />
+<script src="/js/feather.min.js"></script>
+
+
+  <title>trevor elliott | Home Manager</title>
+</head>
+<body>
+    <div id="container">
+      <div></div>
+      <div id="content">
+<h1 class="title">Home Manager</h1>
+<div class="header">
+  <nav id="nav">
+    
+    <a href="/">
+      blog
+    </a>
+    
+    <a href="/about">
+      about
+    </a>
+    
+    <a href="/cv">
+      cv
+    </a>
+    
+  </nav>
+</div>
+
+<div class="box">
+  <div class="content"> <p>I recently switched to managing my dotfiles with home-manager and nix, and have
+slowly gone from trying to use it minimally to having it control a substantial
+portion of my neovim configuration.</p>
+<h2 id="dotfiles">Dotfiles</h2>
+<p>My <a href="https://github.com/elliottt/dotfiles">dotfiles</a> repository has long been a disorganized collection of scripts and
+config files that get symlinked in by whichever tool I happen to be using at the
+time. For a while it used <a href="https://github.com/thoughtbot/rcm">rcm</a>, but that required additional tools to be
+installed before my dotfiles could be synced, and the capabilities of <code>rcup</code>
+were a little lacking.</p>
+<p>I switched to using <a href="https://github.com/anishathalye/dotbot">dotbot</a> after seeking out a slightly more structured tool,
+which gave significantly more flexibility for modularizing my config. I used
+<a href="https://github.com/anishathalye/dotbot">dotbot</a> as a git submodule, which meant that the tools I needed in order to
+bootstrap a host were only git and python3. Still, this setup still meant that I
+was using other tools to manage things like neovim plugins, and had implemented
+yet another collection of shell scripts for managing individual host
+configurations.</p>
+<p>The <a href="https://github.com/anishathalye/dotbot">dotbot</a> config worked for a while, though after switching jobs and learning
+that one of my coworkers was using nix to manage their home configuration, I
+asked them to show me how all that worked. I was initially pretty skeptical, as
+<a href="https://github.com/nix-community/home-manager">home-manager</a> seemed like it wanted to manage things at a finer granularity
+than I was comfortable with. For example, at the time I was using <a href="https://ohmyz.sh">oh-my-zsh</a> to
+manage my zsh config. Switching to home-manager allowed for this, but changed
+where the authoritative version of my <code>~/.zshrc</code> was.</p>
+<p>I worked around this a bit by making as little use of <a href="https://github.com/nix-community/home-manager">home-manager</a>&rsquo;s builtin
+configuration for programs that I relied on, but it soon became obvious that I
+was missing out. For example, using <code>eza</code> and having <a href="https://github.com/nix-community/home-manager">home-manager</a> install all
+the aliases necessary to use it transparently as <code>ls</code> is really convenient, and
+you don&rsquo;t get that if you&rsquo;re still trying to keep your shell config out of
+<code>home.nix</code>.</p>
+<h2 id="neovim">Neovim</h2>
+<p>This same sort of problem came into focus more recently, when I went to change
+from using the now unmaintained <a href="https://github.com/wbthomason/packer.nvim">packer.nvim</a> for <a href="https://github.com/folke/lazy.nvim">lazy.nvim</a>. As the locations
+for all the plugins I had installed had changed, many needed to be rebuilt. One
+that I wrote for managing markdown files (<a href="https://github.com/elliottt/two-trucs">two-trucs</a>) needs to build a rust
+binary that&rsquo;s used for filtering buffers. In the past this was fine as I would
+use <a href="https://rustup.rs">rustup</a> to manage my rust toolchain, and it would always be available in my
+current environment. With home-manager though, I had started relying on
+per-project development environment configurations, and as an effect had been
+keeping the rust toolchain out of my default environment.</p>
+<p>As I was now unable to build a plugin that I relied on for managing notes
+throughout the workday, I decided to take the plunge and switch my neovim plugin
+configuration over to being specified in my home-manager configuration. This
+would mean that I could depend on <a href="https://github.com/elliottt/two-trucs">two-trucs</a> as a flake input to my dotfiles'
+flake.nix, and build the rust binary in my neovim config. Concretely, the change
+to my <code>flake.nix</code> looked like the following:</p>
+<p>I added the <a href="https://github.com/elliottt/two-trucs">two-trucs</a> repository to the <code>inputs</code> section of <code>flake.nix</code>, and
+added the <code>extraSpecialArgs</code> option to my home-manager config function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  description <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;elliottt&#39;s home-manager configuration&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  inputs <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>    two-trucs <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;github:elliottt/two-trucs&#34;</span>;
+</span></span><span style="display:flex;"><span>      flake <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  outputs <span style="color:#f92672">=</span> { self<span style="color:#f92672">,</span> nixpkgs<span style="color:#f92672">,</span> home-manager<span style="color:#f92672">,</span> two-trucs<span style="color:#f92672">,</span> <span style="color:#f92672">...</span> }: {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      mkHostConfig <span style="color:#f92672">=</span> cfg:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">let</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          pkgs <span style="color:#f92672">=</span> <span style="color:#f92672">import</span> nixpkgs {
+</span></span><span style="display:flex;"><span>            system <span style="color:#f92672">=</span> cfg<span style="color:#f92672">.</span>system or <span style="color:#e6db74">&#34;x86_64-linux&#34;</span>;
+</span></span><span style="display:flex;"><span>            overlays <span style="color:#f92672">=</span> [ nixgl<span style="color:#f92672">.</span>overlay ];
+</span></span><span style="display:flex;"><span>          };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">in</span> home-manager<span style="color:#f92672">.</span>lib<span style="color:#f92672">.</span>homeManagerConfiguration {
+</span></span><span style="display:flex;"><span>          <span style="color:#66d9ef">inherit</span> pkgs;
+</span></span><span style="display:flex;"><span>          extraSpecialArgs <span style="color:#f92672">=</span> { <span style="color:#66d9ef">inherit</span> two-trucs; };
+</span></span><span style="display:flex;"><span>          modules <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>            cfg<span style="color:#f92672">.</span>home
+</span></span><span style="display:flex;"><span>            <span style="color:#e6db74">./home.nix</span>
+</span></span><span style="display:flex;"><span>          ];
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">in</span> {
+</span></span><span style="display:flex;"><span>      homeConfigurations <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;trevor@badtz-maru&#34;</span> <span style="color:#f92672">=</span> mkConfig {
+</span></span><span style="display:flex;"><span>          home <span style="color:#f92672">=</span> <span style="color:#e6db74">./hosts/badtz-maru.nix</span>;
+</span></span><span style="display:flex;"><span>        };
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>      };
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After this change, I was able to start relying on the <code>two-trucs</code> argument being
+present in my neovim home-manager module. I modified it to build the binary, and
+produce a vim plugin that could be used as input to <code>programs.neovim.plugins</code>
+option in my home-manager config:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-nix" data-lang="nix"><span style="display:flex;"><span>{ pkgs<span style="color:#f92672">,</span> two-trucs<span style="color:#f92672">,</span> <span style="color:#f92672">...</span> }:
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">let</span>
+</span></span><span style="display:flex;"><span>  two-trucs-bin <span style="color:#f92672">=</span> pkgs<span style="color:#f92672">.</span>rustPlatform<span style="color:#f92672">.</span>buildRustPackage <span style="color:#66d9ef">rec</span> {
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;two-trucs&#34;</span>;
+</span></span><span style="display:flex;"><span>    version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.1.0&#34;</span>;
+</span></span><span style="display:flex;"><span>    src <span style="color:#f92672">=</span> two-trucs;
+</span></span><span style="display:flex;"><span>    doCheck <span style="color:#f92672">=</span> <span style="color:#66d9ef">false</span>;
+</span></span><span style="display:flex;"><span>    cargoLock <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>      lockFile <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>src<span style="color:#e6db74">}</span><span style="color:#e6db74">/Cargo.lock&#34;</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  two-trucs-nvim-pkg <span style="color:#f92672">=</span> pkgs<span style="color:#f92672">.</span>vimUtils<span style="color:#f92672">.</span>buildVimPlugin {
+</span></span><span style="display:flex;"><span>    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;two-trucs&#34;</span>;
+</span></span><span style="display:flex;"><span>    version <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;0.1.0&#34;</span>;
+</span></span><span style="display:flex;"><span>    src <span style="color:#f92672">=</span> two-trucs;
+</span></span><span style="display:flex;"><span>    buildInputs <span style="color:#f92672">=</span> [ two-trucs-bin ];
+</span></span><span style="display:flex;"><span>    buildPhase <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      mkdir -p &#34;$out/bin&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      ln -s &#34;</span><span style="color:#e6db74">${</span>two-trucs-bin<span style="color:#e6db74">}</span><span style="color:#e6db74">/bin/two-trucs&#34; &#34;$out/bin/two-trucs&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#39;&#39;</span>;
+</span></span><span style="display:flex;"><span>  };
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">in</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>  programs<span style="color:#f92672">.</span>neovim<span style="color:#f92672">.</span>plugins <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    two-trucs-nvim-pkg
+</span></span><span style="display:flex;"><span>  ];
+</span></span><span style="display:flex;"><span><span style="color:#f92672">...</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Initially I tried to continue using <a href="https://github.com/folke/lazy.nvim">lazy.nvim</a> for all other plugins, only
+relying on nix for the built version of <a href="https://github.com/elliottt/two-trucs">two-trucs</a>. However, I quickly ran into
+problems, as <a href="https://github.com/folke/lazy.nvim">lazy.nvim</a> will take over the <code>rtp</code> variable in neovim, and broke
+the search path that included my nix-managed version of <a href="https://github.com/elliottt/two-trucs">two-trucs</a>. I
+begrudgingly gave up on using <a href="https://github.com/folke/lazy.nvim">lazy.nvim</a> for pluging management, and it turned
+out to be a great change: I could now depend on packaged versions of plugins
+that had previously caused me some trouble during updates (<code>treesitter</code>,
+<code>telescope-fzf-native</code>, etc).</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>More of my dotfiles config has been creeping into nix after my switch to using
+home-manager. While I was initially pretty hesitant to move more config into
+home-manager, it seems to be paying off by simplifying my default environment,
+and making updates easier. While nix and home-manager have been working really
+well for me recently, I&rsquo;m not sure that I could recommend that anyone else
+follow this same path, as much of the tooling is under-documented, and current
+best-practices are really hard to discover.</p> </div>
+  <div class="metadata">
+
+
+<i data-feather="calendar"></i>
+<time datetime="2024-05-19">2024-05-19</time>
+
+
+<i data-feather="tag"></i>
+
+
+<a href="/tags/nix">nix</a>
+
+
+</div>
+
+</div>
+<div class="footer">
+  Copyright © 2024 Trevor Elliott
+</div>
+<script>feather.replace({ width: "1em", height: "0.75em" });</script>
+</div>
+      <div></div>
+    </div>
+  </body>
+</html>

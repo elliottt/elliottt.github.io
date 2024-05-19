@@ -6,8 +6,15 @@
     <description>Recent content in Tags on trevor elliott</description>
     <generator>Hugo</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 27 Aug 2022 23:53:21 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 19 May 2024 16:45:22 -0700</lastBuildDate>
     <atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nix</title>
+      <link>/tags/nix/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/tags/nix/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Keyboard</title>
       <link>/tags/keyboard/</link>

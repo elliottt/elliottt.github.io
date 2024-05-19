@@ -2,6 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/home-manager/</loc>
+    <lastmod>2024-05-19T16:45:22-07:00</lastmod>
+  </url><url>
+    <loc>/tags/nix/</loc>
+    <lastmod>2024-05-19T16:45:22-07:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2024-05-19T16:45:22-07:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2024-05-19T16:45:22-07:00</lastmod>
+  </url><url>
     <loc>/dactyl-tight-build/</loc>
     <lastmod>2022-08-27T23:53:21-07:00</lastmod>
   </url><url>
@@ -10,12 +22,6 @@
   </url><url>
     <loc>/tags/qmk/</loc>
     <lastmod>2022-08-27T23:53:21-07:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2022-08-27T23:53:21-07:00</lastmod>
-  </url><url>
-    <loc>/</loc>
-    <lastmod>2024-05-19T14:55:42-07:00</lastmod>
   </url><url>
     <loc>/tags/vim/</loc>
     <lastmod>2022-08-27T23:53:21-07:00</lastmod>
