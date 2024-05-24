@@ -182,7 +182,7 @@ library. [acm][orc-acm]
 [hans]: https://github.com/galoisinc/hans "HaNS"
 [halvm]: https://github.com/galoisinc/halvm "HaLVM"
 [cereal]: https://github.com/galoisinc/cereal "cereal"
-[llvm-pretty]: https://github.com/elliottt/llvm-pretty "llvm-pretty"
+[llvm-pretty]: https://github.com/galoisinc/llvm-pretty "llvm-pretty"
 [llvm-pretty-bc-parser]: https://github.com/galoisinc/llvm-pretty-bc-parser
 [huff]: https://github.com/elliottt/huff "huff"
 [pretty]: https://github.com/haskell/pretty "pretty"
