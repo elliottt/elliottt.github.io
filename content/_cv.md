@@ -12,7 +12,10 @@ program analysis, cyber-security, and language design.
 
 # Work Experience
 
-## Fastly - May 2022 - Present
+## Stripe - October 2024 - Present
+**Infrastructure Engineer** - Working on the [sorbet] typechecker for ruby.
+
+## Fastly - May 2022 - October 2024
 **Principal Engineer** - Working on the wasm team, contributing to a variety of
 projects centered around the running of WebAssembly
 * Contributor to wasamtime and the cranelift code generator
