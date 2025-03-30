@@ -27,6 +27,7 @@
               pkgs.git
               pkgs.gnumake
               pkgs.rclone
+              pkgs.cadaver
 
               texlive
             ];
