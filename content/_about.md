@@ -8,9 +8,7 @@ _build:
 
 My name is Trevor Elliott, I'm a programmer. You can find the software that I
 write on [{{< feather "github" >}}github](https://github.com/elliottt). You
-might be interested in following me on [{{< feather "twitter"
->}}twitter](https://twitter.com/moltarx), though I don't post much. You might
-also be interested in looking through my publications at [google
+might also be interested in looking through my publications at [google
 scholar](https://scholar.google.com/citations?user=s2Br_TMAAAAJ&hl=en).
 
 The theme for this website is based on the color palette ["late night
