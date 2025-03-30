@@ -1,16 +1,16 @@
 baseurl = "/"
 languageCode = "en-us"
 theme = "elliottt"
-paginate = 5
 enableGitInfo = true
 
-[author]
-name = "Trevor Elliott"
+[pagination]
+pagerSize = 5
 
 [taxonomies]
 tag = "tags"
 
 [params]
+author = "Trevor Elliott"
 github = "elliottt"
 
 [frontmatter]

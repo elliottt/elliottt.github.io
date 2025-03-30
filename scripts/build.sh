@@ -11,4 +11,4 @@ cp resume/resume.pdf static/cv
 rm -rf public
 
 # build the site
-hugo -D --quiet
+hugo -D
