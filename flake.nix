@@ -26,6 +26,7 @@
               pkgs.hugo
               pkgs.git
               pkgs.gnumake
+              pkgs.rclone
 
               texlive
             ];
